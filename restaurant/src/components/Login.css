@@ -1,0 +1,147 @@
+.login-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .signinpanel{
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-section {
+    width: 65%;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .form-section {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    /* align-items: center; */
+    padding: 20px;
+    background: white;
+  }
+
+  .form-logo {
+    width: 100%; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+    color: gray;
+  }
+  
+ 
+  
+  
+  /* button:hover {
+    background: #0056b3;
+  }
+   */
+   .password-group {
+    position: relative;
+  }
+  
+  .password-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .password-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: calc(100% - 40px); /* Account for the space the button takes */
+  }
+  
+  .eye-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .eye-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  
+
+
+
+  .top-box {
+    width: 75%; /* 3/4 of the container */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    justify-content: flex-start; /* Align to the left */
+    padding: 20px;
+    position: relative;
+    margin: 0 auto; /* Center the box horizontally */
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 2em; /* You can adjust the font size as needed */
+  }

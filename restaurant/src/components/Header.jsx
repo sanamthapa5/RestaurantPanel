@@ -79,28 +79,6 @@
 
 // export default Header;
 
-import React, {useState} from 'react';
-import { Settings, MessageCircle, ShoppingCart, User } from 'lucide-react';
-import './Header.css';
-
-function Header() {
-  return (
-    <header className="header">
-      <div className="header-content">
-        <div className="header-title">
-          <h1>Header</h1>
-        </div>
-        <div className="header-actions">
-          <button className="icon-button" aria-label="Settings">
-            <Settings size={24} />
-          </button>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-export default Header;
 
 
 // import React, { useState } from 'react';
@@ -112,15 +90,15 @@ export default Header;
 //   const handleLanguageChange = (lang) => setLanguage(lang);
 
 //   return (
-//     <header className="header">
-//       <div className="header-content">
-//         {/* Language Dropdown */}
-//         <div className="language-dropdown">
-//           <button className="dropdown-button" aria-label="Select Language">
-//             {language} <span className="dropdown-arrow">▼</span>
-//           </button>
-//           <div className="dropdown-menu">
-            
+  //     <header className="header">
+  //       <div className="header-content">
+  //         {/* Language Dropdown */}
+  //         <div className="language-dropdown">
+  //           <button className="dropdown-button" aria-label="Select Language">
+  //             {language} <span className="dropdown-arrow">▼</span>
+  //           </button>
+  //           <div className="dropdown-menu">
+  
 //             <button onClick={() => handleLanguageChange('EN')}>EN</button>
 //             <button onClick={() => handleLanguageChange('BN')}>BN</button>
 //             <button onClick={() => handleLanguageChange('AS')}>AS</button>
@@ -163,4 +141,28 @@ export default Header;
 // }
 
 // export default Header;
+
+
+import React, {useState} from 'react';
+import { Settings, MessageCircle, ShoppingCart, User } from 'lucide-react';
+import './Header.css';
+
+function Header() {
+  return (
+    <header className="header">
+      <div className="header-content">
+        <div className="header-title">
+          <h1>Header</h1>
+        </div>
+        <div className="header-actions">
+          <button className="icon-button" aria-label="Settings">
+            <Settings size={24} />
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
 

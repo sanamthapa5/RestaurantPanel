@@ -1,0 +1,53 @@
+.sidebar {
+    width: 300px;
+    background-color:#334257;
+    height: 100vh;
+    padding: 15px;
+    overflow-y: auto;
+  }
+  
+  .logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  
+  
+  .search-form {
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  
+  .section-title {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #94a5b6;
+    margin-top: 10px;
+  }
+  
+  .list-group-item {
+    display: flex;
+    align-items: center; /* Keeps the icon and text vertically centered */
+    justify-content: flex-start; /* Ensures content starts from the left */
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+    background: transparent;
+    
+  }
+  
+  .icon {
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+  }
+  
+  
+  .list-group-item:hover {
+    /* background-color: red; */
+    color: red;
+  }
+  

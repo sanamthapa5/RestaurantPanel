@@ -126,7 +126,7 @@
 
 import React, { useState } from 'react';
 import { Globe2, Mail, ShoppingCart, User, ChevronDown } from 'lucide-react';
-import './DrisyaNavbar.css';
+import './Navbar.css';
 
 const Navbar = () => {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);

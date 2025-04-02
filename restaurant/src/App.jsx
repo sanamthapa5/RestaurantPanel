@@ -66,6 +66,7 @@ import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
 import CustomNavbar from './components/Navbar'; // Import CustomNavbar
 import Sidebar from "./components/Sidebar";
+import YearlyStats from "./components/YearlyStats";
 
 const App = () => {
   return (
@@ -78,6 +79,7 @@ const App = () => {
         {/* Fix the route to use CustomNavbar */}
         <Route path="/Navbar" element={<CustomNavbar />} />
         <Route path="/Sidebar" element={<Sidebar />} />
+        <Route path="/YearlyStats" element={<YearlyStats />} />
       </Routes>
     </Router>
   );

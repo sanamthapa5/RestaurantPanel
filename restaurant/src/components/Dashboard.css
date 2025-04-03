@@ -17,8 +17,10 @@
 
   .dashboard {
   width: 100vw;
+  border-radius: 8px;
   min-height: 100vh;
   background-color: #f9fafb;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -30,7 +32,11 @@
     padding: 24px;
     min-height: auto;
     background-color: white;  
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+   border-radius: 9px;
+    max-width: 1200px;
+    margin: 0 auto;
+  
   }
 
   
@@ -274,7 +280,4 @@
     padding: 16px;
   }
 }
-
-
-
 

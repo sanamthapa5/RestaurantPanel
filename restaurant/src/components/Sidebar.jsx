@@ -2,16 +2,20 @@ import React from "react";
 import { ListGroup, Form } from "react-bootstrap";
 import { FaClipboardList, FaConciergeBell, FaWarehouse, FaUtensils, FaTag } from "react-icons/fa";
 import "./Sidebar.css"; // Import the CSS file
+import  Dashboard from "./Dashboard";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar py-3">
-      <img
+
+    <div className="main-container">
+      
+     <div className="sidebar py-3">
+       <div className="logodiv"><img
         src="https://stackfood-admin.6amtech.com/storage/app/public/business/2022-04-17-625c012c3c07d.png"
         alt="StackFood"
         className="logo"
       />
-
+        </div>
       {/* Search Bar */}
       <Form className="search-form">
         <Form.Group controlId="searchBar">
@@ -99,8 +103,19 @@ const Sidebar = () => {
           <FaUtensils className="icon" /> Contact Messages
         </ListGroup.Item>
       </ListGroup>
+      
+     </div>
+     {/* <section className="home">  
+     <div className="content">
+        <Dashboard/>
+      </div>
+      </section> */}
+      <Dashboard/>
     </div>
   );
 };
 
 export default Sidebar;
+
+
+

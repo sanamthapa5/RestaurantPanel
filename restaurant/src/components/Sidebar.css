@@ -1,10 +1,30 @@
+.main-container {
+  display: flex; 
+  height: 100vh; 
+}
+
+.home {
+  flex-grow: 1;  /* Takes up the remaining space */
+  display: flex;
+  width: 100%;
+  justify-content: flex-start; /* Aligns content to the left */
+  align-items: flex-start; /* Moves content to the top */
+  padding: 10px;
+  background-color: red ; 
+  
+}
 .sidebar {
-    width: 300px;
+    width: 236px;
     background-color:#334257;
     height: 100vh;
     padding: 15px;
     overflow-y: auto;
+    padding-top: 100px;
   }
+
+
+  
+  
   
   .logo {
     display: block;
@@ -30,8 +50,8 @@
   
   .list-group-item {
     display: flex;
-    align-items: center; /* Keeps the icon and text vertically centered */
-    justify-content: flex-start; /* Ensures content starts from the left */
+    align-items: center; 
+    justify-content: flex-start; 
     border: none;
     cursor: pointer;
     padding: 10px 15px;
@@ -42,12 +62,18 @@
   
   .icon {
     margin-right: 10px;
-    flex-shrink: 0; /* Prevents the icon from shrinking */
+    flex-shrink: 0; /
   }
   
   
   .list-group-item:hover {
-    /* background-color: red; */
     color: red;
   }
+  .content {
+    margin-left: 20px; /* Space from the sidebar */
+  }
   
+  
+
+
+   

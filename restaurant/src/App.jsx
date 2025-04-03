@@ -67,6 +67,7 @@ import Dashboard from "./components/Dashboard";
 import CustomNavbar from './components/Navbar'; // Import CustomNavbar
 import Sidebar from "./components/Sidebar";
 import YearlyStats from "./components/YearlyStats";
+import FoodDashboard from "./components/food-dashboard";
 
 const App = () => {
   return (
@@ -80,6 +81,7 @@ const App = () => {
         <Route path="/Navbar" element={<CustomNavbar />} />
         <Route path="/Sidebar" element={<Sidebar />} />
         <Route path="/YearlyStats" element={<YearlyStats />} />
+        <Route path="/FoodDashboard" element={<FoodDashboard/>} />
       </Routes>
     </Router>
   );

@@ -12,6 +12,8 @@ import {
 
 import YearlyStats from './YearlyStats';
 import Navbar from './Navbar';
+import FoodDashboard from './food-dashboard';
+// import Sidebar from './Sidebar';
 
 
 import './Dashboard.css';
@@ -45,7 +47,7 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <Navbar/>
-    
+       {/* <Sidebar/> */}
       <div className="container">
         {/* Order Statistics Section */}
         <section className="stats-section">
@@ -107,7 +109,8 @@ function Dashboard() {
         </div>
       </div>
 
-    <YearlyStats/>
+     <YearlyStats/>
+     <FoodDashboard/>
     </div>
   );
 }

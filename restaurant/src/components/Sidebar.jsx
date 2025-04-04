@@ -14,7 +14,7 @@ const Sidebar = () => {
         src="https://stackfood-admin.6amtech.com/storage/app/public/business/2022-04-17-625c012c3c07d.png"
         alt="StackFood"
         className="logo"
-      />
+        />
         </div>
       {/* Search Bar */}
       <Form className="search-form">
@@ -110,7 +110,7 @@ const Sidebar = () => {
         <Dashboard/>
       </div>
       </section> */}
-      <Dashboard/>
+      {/* <Dashboard/> */}
     </div>
   );
 };

@@ -13,8 +13,9 @@ import {
 import YearlyStats from './YearlyStats';
 import Navbar from './Navbar';
 import FoodDashboard from './food-dashboard';
-// import Sidebar from './Sidebar';
-
+import Sidebar from './Sidebar';
+import Ssidebar from './Ssidebar';
+import Footer from './footer';
 
 import './Dashboard.css';
 function Dashboard() {
@@ -48,6 +49,7 @@ function Dashboard() {
     <div className="dashboard">
       <Navbar/>
        {/* <Sidebar/> */}
+       <Ssidebar/>
       <div className="container">
         {/* Order Statistics Section */}
         <section className="stats-section">
@@ -107,10 +109,12 @@ function Dashboard() {
             Create Ads
           </button>
         </div>
-      </div>
-
      <YearlyStats/>
      <FoodDashboard/>
+
+      </div>
+
+     <Footer/>
     </div>
   );
 }

@@ -9,7 +9,7 @@
     display: flex;
     gap: 20px;
     /* padding: 20px 40px; */
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 8px;
     overflow: hidden;
     margin-top: 30px;
@@ -75,11 +75,7 @@
     background-color: #f0f0f0;
   }
   
-  .settings-icon {
-    width: 18px;
-    height: 18px;
-    color: #555;
-  }
+
   
   /* Top Selling Foods Grid */
   .food-grid {

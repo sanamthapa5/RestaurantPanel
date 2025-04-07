@@ -1,4 +1,4 @@
-/* Layout.css */
+
 
 .app-container {
     display: flex;
@@ -9,12 +9,49 @@
   .main-section {
     display: flex;
     flex: 1;
+  
   }
   
   .content-area {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-    background-color: #f9f9f9; /* optional for light background */
+    background-color: #f9f9f9;
+   
+
+  
+  }
+
+  .layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
   
+  .layout-main {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+  
+  .layout-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+  }
+  
+  .layout-content h1 {
+    margin: 0;
+  }
+  
+  
+
+   
+
+/* .main-section {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 60px); 
+} */
+

@@ -1,0 +1,164 @@
+.coupon-list-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .list-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .list-header h2 {
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .coupon-count {
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    color: #555;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 8px;
+    padding: 2px 8px;
+  }
+  
+  .search-container {
+    display: flex;
+    max-width: 300px;
+    position: relative;
+  }
+  
+  .search-container input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 8px 12px;
+    padding-right: 40px;
+    width: 100%;
+  }
+  
+  .search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .coupon-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .coupon-table th {
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .coupon-table td {
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .coupon-table th {
+    background-color: #f9f9f9;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .coupon-table tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .status-toggle {
+    position: relative;
+  }
+  
+  .status-toggle input {
+    height: 0;
+    opacity: 0;
+    width: 0;
+  }
+  
+  .toggle-label {
+    background-color: #ccc;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    transition: 0.4s;
+    width: 40px;
+  }
+  
+  .toggle-label:before {
+    background-color: white;
+    border-radius: 50%;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 16px;
+  }
+  
+  input:checked + .toggle-label {
+    background-color: #2196f3;
+  }
+  
+  input:checked + .toggle-label:before {
+    transform: translateX(16px);
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .edit-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+  }
+  .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+  }
+  
+  .edit-button:hover {
+    color: #2196f3;
+  }
+  
+  .delete-button:hover {
+    color: #f44336;
+  }
+  
+  .no-data {
+    color: #888;
+    text-align: center;
+  }
+  
+  

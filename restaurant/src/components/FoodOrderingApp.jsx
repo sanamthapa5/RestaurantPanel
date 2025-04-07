@@ -4,6 +4,7 @@ import FoodSection from "../components/FoodSection";
 import BillingSection from "./BillingSection.jsx";
 import "./FoodOrderingApp.css"
 
+
 const FoodOrderingApp = () => {
   const [cart, setCart] = useState([])
   const [selectedCategory, setSelectedCategory] = useState("All categories")
@@ -42,6 +43,7 @@ const FoodOrderingApp = () => {
 
   return (
     <div className="app-container">
+      
       <div className="content-wrapper">
         <FoodSection
           addToCart={addToCart}

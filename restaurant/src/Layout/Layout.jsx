@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
-import Ssidebar from "../components/Ssidebar";
+// import Ssidebar from "../components/Ssidebar";
+import Sidebar from "../components/Sidebar";
 import './Layout.css';
 
 
@@ -8,7 +9,7 @@ function Layout({ children }) {
     <div className="app-container">
       <Navbar />
       <div className="main-section">
-        <Ssidebar />
+        <Sidebar />
         <div className="content-area">
           {children}
         </div>

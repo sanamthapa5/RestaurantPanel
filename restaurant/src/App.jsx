@@ -12,7 +12,11 @@ import Ssidebar from "./components/Ssidebar";
 import Footer from "./components/footer";
 import BillingSection from "./components/BillingSection";
 import FoodOrderingApp from "./components/FoodOrderingApp";
-
+import Layout from "./Layout/Layout";
+import CampaignDashboard from "./pages/Promotions/FoodCampaign";
+import Coupon from "./pages/Promotions/Coupon";
+import DisbursementReport from "./pages/Disbursement/DisbursementReport";
+import AddonManager from "./pages/FoodManagement/AddonManager";
 
 const App = () => {
   return (
@@ -22,6 +26,7 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/header" element={<Header />} />
+        {/* <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} /> */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Navbar" element={<CustomNavbar />} />
         <Route path="/Sidebar" element={<Sidebar />} />
@@ -30,7 +35,17 @@ const App = () => {
         <Route path="/Ssidebar" element={<Ssidebar/>} />
         <Route path="/Footer" element={<Footer/>} />
         <Route path="/BillingSection" element={<BillingSection/>} />
-        <Route path="/FoodOrderingApp" element={<FoodOrderingApp />} />
+        <Route path="/FoodOrderingApp" element={<Layout><FoodOrderingApp /></Layout>} />
+        <Route path="/Layout" element={<Layout />} />
+        <Route path="/CampaignDashboard" element={<Layout><CampaignDashboard/></Layout>} />
+        <Route path="/Coupon" element={<Layout><Coupon/></Layout>} />
+        <Route path="/DisbursementReport" element={<Layout><DisbursementReport/></Layout>} />
+        <Route path="/AddonManager" element={<Layout><AddonManager/></Layout>} />
+        {/* <Route path="/AddonManager" element={<AddonManager/>} /> */}
+        
+
+
+
       </Routes>
       
     </Router>

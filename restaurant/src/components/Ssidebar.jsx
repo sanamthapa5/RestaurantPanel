@@ -10,7 +10,6 @@
 //       </div>
       
 //       <div className="sidebar-menu-scrollable">
-//         {/* 1st Screenshot (120959.png) */}
 //         <div className="menu-section">
 //           <h4>DASHBOARD</h4>
 //           <ul>
@@ -108,14 +107,23 @@
 // };
 
 // export default Ssidebar;
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { FaClipboardList,FaHome,FaShoppingBag, FaBullhorn, FaUtensils,  FaConciergeBell, FaWarehouse,FaShoppingCart, FaFileInvoice, FaUserTie, FaAd } from "react-icons/fa";
+import { FaClipboardList,FaHome,FaShoppingBag,FaChevronDown, FaBullhorn, FaUtensils,  FaConciergeBell, FaWarehouse,FaShoppingCart, FaFileInvoice, FaUserTie, FaAd } from "react-icons/fa";
 import "./Ssidebar.css";
 
 const Ssidebar = () => {
+  // Define state for the campaign submenu toggle
+  const [isCampaignOpen, setIsCampaignOpen] = useState(false);
+
+  // Function to toggle the submenu
+  const toggleCampaign = () => {
+    setIsCampaignOpen(!isCampaignOpen);
+  };
+
   return (
     <div className="sidebar">
+      
       <div className="sidebar-header">
         <h3>Hungry Puppets</h3>
       </div>
@@ -124,16 +132,27 @@ const Ssidebar = () => {
         <div className="menu-section">
           
           <ul>
-            <li><Link to="#"><FaHome className="icon" /> Dashboard</Link></li>
-            <li><Link to="#"><FaShoppingBag className="icon" /> POS</Link></li>
+            <li><Link to="/Dashboard"><FaHome className="icon" /> Dashboard</Link></li>
+            <li><Link to="/FoodOrderingApp"><FaShoppingBag className="icon" /> POS</Link></li>
           </ul>
         </div>
 
         <div className="menu-section">
           <h4>PROMOTIONS</h4>
           <ul>
-            <li><Link to="#"><FaBullhorn className="icon" /> Campaign</Link></li>
-            <li><Link to="#"><FaBullhorn className="icon" /> Coupons</Link></li>
+            <li className="has-submenu">
+              <div className="submenu-toggle" onClick={toggleCampaign}>
+                <FaBullhorn className="icon" /> Campaign
+                <FaChevronDown className={`chevron ${isCampaignOpen ? "rotated" : ""}`} />
+              </div>
+              {isCampaignOpen && (
+                <ul className="submenu">
+                  <li><Link to="/CampaignDashboard">Basic Campaign</Link></li>
+                  <li><Link to="#">Food Camp</Link></li>
+                </ul>
+              )}
+            </li>
+            <li><Link to="/Coupon"><FaBullhorn className="icon" /> Coupons</Link></li>
           </ul>
         </div>
 

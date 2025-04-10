@@ -6,19 +6,17 @@ import {
   CheckCircle,
   RefreshCcw,
   Calendar,
-  Settings,
-  Utensils
 } from 'lucide-react';
 
 import YearlyStats from './YearlyStats';
 import Navbar from './Navbar';
 import FoodDashboard from './food-dashboard';
-import Sidebar from './Sidebar';
+// import Sidebar from './Sidebar';
 import Ssidebar from './Ssidebar';
 import Footer from './footer';
 
 import './Dashboard.css';
-function Dashboard() {
+ const Dashboard=()=> {
 
 
   function StatCard({ count, label, icon: Icon, className }) {
@@ -47,9 +45,9 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <Navbar/>
-       {/* <Sidebar/> */}
-       <Ssidebar/>
+      {/* <Navbar/>
+       
+       <Ssidebar/> */}
       <div className="container">
         {/* Order Statistics Section */}
         <section className="stats-section">
@@ -112,9 +110,9 @@ function Dashboard() {
      <YearlyStats/>
      <FoodDashboard/>
 
+     <Footer/>
       </div>
 
-     <Footer/>
     </div>
   );
 }

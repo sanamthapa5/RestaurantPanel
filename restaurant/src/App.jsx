@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import Home from "./components/Home"; // Import Home component
+import Home from "./components/Home"; 
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
-import CustomNavbar from './components/Navbar'; // Import CustomNavbar
+import CustomNavbar from './components/Navbar'; 
 import Sidebar from "./components/Sidebar";
 import YearlyStats from "./components/YearlyStats";
 import FoodDashboard from "./components/food-dashboard";
@@ -43,7 +43,6 @@ const App = () => {
         <Route path="/AddonManager" element={<Layout><AddonManager/></Layout>} />
         {/* <Route path="/AddonManager" element={<AddonManager/>} /> */}
         
-
 
 
       </Routes>

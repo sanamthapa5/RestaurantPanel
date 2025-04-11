@@ -1,4 +1,3 @@
-// components/Sidebar.js
 import React from "react";
 import { ListGroup, Form } from "react-bootstrap";
 import { FaHome, FaClipboardList, FaConciergeBell, FaWarehouse, FaUtensils, FaTag } from "react-icons/fa";

@@ -40,10 +40,7 @@
 // src/Header.jsx
 // import React from 'react';
 // import { Globe, MessageCircle, ShoppingCart, User } from "lucide-react";
-
 // import './Header.css';
-
-
 
 // const Header = () => {
 //   return (

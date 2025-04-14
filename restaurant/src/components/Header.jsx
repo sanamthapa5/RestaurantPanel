@@ -40,10 +40,7 @@
 // src/Header.jsx
 // import React from 'react';
 // import { Globe, MessageCircle, ShoppingCart, User } from "lucide-react";
-
 // import './Header.css';
-
-
 
 // const Header = () => {
 //   return (
@@ -152,7 +149,7 @@ function Header() {
     <header className="header">
       <div className="header-content">
         <div className="header-title">
-          <h1>Header</h1>
+          <h1>Header-Check</h1>
         </div>
         <div className="header-actions">
           <button className="icon-button" aria-label="Settings">

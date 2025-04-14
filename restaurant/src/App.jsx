@@ -17,6 +17,9 @@ import CampaignDashboard from "./pages/Promotions/FoodCampaign";
 import Coupon from "./pages/Promotions/Coupon";
 import DisbursementReport from "./pages/Disbursement/DisbursementReport";
 import AddonManager from "./pages/FoodManagement/AddonManager";
+import FoodReport from "./pages/Report/FoodReport";
+import EmployeeRole from "./pages/EmployeeRole/EmployeeRole";
+import RoleForm from "./SubComponents/RoleForm";// remove this 
 
 const App = () => {
   return (
@@ -41,7 +44,11 @@ const App = () => {
         <Route path="/Coupon" element={<Layout><Coupon/></Layout>} />
         <Route path="/DisbursementReport" element={<Layout><DisbursementReport/></Layout>} />
         <Route path="/AddonManager" element={<Layout><AddonManager/></Layout>} />
-        {/* <Route path="/AddonManager" element={<AddonManager/>} /> */}
+        <Route path="/FoodReport" element={<Layout><FoodReport/></Layout>} />
+        <Route path="/EmployeeRole" element={<EmployeeRole />} />
+        <Route path="/RoleForm" element={<RoleForm />} />
+        
+
         
 
 

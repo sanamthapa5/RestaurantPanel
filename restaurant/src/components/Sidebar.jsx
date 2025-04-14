@@ -145,13 +145,13 @@ const Sidebar = () => {
                 <li className="submenu-item">
                   <Link to="#" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Active Ads</span>
+                    <span className="text">Pending </span>
                   </Link>
                 </li>
                 <li className="submenu-item">
                   <Link to="#" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Pending Ads</span>
+                    <span className="text">Ads List</span>
                   </Link>
                 </li>
               </ul>
@@ -178,13 +178,79 @@ const Sidebar = () => {
                 <li className="submenu-item">
                   <Link to="#" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Pending Orders</span>
+                    <span className="text">All</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
                   <Link to="#" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Completed Orders</span>
+                    <span className="text">Pending </span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Confirmed</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Accepted</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
+                  </Link>
+                </li>
+                <li className="submenu-item">
+                  <Link to="#" className="submenu-link">
+                    <span className="bullet">•</span>
+                    <span className="text">Cooking</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
@@ -389,7 +455,7 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link to="/FoodReport" className="nav-link">
               <span className="icon"><FaHamburger/></span>
               {!collapsed && <span className="text">Food Report</span>}
             </Link>

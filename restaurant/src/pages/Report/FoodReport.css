@@ -1,0 +1,369 @@
+/* Main Container */
+.food-report-container {
+    background-color: white;
+    padding: 24px;
+    max-width: 1200px;
+    /* margin: 0 auto; */
+    margin-left: 120px;
+    
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+  }
+  
+  /* Header */
+  .Foodheader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .menu-icon {
+    margin-right: 8px;
+    color: #666;
+    font-size: 20px;
+  }
+  
+  .Foodheader h1 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Search Filters */
+  .search-filters {
+    margin-bottom: 32px;
+    
+  }
+  
+  .search-filters h2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 12px;
+  }
+  
+  .filters-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  
+  }
+  
+  .select-container {
+    position: relative;
+  }
+  
+  .select-container select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    color: #333;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+  }
+  
+  .filter-button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .filter-button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Sales Statistics */
+  .sales-statistics {
+    background-color: white;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 32px;
+  }
+  
+  .statistics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .indicator-bar {
+    width: 4px;
+    height: 16px;
+    background-color: #333;
+    margin-right: 8px;
+  }
+  
+  .section-title h2 {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .average-sales {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .average-sales span {
+    font-weight: 600;
+  }
+  
+  /* Chart */
+  .chart-container {
+    height: 256px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 16px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .chart-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chart-bar {
+    width: 64px;
+    background-color: #93c5fd;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  .year {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .chart-legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    background-color: #93c5fd;
+    margin-right: 8px;
+  }
+  
+  .legend-item span {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Food Report Table */
+  .food-report-table {
+    margin-top: 32px;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .table-header h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+  }
+  
+  .count {
+    font-size: 12px;
+    color: #999;
+    margin-left: 4px;
+  }
+  
+  .table-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box {
+    position: relative;
+    margin-right: 8px;
+  }
+  
+  .search-box input {
+    padding: 6px 12px 6px 32px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .export-button {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .download-icon {
+    margin-right: 4px;
+  }
+  
+  /* Table */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #f9fafb;
+  }
+  
+  th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+  }
+  
+  td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  .food-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .food-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 12px;
+  }
+  
+  .food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+
+
+  .food-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px; /* Adjust as needed */
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  /* Star Ratings */
+  .rating-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stars {
+    color: #f59e0b;
+    font-size: 18px;
+  }
+  
+  .rating-count {
+    font-size: 14px;
+    color: #f89f5f;
+    margin-left: 4px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .filters-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .statistics-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .average-sales {
+      margin-top: 8px;
+    }
+  
+    .table-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .table-actions {
+      margin-top: 12px;
+      width: 100%;
+    }
+  
+    .search-box {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 8px;
+    }
+  
+    .search-box input {
+      width: 100%;
+    }
+  
+    .export-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  

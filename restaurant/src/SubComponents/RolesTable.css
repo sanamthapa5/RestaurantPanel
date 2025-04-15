@@ -1,0 +1,132 @@
+.roles-table-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+    margin: 20px;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .table-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #334155;
+    display: flex;
+    align-items: center;
+  }
+  
+  .role-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e8f0;
+    color: #64748b;
+    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-left: 8px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container input {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+    width: 250px;
+  }
+  
+  .search-btn {
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .roles-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .roles-table th {
+    text-align: left;
+    padding: 12px 20px;
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .roles-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 14px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    color: #0284c7;
+  }
+  
+  .delete-btn {
+    color: #ef4444;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: #64748b;
+    padding: 30px 0;
+  }
+  
+  .sort-arrow {
+    display: inline-flex;
+    /* flex-direction: column; */
+    font-size: 10px;
+    margin-left: 4px;
+  }
+  
+  .arrow {
+    color: #bbb;
+    font-size: 10px;
+    line-height: 10px;
+    user-select: none;
+  }
+  
+  .arrow.active {
+    color: #007bff;
+    font-weight: bold;
+  }

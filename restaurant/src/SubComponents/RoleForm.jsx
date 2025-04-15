@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import "./RoleForm.css";
+import { FaFileAlt } from "react-icons/fa";
 
 const RoleForm = ({ onSubmit }) => {
-  const [activeTab, setActiveTab] = useState("Default")
-  const [roleName, setRoleName] = useState("")
-  const [selectedModules, setSelectedModules] = useState([])
+  const [activeTab, setActiveTab] = useState("Default");
+  const [roleName, setRoleName] = useState("");
+  const [selectedModules, setSelectedModules] = useState([]);
 
   const modules = [
     "Food",
@@ -22,48 +23,51 @@ const RoleForm = ({ onSubmit }) => {
     "Pos",
     "Coupon",
     "Report",
-  ]
+  ];
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!roleName.trim()) return
+    e.preventDefault();
+    if (!roleName.trim()) return;
 
     onSubmit({
       name: roleName,
       modules: selectedModules,
-    })
+    });
 
     // Reset form
-    setRoleName("")
-    setSelectedModules([])
-  }
+    setRoleName("");
+    setSelectedModules([]);
+  };
 
   const handleReset = () => {
-    setRoleName("")
-    setSelectedModules([])
-  }
+    setRoleName("");
+    setSelectedModules([]);
+  };
 
   const handleSelectAll = () => {
     if (selectedModules.length === modules.length) {
-      setSelectedModules([])
+      setSelectedModules([]);
     } else {
-      setSelectedModules([...modules])
+      setSelectedModules([...modules]);
     }
-  }
+  };
 
   const handleModuleChange = (module) => {
     if (selectedModules.includes(module)) {
-      setSelectedModules(selectedModules.filter((m) => m !== module))
+      setSelectedModules(selectedModules.filter((m) => m !== module));
     } else {
-      setSelectedModules([...selectedModules, module])
+      setSelectedModules([...selectedModules, module]);
     }
-  }
+  };
 
   return (
     <div className="role-form-container">
       <div className="form-header">
         <div className="form-title">
-          <span className="form-icon">📄</span> Role Form
+          <span className="form-icon">
+            <FaFileAlt />
+          </span>{" "}
+          Role Form
         </div>
       </div>
 
@@ -107,7 +111,11 @@ const RoleForm = ({ onSubmit }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="roleName">Role name (default)</label>
+          {/* <label htmlFor="roleName">Role name (default)</label> */}
+          <label htmlFor="roleName">
+            Role name ({activeTab.toLowerCase()})
+          </label>
+
           <input
             type="text"
             id="roleName"
@@ -119,23 +127,35 @@ const RoleForm = ({ onSubmit }) => {
 
         <div className="form-group">
           <div className="permission-header">
-            <label>Module Permission :</label>
-            <button type="button" className="select-all" onClick={handleSelectAll}>
-              Select All
-            </button>
+            <label htmlFor="modules">Module Permission:</label>
+            <div className="select-all-container">
+              <input
+                type="checkbox"
+                id="select-all-checkbox"
+                checked={selectedModules.length === modules.length}
+                onChange={handleSelectAll}
+              />
+              <button
+                type="button"
+                className="select-all"
+                onClick={handleSelectAll}
+              >
+                Select All
+              </button>
+            </div>
           </div>
 
           <div className="modules-grid">
             {modules.map((module) => (
-              <div key={module} className="module-checkbox">
+              <label key={module} className="module-checkbox" htmlFor={module}>
                 <input
                   type="checkbox"
                   id={module}
                   checked={selectedModules.includes(module)}
                   onChange={() => handleModuleChange(module)}
                 />
-                <label htmlFor={module}>{module}</label>
-              </div>
+                <span>{module}</span>
+              </label>
             ))}
           </div>
         </div>

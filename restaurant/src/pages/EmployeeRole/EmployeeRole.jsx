@@ -3,7 +3,8 @@
 import { useState } from "react";
 import RoleForm from "../../SubComponents/RoleForm";
 import RolesTable from "../../SubComponents/RolesTable";
-import "./EmployeeRole.css"
+import { FaUsers } from "react-icons/fa";
+import "./EmployeeRole.css";
 
 function EmployeeRole() {
   const [roles, setRoles] = useState([
@@ -26,7 +27,7 @@ function EmployeeRole() {
       ],
       createdAt: "20 Jan 2022",
     },
-  ])
+  ]);
 
   const handleAddRole = (newRole) => {
     setRoles([
@@ -40,18 +41,21 @@ function EmployeeRole() {
           year: "numeric",
         }),
       },
-    ])
-  }
+    ]);
+  };
 
   const handleDeleteRole = (id) => {
-    setRoles(roles.filter((role) => role.id !== id))
-  }
+    setRoles(roles.filter((role) => role.id !== id));
+  };
 
   return (
     <div className="app-container">
       <header className="app-header">
         <h1>
-          <span className="icon">👥</span> Employee Role
+          <span className="icon">
+            <FaUsers />
+          </span>{" "}
+          Employee Role
         </h1>
       </header>
       <main>
@@ -60,6 +64,6 @@ function EmployeeRole() {
       </main>
     </div>
   );
-};
+}
 
 export default EmployeeRole;

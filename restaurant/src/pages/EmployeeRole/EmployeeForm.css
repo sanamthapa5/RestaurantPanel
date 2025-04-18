@@ -33,11 +33,15 @@
   
   .card-content {
     padding: 20px;
-    background-color: #1d4ed8;
+    background-color: #1d4ed8; /*remove */
   }
   
   .form-section {
     margin-bottom: 24px;
+    /* width: 100%; */
+    width: 900px;
+    
+    background-color: yellow;  /* remove later */ 
   }
   
   .section-title {
@@ -184,26 +188,33 @@
     font-size: 0.875rem;
     cursor: pointer;
     background-color: white;
+    color: #6e5457;
+    width: auto;
+    height: 40px;
   }
   
   .hidden-input {
     display: none;
   }
   
-  .form-actions {
+  .actions-form {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
     margin-top: 24px;
     padding-top: 16px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #eee;  
+    width: 300px;
+    margin-left: 600px;
+    
   }
   
   .reset-button {
     padding: 8px 16px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd;   
     border-radius: 4px;
     background-color: white;
+    /* margin-right: 200px; */
   }
   
   .submit-button {
@@ -212,9 +223,24 @@
     border-radius: 4px;
     background-color: #2563eb;
     color: white;
+    
   }
   
   .submit-button:hover {
     background-color: #1d4ed8;
   }
+  
+
+  .account-section{
+    /* background-color: brown;  */
+    /* width: 450px; */
+    margin-left:30px;
+    box-shadow:1px solid #3b3b3b ;
+  }
+
+  .image-section{
+    background-color: pink;
+    width: 100%;
+  }
+
   

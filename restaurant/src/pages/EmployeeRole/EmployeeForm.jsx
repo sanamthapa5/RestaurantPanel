@@ -250,7 +250,7 @@ function EmployeeForm({ onSubmit, onCancel }) {
             </div>
           </div>
 
-          <div className="form-actions">
+          <div className="actions-form">
             <button type="button" className="reset-button" onClick={onCancel}>
               Reset
             </button>

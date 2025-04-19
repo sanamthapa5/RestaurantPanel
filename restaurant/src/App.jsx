@@ -19,6 +19,9 @@ import DisbursementReport from "./pages/Disbursement/DisbursementReport";
 import AddonManager from "./pages/FoodManagement/AddonManager";
 import FoodReport from "./pages/Report/FoodReport";
 import EmployeeRole from "./pages/EmployeeRole/EmployeeRole";
+import EmployeeForm from "./pages/EmployeeRole/EmployeeForm";
+import EmployeeList from "./pages/EmployeeRole/EmployeeList";
+import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
   return (
@@ -27,7 +30,14 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/header" element={<Header />} />
-        {/* <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} /> */}
+        {/* <Route
+          path="/dashboard"
+          element={
+            <Layout>
+              <Dashboard />
+            </Layout>
+          }
+        /> */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Navbar" element={<CustomNavbar />} />
         <Route path="/Sidebar" element={<Sidebar />} />
@@ -93,6 +103,9 @@ const App = () => {
             </Layout>
           }
         />
+        <Route path="/EmployeeList" element={<EmployeeList />} />
+        <Route path="/EmployeeListFinal" element={<EmployeeListFinal />} />
+        <Route path="/EmployeeForm" element={<EmployeeForm />} />
       </Routes>
     </Router>
   );

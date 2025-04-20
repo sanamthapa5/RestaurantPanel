@@ -1,5 +1,5 @@
 .employee-form-card {
-    background-color: red;
+    /* background-color: red; */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -33,7 +33,7 @@
   
   .card-content {
     padding: 20px;
-    background-color: #1d4ed8; /*remove */
+    /* background-color: #1d4ed8;  */
   }
   
   .form-section {
@@ -41,7 +41,7 @@
     /* width: 100%; */
     width: 900px;
     
-    background-color: yellow;  /* remove later */ 
+    /* background-color: yellow;   */
   }
   
   .section-title {
@@ -239,7 +239,7 @@
   }
 
   .image-section{
-    background-color: pink;
+    /* background-color: pink; */
     width: 100%;
   }
 

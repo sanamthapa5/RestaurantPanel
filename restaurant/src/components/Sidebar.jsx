@@ -1,19 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown, ChevronRight} from "lucide-react"
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-import { FaHome ,
+import {
+  FaHome,
   FaShoppingBag,
   FaMountain,
   FaTicketAlt,
-  FaTv,FaThList,
-  FaShoppingCart,FaBell,
-  FaHouseUser,FaCog,
-  FaCalendarCheck,FaSitemap,
-  FaPizzaSlice ,FaPlusCircle,
-  FaQrcode,FaChessKing,FaWallet,
+  FaTv,
+  FaThList,
+  FaShoppingCart,
+  FaBell,
+  FaHouseUser,
+  FaCog,
+  FaCalendarCheck,
+  FaSitemap,
+  FaPizzaSlice,
+  FaPlusCircle,
+  FaQrcode,
+  FaChessKing,
+  FaWallet,
   FaUniversity,
   FaRegStar,
   FaCommentDots,
@@ -23,12 +31,13 @@ import { FaHome ,
   FaFileInvoice,
   FaUser,
   FaHamburger,
-  FaHatWizard} from "react-icons/fa";
+  FaHatWizard,
+} from "react-icons/fa";
 
-import "./sidebar.css"
+import "./sidebar.css";
 
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(false);
   const [expandedSections, setExpandedSections] = useState({
     promotions: false, // Campaign closed by default
     advertisement: false,
@@ -37,25 +46,28 @@ const Sidebar = () => {
     categories: false,
     orderReport: false,
     employee: false,
-  })
+  });
 
   const toggleSidebar = () => {
-    setCollapsed(!collapsed)
-  }
+    setCollapsed(!collapsed);
+  };
 
   const toggleSection = (section) => {
     setExpandedSections({
       ...expandedSections,
       [section]: !expandedSections[section],
-    })
-  }
+    });
+  };
 
   return (
     <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <div className="sidebar-header">
         <div className="logo-container">
           <div className="logo">
-            <img src="https://stackfood-admin.6amtech.com/storage/app/public/restaurant/2024-12-09-675699d44d427.png" alt="Logo" />
+            <img
+              src="https://stackfood-admin.6amtech.com/storage/app/public/restaurant/2024-12-09-675699d44d427.png"
+              alt="Logo"
+            />
           </div>
           {!collapsed && <span className="company-name">Hungry Puppets</span>}
         </div>
@@ -69,27 +81,42 @@ const Sidebar = () => {
           {/* Main Navigation */}
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaHome/></span>
+              <span className="icon">
+                <FaHome />
+              </span>
               {!collapsed && <span className="text">Dashboard</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/FoodOrderingApp" className="nav-link">
-              <span className="icon"><FaShoppingBag /></span>
+              <span className="icon">
+                <FaShoppingBag />
+              </span>
               {!collapsed && <span className="text">Point Of Sale</span>}
             </Link>
           </li>
 
           {/* Promotions Section */}
-          <li className="section-header">{!collapsed && <span className="section-title">PROMOTIONS</span>}</li>
+          <li className="section-header">
+            {!collapsed && <span className="section-title">PROMOTIONS</span>}
+          </li>
           <li className="nav-item">
-            <div className="nav-link has-submenu" onClick={() => toggleSection("promotions")}>
-              <span className="icon"><FaMountain/></span>
+            <div
+              className="nav-link has-submenu"
+              onClick={() => toggleSection("promotions")}
+            >
+              <span className="icon">
+                <FaMountain />
+              </span>
               {!collapsed && (
                 <>
                   <span className="text">Campaign</span>
                   <span className="arrow">
-                    {expandedSections.promotions ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    {expandedSections.promotions ? (
+                      <ChevronDown size={16} />
+                    ) : (
+                      <ChevronRight size={16} />
+                    )}
                   </span>
                 </>
               )}
@@ -103,7 +130,7 @@ const Sidebar = () => {
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link to="/FoodCampaign" className="submenu-link">
                     <span className="bullet">•</span>
                     <span className="text">Food Campaign</span>
                   </Link>
@@ -113,29 +140,44 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link to="/Coupon" className="nav-link">
-              <span className="icon"><FaTicketAlt/></span>
+              <span className="icon">
+                <FaTicketAlt />
+              </span>
               {!collapsed && <span className="text">Coupons</span>}
             </Link>
           </li>
 
           {/* Advertisement Management */}
           <li className="section-header">
-            {!collapsed && <span className="section-title">ADVERTISEMENT MANAGEMENT</span>}
+            {!collapsed && (
+              <span className="section-title">ADVERTISEMENT MANAGEMENT</span>
+            )}
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaTv/></span>
+              <span className="icon">
+                <FaTv />
+              </span>
               {!collapsed && <span className="text">New Advertisement</span>}
             </Link>
           </li>
           <li className="nav-item">
-            <div className="nav-link has-submenu" onClick={() => toggleSection("advertisement")}>
-              <span className="icon"><FaThList /></span>
+            <div
+              className="nav-link has-submenu"
+              onClick={() => toggleSection("advertisement")}
+            >
+              <span className="icon">
+                <FaThList />
+              </span>
               {!collapsed && (
                 <>
                   <span className="text">Advertisement List</span>
                   <span className="arrow">
-                    {expandedSections.advertisement ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    {expandedSections.advertisement ? (
+                      <ChevronDown size={16} />
+                    ) : (
+                      <ChevronRight size={16} />
+                    )}
                   </span>
                 </>
               )}
@@ -159,16 +201,28 @@ const Sidebar = () => {
           </li>
 
           {/* Order Management */}
-          <li className="section-header">{!collapsed && <span className="section-title">ORDER MANAGEMENT</span>}</li>
+          <li className="section-header">
+            {!collapsed && (
+              <span className="section-title">ORDER MANAGEMENT</span>
+            )}
+          </li>
           <li className="nav-item">
-            <div className="nav-link has-submenu" onClick={() => toggleSection("order")}>
-              <span className="icon"><FaShoppingCart />
+            <div
+              className="nav-link has-submenu"
+              onClick={() => toggleSection("order")}
+            >
+              <span className="icon">
+                <FaShoppingCart />
               </span>
               {!collapsed && (
                 <>
                   <span className="text">Orders</span>
                   <span className="arrow">
-                    {expandedSections.order ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    {expandedSections.order ? (
+                      <ChevronDown size={16} />
+                    ) : (
+                      <ChevronRight size={16} />
+                    )}
                   </span>
                 </>
               )}
@@ -264,21 +318,36 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaCalendarCheck /></span>
+              <span className="icon">
+                <FaCalendarCheck />
+              </span>
               {!collapsed && <span className="text">Order Subscription</span>}
             </Link>
           </li>
 
           {/* Food Management */}
-          <li className="section-header">{!collapsed && <span className="section-title">FOOD MANAGEMENT</span>}</li>
+          <li className="section-header">
+            {!collapsed && (
+              <span className="section-title">FOOD MANAGEMENT</span>
+            )}
+          </li>
           <li className="nav-item">
-            <div className="nav-link has-submenu" onClick={() => toggleSection("categories")}>
-              <span className="icon"><FaSitemap/></span>
+            <div
+              className="nav-link has-submenu"
+              onClick={() => toggleSection("categories")}
+            >
+              <span className="icon">
+                <FaSitemap />
+              </span>
               {!collapsed && (
                 <>
                   <span className="text">Categories</span>
                   <span className="arrow">
-                    {expandedSections.categories ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    {expandedSections.categories ? (
+                      <ChevronDown size={16} />
+                    ) : (
+                      <ChevronRight size={16} />
+                    )}
                   </span>
                 </>
               )}
@@ -301,13 +370,22 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <div className="nav-link has-submenu" onClick={() => toggleSection("food")}>
-              <span className="icon"><FaPizzaSlice/></span>
+            <div
+              className="nav-link has-submenu"
+              onClick={() => toggleSection("food")}
+            >
+              <span className="icon">
+                <FaPizzaSlice />
+              </span>
               {!collapsed && (
                 <>
                   <span className="text">Foods</span>
                   <span className="arrow">
-                    {expandedSections.food ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    {expandedSections.food ? (
+                      <ChevronDown size={16} />
+                    ) : (
+                      <ChevronRight size={16} />
+                    )}
                   </span>
                 </>
               )}
@@ -337,96 +415,139 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link to="/AddonManager" className="nav-link">
-              <span className="icon"><FaPlusCircle/></span>
+              <span className="icon">
+                <FaPlusCircle />
+              </span>
               {!collapsed && <span className="text">Addons</span>}
             </Link>
           </li>
 
           {/* Business Management */}
-          <li className="section-header">{!collapsed && <span className="section-title">BUSINESS MANAGEMENT</span>}</li>
+          <li className="section-header">
+            {!collapsed && (
+              <span className="section-title">BUSINESS MANAGEMENT</span>
+            )}
+          </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaCog/></span>
+              <span className="icon">
+                <FaCog />
+              </span>
               {!collapsed && <span className="text">Restaurant Config</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaBell /></span>
+              <span className="icon">
+                <FaBell />
+              </span>
               {!collapsed && <span className="text">Notification Setup</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaHouseUser/></span>
+              <span className="icon">
+                <FaHouseUser />
+              </span>
               {!collapsed && <span className="text">My Shop</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaQrcode/></span>
+              <span className="icon">
+                <FaQrcode />
+              </span>
               {!collapsed && <span className="text">My QR Code</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaChessKing /></span>
+              <span className="icon">
+                <FaChessKing />
+              </span>
               {!collapsed && <span className="text">My Business Plan</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaWallet/></span>
+              <span className="icon">
+                <FaWallet />
+              </span>
               {!collapsed && <span className="text">My Wallet</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaUniversity/></span>
+              <span className="icon">
+                <FaUniversity />
+              </span>
               {!collapsed && <span className="text">Wallet Method</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaRegStar/></span>
+              <span className="icon">
+                <FaRegStar />
+              </span>
               {!collapsed && <span className="text">Reviews</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaCommentAlt/></span>
+              <span className="icon">
+                <FaCommentAlt />
+              </span>
               {!collapsed && <span className="text">Chat</span>}
             </Link>
           </li>
 
           {/* Report Section */}
-          <li className="section-header">{!collapsed && <span className="section-title">REPORT SECTION</span>}</li>
+          <li className="section-header">
+            {!collapsed && (
+              <span className="section-title">REPORT SECTION</span>
+            )}
+          </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaCogs/></span>
+              <span className="icon">
+                <FaCogs />
+              </span>
               {!collapsed && <span className="text">Expense Report</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaChartPie/></span>
+              <span className="icon">
+                <FaChartPie />
+              </span>
               {!collapsed && <span className="text">Transaction Report</span>}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/DisbursementReport" className="nav-link">
-              <span className="icon"><FaFileInvoice/></span>
+              <span className="icon">
+                <FaFileInvoice />
+              </span>
               {!collapsed && <span className="text">Disbursement Report</span>}
             </Link>
           </li>
           <li className="nav-item">
-            <div className="nav-link has-submenu" onClick={() => toggleSection("orderReport")}>
-              <span className="icon"><FaUser/></span>
+            <div
+              className="nav-link has-submenu"
+              onClick={() => toggleSection("orderReport")}
+            >
+              <span className="icon">
+                <FaUser />
+              </span>
               {!collapsed && (
                 <>
                   <span className="text">Order Report</span>
                   <span className="arrow">
-                    {expandedSections.orderReport ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    {expandedSections.orderReport ? (
+                      <ChevronDown size={16} />
+                    ) : (
+                      <ChevronRight size={16} />
+                    )}
                   </span>
                 </>
               )}
@@ -456,27 +577,44 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link to="/FoodReport" className="nav-link">
-              <span className="icon"><FaHamburger/></span>
+              <span className="icon">
+                <FaHamburger />
+              </span>
               {!collapsed && <span className="text">Food Report</span>}
             </Link>
           </li>
 
           {/* Employee Section */}
-          <li className="section-header">{!collapsed && <span className="section-title">EMPLOYEE SECTION</span>}</li>
+          <li className="section-header">
+            {!collapsed && (
+              <span className="section-title">EMPLOYEE SECTION</span>
+            )}
+          </li>
           <li className="nav-item">
             <Link to="#" className="nav-link">
-              <span className="icon"><FaHatWizard/></span>
+              <span className="icon">
+                <FaHatWizard />
+              </span>
               {!collapsed && <span className="text">Employee Role</span>}
             </Link>
           </li>
           <li className="nav-item">
-            <div className="nav-link has-submenu" onClick={() => toggleSection("employee")}>
-              <span className="icon"><FaUser/></span>
+            <div
+              className="nav-link has-submenu"
+              onClick={() => toggleSection("employee")}
+            >
+              <span className="icon">
+                <FaUser />
+              </span>
               {!collapsed && (
                 <>
                   <span className="text">Employees</span>
                   <span className="arrow">
-                    {expandedSections.employee ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    {expandedSections.employee ? (
+                      <ChevronDown size={16} />
+                    ) : (
+                      <ChevronRight size={16} />
+                    )}
                   </span>
                 </>
               )}
@@ -510,17 +648,21 @@ const Sidebar = () => {
         {!collapsed && (
           <div className="ads-section">
             <div className="ads-image">
-              <img src="https://stackfood-admin.6amtech.com/public/assets/admin/img/promo.png" alt="Ads illustration" />
+              <img
+                src="https://stackfood-admin.6amtech.com/public/assets/admin/img/promo.png"
+                alt="Ads illustration"
+              />
             </div>
             <h3 className="ads-title">Want To Get Highlighted?</h3>
-            <p className="ads-description">Create Ads To Get Highlighted On The App And Web Browser</p>
+            <p className="ads-description">
+              Create Ads To Get Highlighted On The App And Web Browser
+            </p>
             <button className="ads-button">Create Ads</button>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
- 
+export default Sidebar;

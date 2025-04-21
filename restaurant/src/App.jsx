@@ -13,7 +13,7 @@ import Footer from "./components/footer";
 import BillingSection from "./components/BillingSection";
 import FoodOrderingApp from "./components/FoodOrderingApp";
 import Layout from "./Layout/Layout";
-import CampaignDashboard from "./pages/Promotions/FoodCampaign";
+import CampaignDashboard from "./pages/Promotions/BasicCampaign";
 import Coupon from "./pages/Promotions/Coupon";
 import DisbursementReport from "./pages/Disbursement/DisbursementReport";
 import AddonManager from "./pages/FoodManagement/AddonManager";
@@ -21,6 +21,7 @@ import FoodReport from "./pages/Report/FoodReport";
 import EmployeeRole from "./pages/EmployeeRole/EmployeeRole";
 import EmployeeForm from "./pages/EmployeeRole/EmployeeForm";
 import EmployeeList from "./pages/EmployeeRole/EmployeeList";
+import FoodCampaign from "./pages/Promotions/FoodCampaign";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -46,6 +47,14 @@ const App = () => {
         <Route path="/Ssidebar" element={<Ssidebar />} />
         <Route path="/Footer" element={<Footer />} />
         <Route path="/BillingSection" element={<BillingSection />} />
+        <Route
+          path="/FoodCampaign"
+          element={
+            <Layout>
+              <FoodCampaign />
+            </Layout>
+          }
+        />
         <Route
           path="/FoodOrderingApp"
           element={

@@ -22,6 +22,7 @@ import EmployeeRole from "./pages/EmployeeRole/EmployeeRole";
 import EmployeeForm from "./pages/EmployeeRole/EmployeeForm";
 import EmployeeList from "./pages/EmployeeRole/EmployeeList";
 import FoodCampaign from "./pages/Promotions/FoodCampaign";
+import NotificationSetup from "./pages/BusinessManagement/NotificationSetup";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -115,6 +116,7 @@ const App = () => {
         <Route path="/EmployeeList" element={<EmployeeList />} />
         {/* <Route path="/EmployeeListFinal" element={<EmployeeListFinal />} /> */}
         <Route path="/EmployeeForm" element={<EmployeeForm />} />
+        <Route path="/NotificationSetup" element={<NotificationSetup />} />
       </Routes>
     </Router>
   );

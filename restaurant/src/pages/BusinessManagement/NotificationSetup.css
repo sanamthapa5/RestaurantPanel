@@ -164,8 +164,8 @@ input:checked + .slider:before {
 }
 
 .na-badge {
-  background-color: #e9ecef;
-  color: #6c757d;
+  background-color: #e5f4ff;
+  color: #6c7585;
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 12px;

@@ -437,7 +437,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link to="/NotificationSetup" className="nav-link">
               <span className="icon">
                 <FaBell />
               </span>

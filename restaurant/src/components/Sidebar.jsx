@@ -591,7 +591,7 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link to="/EmployeeRole" className="nav-link">
               <span className="icon">
                 <FaHatWizard />
               </span>
@@ -622,23 +622,23 @@ const Sidebar = () => {
             {expandedSections.employee && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link to="/EmployeeForm" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Add Employee</span>
+                    <span className="text">Add New Employee</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link to="/EmployeeList" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Employee List</span>
+                    <span className="text">List</span>
                   </Link>
                 </li>
-                <li className="submenu-item">
+                {/* <li className="submenu-item">
                   <Link to="#" className="submenu-link">
                     <span className="bullet">•</span>
                     <span className="text">Employee Schedule</span>
                   </Link>
-                </li>
+                </li> */}
               </ul>
             )}
           </li>

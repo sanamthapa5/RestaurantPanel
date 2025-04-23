@@ -116,7 +116,14 @@ const App = () => {
         <Route path="/EmployeeList" element={<EmployeeList />} />
         {/* <Route path="/EmployeeListFinal" element={<EmployeeListFinal />} /> */}
         <Route path="/EmployeeForm" element={<EmployeeForm />} />
-        <Route path="/NotificationSetup" element={<NotificationSetup />} />
+        <Route
+          path="/NotificationSetup"
+          element={
+            <Layout>
+              <NotificationSetup />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );

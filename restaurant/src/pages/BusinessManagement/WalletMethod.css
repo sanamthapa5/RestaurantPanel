@@ -1,10 +1,13 @@
 /* Main container styles */
 .withdraw-container {
     font-family: "Inter", sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
     padding: 20px;
-    color: #333;
+    color: #334257;
+    margin-left: 120px;
+    margin-right: 10px;
+    margin-top: 20px;
   }
   
   /* Header styles */

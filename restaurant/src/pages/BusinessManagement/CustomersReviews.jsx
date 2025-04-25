@@ -121,6 +121,25 @@ const CustomerReviews = () => {
       review.phone.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // hdujfucghc
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
+
+    // Check if the review input is empty
+    if (!review.trim()) {
+      setError("Review cannot be empty");
+      return;
+    }
+
+    // Submit the review
+    // You can add your submission logic here
+    console.log("Review submitted:", review);
+
+    // Clear input and error after submission
+    setReview("");
+    setError("");
+  };
+
   return (
     <div className="customer-reviews-container">
       <div className="reviews-header">
@@ -131,10 +150,11 @@ const CustomerReviews = () => {
           <input
             type="text"
             placeholder="Ex : Search by food name or phone"
+            required
             value={searchQuery}
             onChange={handleSearch}
           />
-          <button className="search-button">
+          <button className="ReviewSearch-button">
             <Search size={20} />
           </button>
         </div>

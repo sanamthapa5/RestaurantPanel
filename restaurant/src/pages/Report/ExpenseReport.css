@@ -1,0 +1,237 @@
+/* Main container styles */
+.expense-container {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+  }
+  
+  /* Expense report header */
+  .expense-report h1 {
+    color: #2d3748;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .expense-description {
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  
+  /* Search data section */
+  .ExpenseSearch-data {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .search-data h2 {
+    color: #4a5568;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .time-filter {
+    flex: 1;
+    max-width: 400px;
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 14px;
+    color: #4a5568;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  
+  .filter-button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .filter-button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Expense lists section */
+  .expense-lists {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .expense-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .expense-header h2 {
+    color: #4a5568;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+  
+  .count {
+    background-color: #f1f5f9;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }
+  
+  .expense-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .ExpenseSearch-container {
+    position: relative;
+    display: flex;
+  }
+  
+  .ExpenseSearch-input {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px;
+    width: 220px;
+  }
+  
+  .ExpenseSearch-button {
+    background-color: #e2e8f0;
+    border: 1px solid #e2e8f0;
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 50px;
+  }
+  
+  .ExpenseExport-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #4a5568;
+    cursor: pointer;
+  }
+  
+  .ExpenseExport-button:hover {
+    background-color: #f8fafc;
+  }
+  
+  /* Table styles */
+  .expense-table-container {
+    overflow-x: auto;
+  }
+  
+  .expense-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .expense-table th {
+    background-color: #f8fafc;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .expense-table td {
+    padding: 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #4a5568;
+  }
+  
+  .expense-table tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  .order-id {
+    color: #3b82f6;
+    font-weight: 500;
+  }
+  
+  .amount {
+    font-weight: 500;
+  }
+  
+
+  
+
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .expense-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  
+    .expense-actions {
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .search-container {
+      width: 100%;
+    }
+  
+    .search-input {
+      width: 100%;
+    }
+  
+    .filter-container {
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    .time-filter {
+      width: 100%;
+      max-width: none;
+    }
+  }
+  

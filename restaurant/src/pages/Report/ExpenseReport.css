@@ -31,7 +31,7 @@
     margin-bottom: 24px;
   }
   
-  .search-data h2 {
+  .ExpenseSearch-data h2 {
     color: #4a5568;
     font-size: 18px;
     font-weight: 600;
@@ -40,14 +40,14 @@
   
   .filter-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Align all elements vertically in the center */
+    gap: 12px; /* Equal gap between all elements */
   }
   
   .time-filter {
-    flex: 1;
-    max-width: 400px;
-    padding: 10px 12px;
+    width: 200px;
+    height: 40px;
+    padding: 8px 12px;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
     background-color: white;
@@ -58,18 +58,47 @@
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 16px;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+  
+  .custom-date-range {
+    display: flex;
+    align-items: center; /* Align date inputs in the same row */
+    gap: 12px; /* Equal gap between From and To inputs */
+  }
+  
+  .date-input {
+    width: 200px;
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 14px;
+    color: #4a5568;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+  
+  .date-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
   }
   
   .filter-button {
+    width: 200px;
+    height: 40px;
+    padding: 8px 12px;
     background-color: #3b82f6;
     color: white;
     border: none;
     border-radius: 6px;
-    padding: 10px 24px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s;
+    box-sizing: border-box;
+    line-height: 1.5;
   }
   
   .filter-button:hover {
@@ -198,10 +227,6 @@
     font-weight: 500;
   }
   
-
-  
-
-  
   /* Responsive styles */
   @media (max-width: 768px) {
     .expense-header {
@@ -216,11 +241,11 @@
       align-items: stretch;
     }
   
-    .search-container {
+    .ExpenseSearch-container {
       width: 100%;
     }
   
-    .search-input {
+    .ExpenseSearch-input {
       width: 100%;
     }
   
@@ -231,7 +256,19 @@
   
     .time-filter {
       width: 100%;
-      max-width: none;
+    }
+  
+    .custom-date-range {
+      flex-direction: column;
+      width: 100%;
+      gap: 12px;
+    }
+  
+    .date-input {
+      width: 100%;
+    }
+  
+    .filter-button {
+      width: 100%;
     }
   }
-  

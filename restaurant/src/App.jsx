@@ -23,6 +23,10 @@ import EmployeeForm from "./pages/EmployeeRole/EmployeeForm";
 import EmployeeList from "./pages/EmployeeRole/EmployeeList";
 import FoodCampaign from "./pages/Promotions/FoodCampaign";
 import NotificationSetup from "./pages/BusinessManagement/NotificationSetup";
+import WithdrawMethodSetup from "./pages/BusinessManagement/WalletMethod";
+import SubscribedOrders from "./pages/OrderManagement/SubscribedOrders";
+import CustomerReviews from "./pages/BusinessManagement/CustomersReviews";
+import ExpenseReport from "./pages/Report/ExpenseReport";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -123,7 +127,6 @@ const App = () => {
         />
 
         {/* <Route path="/EmployeeListFinal" element={<EmployeeListFinal />} /> */}
-        {/* <Route path="/EmployeeForm" element={<EmployeeForm />} /> */}
         <Route
           path="/EmployeeForm"
           element={
@@ -140,6 +143,32 @@ const App = () => {
             </Layout>
           }
         />
+
+        <Route
+          path="/WithdrawMethodSetup"
+          element={
+            <Layout>
+              <WithdrawMethodSetup />
+            </Layout>
+          }
+        />
+        <Route
+          path="/SubscribedOrders"
+          element={
+            <Layout>
+              <SubscribedOrders />
+            </Layout>
+          }
+        />
+        <Route
+          path="/CustomerReviews"
+          element={
+            <Layout>
+              <CustomerReviews />
+            </Layout>
+          }
+        />
+        <Route path="/ExpenseReport" element={<ExpenseReport />} />
       </Routes>
     </Router>
   );

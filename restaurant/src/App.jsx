@@ -168,7 +168,14 @@ const App = () => {
             </Layout>
           }
         />
-        <Route path="/ExpenseReport" element={<ExpenseReport />} />
+        <Route
+          path="/ExpenseReport"
+          element={
+            <Layout>
+              <ExpenseReport />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );

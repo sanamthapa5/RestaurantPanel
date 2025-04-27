@@ -477,7 +477,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link to="/WithdrawMethodSetup" className="nav-link">
               <span className="icon">
                 <FaUniversity />
               </span>
@@ -485,7 +485,8 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            {/* <Link to="#" className="nav-link"> */}
+            <Link to="/CustomerReviews" className="nav-link">
               <span className="icon">
                 <FaRegStar />
               </span>

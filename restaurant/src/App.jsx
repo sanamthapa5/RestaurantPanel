@@ -27,6 +27,8 @@ import WithdrawMethodSetup from "./pages/BusinessManagement/WalletMethod";
 import SubscribedOrders from "./pages/OrderManagement/SubscribedOrders";
 import CustomerReviews from "./pages/BusinessManagement/CustomersReviews";
 import ExpenseReport from "./pages/Report/ExpenseReport";
+// import AdForm from "./pages/Advertisement/NewAdvertisement/AdForm";
+import NewAdvertisement from "./pages/Advertisement/NewAdvertisement/NewAdvertisement";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -173,6 +175,16 @@ const App = () => {
           element={
             <Layout>
               <ExpenseReport />
+            </Layout>
+          }
+        />
+        {/* <Route path="/AdForm" element={<AdForm />} /> */}
+        {/* <Route path="/NewAdverstisement" element={<NewAdvertisement />} /> */}
+        <Route
+          path="/NewAdvertisement"
+          element={
+            <Layout>
+              <NewAdvertisement />
             </Layout>
           }
         />

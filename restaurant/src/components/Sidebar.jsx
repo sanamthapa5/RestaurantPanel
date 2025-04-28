@@ -509,7 +509,7 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link to="/ExpenseReport" className="nav-link">
               <span className="icon">
                 <FaCogs />
               </span>

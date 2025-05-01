@@ -220,7 +220,7 @@ function AdForm() {
     showRating: false,
     profileImage: null,
     coverImage: null,
-    video: null, // Added for video upload
+    video: null, // for video upload
   });
 
   const handleInputChange = (e) => {

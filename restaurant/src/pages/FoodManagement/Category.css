@@ -1,0 +1,149 @@
+.category-container {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .category-title-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .category-grid-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .category-grid-square {
+    background-color: #6b7280;
+    width: 7px;
+    height: 7px;
+  }
+  
+  .category-count {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #4b5563;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .category-table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-table-header {
+    display: flex;
+    background-color: #f9fafb;
+    padding: 15px;
+    font-weight: 600;
+    color: #4b5563;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .category-table-row {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    align-items: center;
+  }
+  
+  .category-table-row:hover {
+    background-color: #f9fafb;
+  }
+  
+  .category-si-column {
+    /* width: 5%;
+    text-align: center;
+    background-color: red; */
+    /* width: 50px; */
+    text-align: left;
+    margin-left: 40px;
+  }
+  
+  .category-image-column {
+    
+    width: 80px;
+    margin-left: 200px; /* Gap between SI and Image */
+  }
+  
+  .category-id-column {
+    width: 100px;
+  margin-left: 200px; /* Gap between Image and Category Id */
+  }
+  
+  .category-name-column {
+    flex: 1;
+    margin-left: 300px; /* Gap between Category Id and Category Name */
+  }
+  
+  .category-food-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f3f4f6;
+    
+  }
+  
+  .category-settings-button {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* For placeholder images */
+  .category-food-image:nth-child(1) {
+    background-color: #c2410c;
+  }
+  
+  .category-food-image:nth-child(2) {
+    background-color: #f472b6;
+  }
+  
+  .category-food-image:nth-child(3) {
+    background-color: #93c5fd;
+  }
+  
+  .category-food-image:nth-child(4) {
+    background-color: #ca8a04;
+  }
+  
+  .category-food-image:nth-child(5) {
+    background-color: #dc2626;
+  }
+  
+  .category-food-image:nth-child(6) {
+    background-color: #facc15;
+  }

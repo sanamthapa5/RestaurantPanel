@@ -29,6 +29,7 @@ import CustomerReviews from "./pages/BusinessManagement/CustomersReviews";
 import ExpenseReport from "./pages/Report/ExpenseReport";
 // import AdForm from "./pages/Advertisement/NewAdvertisement/AdForm";
 import NewAdvertisement from "./pages/Advertisement/NewAdvertisement/NewAdvertisement";
+import Pending from "./pages/Advertisement/AdvertisementList/Pending";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -188,6 +189,9 @@ const App = () => {
             </Layout>
           }
         />
+        <Route path="/Pending" element={<Pending />} />
+
+        {/* <Route path="/Pending" element={Pending} /> */}
       </Routes>
     </Router>
   );

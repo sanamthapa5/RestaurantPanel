@@ -189,9 +189,16 @@ const App = () => {
             </Layout>
           }
         />
-        <Route path="/Pending" element={<Pending />} />
+        <Route
+          path="/Pending"
+          element={
+            <Layout>
+              <Pending />
+            </Layout>
+          }
+        />
 
-        {/* <Route path="/Pending" element={Pending} /> */}
+        {/* <Route path="/Pending" element={<Pending />} /> */}
       </Routes>
     </Router>
   );

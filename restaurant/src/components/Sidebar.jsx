@@ -154,7 +154,7 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link to="/NewAdvertisement" className="nav-link">
               <span className="icon">
                 <FaTv />
               </span>
@@ -185,7 +185,7 @@ const Sidebar = () => {
             {expandedSections.advertisement && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link to="/Pending" className="submenu-link">
                     <span className="bullet">•</span>
                     <span className="text">Pending </span>
                   </Link>

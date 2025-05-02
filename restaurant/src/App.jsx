@@ -31,6 +31,7 @@ import ExpenseReport from "./pages/Report/ExpenseReport";
 import NewAdvertisement from "./pages/Advertisement/NewAdvertisement/NewAdvertisement";
 import Pending from "./pages/Advertisement/AdvertisementList/Pending";
 import Category from "./pages/FoodManagement/Category";
+import SubCategory from "./pages/FoodManagement/Subcategory";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -205,6 +206,14 @@ const App = () => {
           element={
             <Layout>
               <Category />
+            </Layout>
+          }
+        />
+        <Route
+          path="/SubCategory"
+          element={
+            <Layout>
+              <SubCategory />
             </Layout>
           }
         />

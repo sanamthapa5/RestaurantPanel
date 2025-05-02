@@ -30,6 +30,7 @@ import ExpenseReport from "./pages/Report/ExpenseReport";
 // import AdForm from "./pages/Advertisement/NewAdvertisement/AdForm";
 import NewAdvertisement from "./pages/Advertisement/NewAdvertisement/NewAdvertisement";
 import Pending from "./pages/Advertisement/AdvertisementList/Pending";
+import Category from "./pages/FoodManagement/Category";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -199,6 +200,7 @@ const App = () => {
         />
 
         {/* <Route path="/Pending" element={<Pending />} /> */}
+        <Route path="/Category" element={<Category />} />
       </Routes>
     </Router>
   );

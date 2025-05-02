@@ -357,13 +357,13 @@ const Sidebar = () => {
                 <li className="submenu-item">
                   <Link to="#" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Main Categories</span>
+                    <span className="text">Category</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
                   <Link to="#" className="submenu-link">
                     <span className="bullet">•</span>
-                    <span className="text">Sub Categories</span>
+                    <span className="text">Sub Category</span>
                   </Link>
                 </li>
               </ul>

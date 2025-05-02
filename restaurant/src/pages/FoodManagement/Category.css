@@ -1,10 +1,15 @@
+/* Main container */
 .category-container {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* Header styles */
 .category-header {
   display: flex;
   justify-content: space-between;
@@ -16,6 +21,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.category-title-section img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 .category-grid-icon {
@@ -48,6 +59,45 @@ h1 {
   font-weight: 600;
 }
 
+/* Search styles (reused from previous components) */
+.Pending-search-container {
+  position: relative;
+  width: 350px;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.Pending-search-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.Pending-search-input {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.Pending-search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background-color: #8a96a7;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table styles */
 .category-table {
   background-color: #fff;
   border-radius: 8px;
@@ -75,27 +125,52 @@ h1 {
   background-color: #f9fafb;
 }
 
-.category-si-column {
-  /* width: 5%;
+.category-table-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* No data found styles */
+/*Instead of using classname from foodcampaign , remove this comment */
+/* .no-data-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background-color: red; */
-  /* width: 50px; */
+  padding: 40px; 
+}
+
+.no-data-icon {
+  color: #f59e0b; 
+  margin-bottom: 10px;
+}
+
+.no-data-found p {
+  font-size: 18px;
+  color: #4b5563;
+  margin: 0;
+  font-weight: 500;
+} */
+
+/* Column styles */
+.category-si-column {
   text-align: left;
   margin-left: 40px;
+  width: 60px;
+  flex: 0 0 60px;
 }
 
 .category-image-column {
-  
   width: 80px;
   margin-left: 200px; /* Gap between SI and Image */
-  /* text-align: left; */
+  flex: 0 0 80px;
 }
 
 .category-id-column {
   width: 90px;
-margin-left: 200px; /* Gap between Image and Category Id */
-
-
+  margin-left: 200px; /* Gap between Image and Category Id */
+  flex: 0 0 90px;
 }
 
 .category-name-column {
@@ -103,6 +178,7 @@ margin-left: 200px; /* Gap between Image and Category Id */
   margin-left: 300px; /* Gap between Category Id and Category Name */
 }
 
+/* Image styles */
 .category-food-image {
   width: 60px;
   height: 60px;
@@ -110,12 +186,10 @@ margin-left: 200px; /* Gap between Image and Category Id */
   background-size: cover;
   background-position: center;
   background-color: #f3f4f6;
-  
 }
 
+/* Placeholder image colors */
 
-
-/* For placeholder images */
 .category-food-image:nth-child(1) {
   background-color: #c2410c;
 }

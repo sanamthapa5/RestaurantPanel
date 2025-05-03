@@ -32,6 +32,7 @@ import NewAdvertisement from "./pages/Advertisement/NewAdvertisement/NewAdvertis
 import Pending from "./pages/Advertisement/AdvertisementList/Pending";
 import Category from "./pages/FoodManagement/Category";
 import SubCategory from "./pages/FoodManagement/Subcategory";
+import AdsList from "./pages/Advertisement/AdvertisementList/AdsList";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -56,7 +57,6 @@ const App = () => {
         <Route path="/FoodDashboard" element={<FoodDashboard />} />
         <Route path="/Ssidebar" element={<Ssidebar />} />
         <Route path="/Footer" element={<Footer />} />
-        <Route path="/BillingSection" element={<BillingSection />} />
         <Route
           path="/FoodCampaign"
           element={
@@ -199,6 +199,7 @@ const App = () => {
             </Layout>
           }
         />
+        <Route path="/AdsList" element={<AdsList />} />
 
         {/* <Route path="/Pending" element={<Pending />} /> */}
         <Route

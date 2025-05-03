@@ -191,7 +191,7 @@ const Sidebar = () => {
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link to="/AdsList" className="submenu-link">
                     <span className="bullet">•</span>
                     <span className="text">Ads List</span>
                   </Link>

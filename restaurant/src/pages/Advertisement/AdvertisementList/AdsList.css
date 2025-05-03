@@ -81,6 +81,7 @@
   
   .AdsList-filter-dropdown select {
     padding: 10px 16px;
+    
     border: 1px solid #e2e8f0;
     border-radius: 6px;
     background-color: white;
@@ -141,8 +142,9 @@
   }
   
   .AdsList-status-badge.running {
-    background-color: #ecfdf5;
-    color: #10b981;
+    background-color: #ebf2ff;
+    /* color: #10b981; */
+    color: rgb(90, 181, 255);
   }
   
   .AdsList-action-btn {

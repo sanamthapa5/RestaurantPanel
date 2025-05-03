@@ -2,7 +2,7 @@
 
 // import { useState } from "react";
 // import "./AdsList.css";
-// import { Search, MoreVertical, Plus } from "lucide-react";
+// import { Search, MoreVertical, Plus, AlertTriangle } from "lucide-react";
 
 // const AdsList = () => {
 //   const [searchQuery, setSearchQuery] = useState("");
@@ -35,13 +35,23 @@
 //     setFilterValue(e.target.value);
 //   };
 
+//   // Filter ads based on search query and filter value
+//   const filteredAds = ads.filter((ad) => {
+//     const matchesSearch =
+//       ad.adsId.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//       ad.adsTitle.toLowerCase().includes(searchQuery.toLowerCase());
+//     const matchesFilter =
+//       filterValue === "All Ads" || ad.status === filterValue;
+//     return matchesSearch && matchesFilter;
+//   });
+
 //   return (
 //     <div className="AdsList-container">
 //       <div className="AdsList-header">
 //         <div className="AdsList-title">
 //           <span className="AdsList-icon">📢</span>
 //           <h1>Ads List</h1>
-//           <span className="AdsList-badge">{ads.length}</span>
+//           <span className="AdsList-badge">{filteredAds.length}</span>
 //         </div>
 //         <button className="Pending-new-ad-button">
 //           <Plus size={20} />
@@ -86,27 +96,43 @@
 //               </tr>
 //             </thead>
 //             <tbody>
-//               {ads.map((ad) => (
-//                 <tr key={ad.id}>
-//                   <td>{ad.id}</td>
-//                   <td className="AdsList-ads-id">{ad.adsId}</td>
-//                   <td>{ad.adsType}</td>
-//                   <td>{ad.adsTitle}</td>
-//                   <td>{ad.duration}</td>
-//                   <td>
-//                     <span
-//                       className={`AdsList-status-badge ${ad.status.toLowerCase()}`}
-//                     >
-//                       {ad.status}
-//                     </span>
-//                   </td>
-//                   <td>
-//                     <button className="AdsList-action-btn">
-//                       <MoreVertical size={18} />
-//                     </button>
+//               {filteredAds.length > 0 ? (
+//                 filteredAds.map((ad) => (
+//                   <tr key={ad.id}>
+//                     <td>{ad.id}</td>
+//                     <td className="AdsList-ads-id">{ad.adsId}</td>
+//                     <td>{ad.adsType}</td>
+//                     <td>{ad.adsTitle}</td>
+//                     <td>{ad.duration}</td>
+//                     <td>
+//                       <span
+//                         className={`AdsList-status-badge ${ad.status.toLowerCase()}`}
+//                       >
+//                         {ad.status}
+//                       </span>
+//                     </td>
+//                     <td>
+//                       <button className="AdsList-action-btn">
+//                         <MoreVertical size={18} />
+//                       </button>
+//                     </td>
+//                   </tr>
+//                 ))
+//               ) : (
+//                 <tr>
+//                   <td colSpan="7">
+//                     <div className="empty-state">
+//                       <div className="folder-icon">
+//                         <div className="folder-top"></div>
+//                         <div className="folder-body">
+//                           <AlertTriangle className="alert-icon" size={24} />
+//                         </div>
+//                       </div>
+//                       <p className="empty-text">No Data Found</p>
+//                     </div>
 //                   </td>
 //                 </tr>
-//               ))}
+//               )}
 //             </tbody>
 //           </table>
 //         </div>
@@ -122,6 +148,7 @@
 import { useState } from "react";
 import "./AdsList.css";
 import { Search, MoreVertical, Plus, AlertTriangle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AdsList = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -219,7 +246,9 @@ const AdsList = () => {
                 filteredAds.map((ad) => (
                   <tr key={ad.id}>
                     <td>{ad.id}</td>
-                    <td className="AdsList-ads-id">{ad.adsId}</td>
+                    <td className="AdsList-ads-id">
+                      <Link to={`/ads/${ad.adsId}`}>{ad.adsId}</Link>
+                    </td>
                     <td>{ad.adsType}</td>
                     <td>{ad.adsTitle}</td>
                     <td>{ad.duration}</td>

@@ -199,7 +199,14 @@ const App = () => {
             </Layout>
           }
         />
-        <Route path="/AdsList" element={<AdsList />} />
+        <Route
+          path="/AdsList"
+          element={
+            <Layout>
+              <AdsList />
+            </Layout>
+          }
+        />
 
         {/* <Route path="/Pending" element={<Pending />} /> */}
         <Route

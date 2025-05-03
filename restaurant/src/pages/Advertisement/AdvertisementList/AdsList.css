@@ -4,13 +4,25 @@
     box-sizing: border-box;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
-  } */
-  
-  .AdsList-container {
+  }
+   */
+  /* .AdsList-container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+  } */
+  .AdsList-container {
+    font-family: "Inter", sans-serif;
+    margin-top: 20px;
+    margin-left: 130px;
+    margin-right: 10px;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    /* min-height: 100vh; */
+    background-color: white;
   }
   
   .AdsList-header {
@@ -44,7 +56,6 @@
     display: flex;
     gap: 16px;
     margin-bottom: 24px;
-    
   }
   
   .AdsList-search-box {
@@ -53,10 +64,8 @@
     border: 1px solid #e2e8f0;
     border-radius: 6px;
     overflow: hidden;
-    
-   width: 150px; 
-   margin-left: 560px;
-   
+    width: 150px;
+    margin-left: 560px;
   }
   
   .AdsList-search-box input {
@@ -81,7 +90,6 @@
   
   .AdsList-filter-dropdown select {
     padding: 10px 16px;
-    
     border: 1px solid #e2e8f0;
     border-radius: 6px;
     background-color: white;
@@ -126,6 +134,7 @@
   .AdsList-ads-id {
     color: #3b82f6;
     font-weight: 500;
+    cursor: pointer;
   }
   
   .AdsList-status-badge {
@@ -143,7 +152,6 @@
   
   .AdsList-status-badge.running {
     background-color: #ebf2ff;
-    /* color: #10b981; */
     color: rgb(90, 181, 255);
   }
   

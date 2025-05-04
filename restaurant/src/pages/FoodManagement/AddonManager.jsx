@@ -1,4 +1,3 @@
-
 // import { useState } from "react";
 // import "./AddonManager.css";
 // import { PencilIcon, TrashIcon } from "./icons";
@@ -79,7 +78,7 @@
 //         <h2>
 //           <span className="icon">⊕</span> Add New Addon
 //         </h2>
-//       </div> 
+//       </div>
 
 //       <div className="tabs">
 //         {tabs.map((tab) => (
@@ -130,7 +129,7 @@
 //             </div>
 //           </div>
 //         </div>
- 
+
 //         <div className="form-actions">
 //           <button type="button" className="reset-btn" onClick={resetForm}>
 //             Reset
@@ -138,7 +137,7 @@
 //           <button type="submit" className="submit-btn">
 //             Submit
 //           </button>
-//         </div> 
+//         </div>
 //       </form>
 
 //       <div className="addon-list">
@@ -194,12 +193,6 @@
 // };
 
 // export default AddonManager;
-
-
-
-
-
-
 
 // import { useState } from "react";
 // import "./AddonManager.css";
@@ -433,7 +426,6 @@
 
 // export default AddonManager;
 
-
 // import { useState } from "react";
 // import "./AddonManager.css";
 // import { PencilIcon, TrashIcon } from "./icons";
@@ -657,10 +649,10 @@
 
 // export default AddonManager;
 
-
 import { useState } from "react";
 import "./AddonManager.css";
 import { PencilIcon, TrashIcon } from "./icons";
+import { CirclePlus } from "lucide-react";
 
 const AddonManager = () => {
   const [activeTab, setActiveTab] = useState("Default");
@@ -671,13 +663,55 @@ const AddonManager = () => {
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [addons, setAddons] = useState([
-    { id: 1, name: "Cheese", price: 15.0, stockType: "Unlimited", stock: "Unlimited" },
-    { id: 2, name: "Cake", price: 12.0, stockType: "Unlimited", stock: "Unlimited" },
-    { id: 3, name: "Extra Chicken", price: 12.0, stockType: "Unlimited", stock: "Unlimited" },
-    { id: 4, name: "Extra Meat", price: 14.0, stockType: "Unlimited", stock: "Unlimited" },
-    { id: 5, name: "Extra Spice", price: 9.0, stockType: "Unlimited", stock: "Unlimited" },
-    { id: 6, name: "Pepsi", price: 18.0, stockType: "Unlimited", stock: "Unlimited" },
-    { id: 7, name: "Sauce", price: 11.0, stockType: "Unlimited", stock: "Unlimited" },
+    {
+      id: 1,
+      name: "Cheese",
+      price: 15.0,
+      stockType: "Unlimited",
+      stock: "Unlimited",
+    },
+    {
+      id: 2,
+      name: "Cake",
+      price: 12.0,
+      stockType: "Unlimited",
+      stock: "Unlimited",
+    },
+    {
+      id: 3,
+      name: "Extra Chicken",
+      price: 12.0,
+      stockType: "Unlimited",
+      stock: "Unlimited",
+    },
+    {
+      id: 4,
+      name: "Extra Meat",
+      price: 14.0,
+      stockType: "Unlimited",
+      stock: "Unlimited",
+    },
+    {
+      id: 5,
+      name: "Extra Spice",
+      price: 9.0,
+      stockType: "Unlimited",
+      stock: "Unlimited",
+    },
+    {
+      id: 6,
+      name: "Pepsi",
+      price: 18.0,
+      stockType: "Unlimited",
+      stock: "Unlimited",
+    },
+    {
+      id: 7,
+      name: "Sauce",
+      price: 11.0,
+      stockType: "Unlimited",
+      stock: "Unlimited",
+    },
   ]);
 
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
@@ -747,9 +781,12 @@ const AddonManager = () => {
 
   return (
     <div className="addon-manager">
-      <div className="header1">
+      <div className="AddonHeader">
         <h2>
-          <span className="icon">⊕</span> Add New Addon
+          <span className="icon">
+            <CirclePlus />
+          </span>{" "}
+          Add New Addon
         </h2>
       </div>
 
@@ -795,7 +832,11 @@ const AddonManager = () => {
           <div className="form-group">
             <label>Stock Type</label>
             <div className="select-wrapper">
-              <select name="stockType" value={formData.stockType} onChange={handleInputChange}>
+              <select
+                name="stockType"
+                value={formData.stockType}
+                onChange={handleInputChange}
+              >
                 <option value="Unlimited Stock">Unlimited Stock</option>
                 <option value="Limited Stock">Limited Stock</option>
               </select>
@@ -835,14 +876,34 @@ const AddonManager = () => {
                   SI
                   <span className="sort-icons">
                     <span
-                      className={`arrow ${sortConfig.key === "id" && sortConfig.direction === "asc" ? "active" : ""}`}
-                      onClick={() => handleSort("id", sortConfig.direction === "asc" ? "desc" : "asc")}
+                      className={`arrow ${
+                        sortConfig.key === "id" &&
+                        sortConfig.direction === "asc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "id",
+                          sortConfig.direction === "asc" ? "desc" : "asc"
+                        )
+                      }
                     >
                       ▼
                     </span>
                     <span
-                      className={`arrow ${sortConfig.key === "id" && sortConfig.direction === "desc" ? "active" : ""}`}
-                      onClick={() => handleSort("id", sortConfig.direction === "desc" ? "asc" : "desc")}
+                      className={`arrow ${
+                        sortConfig.key === "id" &&
+                        sortConfig.direction === "desc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "id",
+                          sortConfig.direction === "desc" ? "asc" : "desc"
+                        )
+                      }
                     >
                       ▲
                     </span>
@@ -852,14 +913,34 @@ const AddonManager = () => {
                   Name
                   <span className="sort-icons">
                     <span
-                      className={`arrow ${sortConfig.key === "name" && sortConfig.direction === "asc" ? "active" : ""}`}
-                      onClick={() => handleSort("name", sortConfig.direction === "asc" ? "desc" : "asc")}
+                      className={`arrow ${
+                        sortConfig.key === "name" &&
+                        sortConfig.direction === "asc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "name",
+                          sortConfig.direction === "asc" ? "desc" : "asc"
+                        )
+                      }
                     >
                       ▼
                     </span>
                     <span
-                      className={`arrow ${sortConfig.key === "name" && sortConfig.direction === "desc" ? "active" : ""}`}
-                      onClick={() => handleSort("name", sortConfig.direction === "desc" ? "asc" : "desc")}
+                      className={`arrow ${
+                        sortConfig.key === "name" &&
+                        sortConfig.direction === "desc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "name",
+                          sortConfig.direction === "desc" ? "asc" : "desc"
+                        )
+                      }
                     >
                       ▲
                     </span>
@@ -869,14 +950,34 @@ const AddonManager = () => {
                   Price
                   <span className="sort-icons">
                     <span
-                      className={`arrow ${sortConfig.key === "price" && sortConfig.direction === "asc" ? "active" : ""}`}
-                      onClick={() => handleSort("price", sortConfig.direction === "asc" ? "desc" : "asc")}
+                      className={`arrow ${
+                        sortConfig.key === "price" &&
+                        sortConfig.direction === "asc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "price",
+                          sortConfig.direction === "asc" ? "desc" : "asc"
+                        )
+                      }
                     >
                       ▼
                     </span>
                     <span
-                      className={`arrow ${sortConfig.key === "price" && sortConfig.direction === "desc" ? "active" : ""}`}
-                      onClick={() => handleSort("price", sortConfig.direction === "desc" ? "asc" : "desc")}
+                      className={`arrow ${
+                        sortConfig.key === "price" &&
+                        sortConfig.direction === "desc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "price",
+                          sortConfig.direction === "desc" ? "asc" : "desc"
+                        )
+                      }
                     >
                       ▲
                     </span>
@@ -886,14 +987,34 @@ const AddonManager = () => {
                   Stock Type
                   <span className="sort-icons">
                     <span
-                      className={`arrow ${sortConfig.key === "stockType" && sortConfig.direction === "asc" ? "active" : ""}`}
-                      onClick={() => handleSort("stockType", sortConfig.direction === "asc" ? "desc" : "asc")}
+                      className={`arrow ${
+                        sortConfig.key === "stockType" &&
+                        sortConfig.direction === "asc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "stockType",
+                          sortConfig.direction === "asc" ? "desc" : "asc"
+                        )
+                      }
                     >
                       ▼
                     </span>
                     <span
-                      className={`arrow ${sortConfig.key === "stockType" && sortConfig.direction === "desc" ? "active" : ""}`}
-                      onClick={() => handleSort("stockType", sortConfig.direction === "desc" ? "asc" : "desc")}
+                      className={`arrow ${
+                        sortConfig.key === "stockType" &&
+                        sortConfig.direction === "desc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "stockType",
+                          sortConfig.direction === "desc" ? "asc" : "desc"
+                        )
+                      }
                     >
                       ▲
                     </span>
@@ -903,14 +1024,34 @@ const AddonManager = () => {
                   Stock
                   <span className="sort-icons">
                     <span
-                      className={`arrow ${sortConfig.key === "stock" && sortConfig.direction === "asc" ? "active" : ""}`}
-                      onClick={() => handleSort("stock", sortConfig.direction === "asc" ? "desc" : "asc")}
+                      className={`arrow ${
+                        sortConfig.key === "stock" &&
+                        sortConfig.direction === "asc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "stock",
+                          sortConfig.direction === "asc" ? "desc" : "asc"
+                        )
+                      }
                     >
                       ▼
                     </span>
                     <span
-                      className={`arrow ${sortConfig.key === "stock" && sortConfig.direction === "desc" ? "active" : ""}`}
-                      onClick={() => handleSort("stock", sortConfig.direction === "desc" ? "asc" : "desc")}
+                      className={`arrow ${
+                        sortConfig.key === "stock" &&
+                        sortConfig.direction === "desc"
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handleSort(
+                          "stock",
+                          sortConfig.direction === "desc" ? "asc" : "desc"
+                        )
+                      }
                     >
                       ▲
                     </span>
@@ -928,10 +1069,16 @@ const AddonManager = () => {
                   <td>{addon.stockType}</td>
                   <td>{addon.stock}</td>
                   <td className="action-buttons">
-                    <button className="edit-btn" onClick={() => handleEdit(addon.id)}>
+                    <button
+                      className="edit-btn"
+                      onClick={() => handleEdit(addon.id)}
+                    >
                       <PencilIcon />
                     </button>
-                    <button className="delete-btn" onClick={() => handleDelete(addon.id)}>
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDelete(addon.id)}
+                    >
                       <TrashIcon />
                     </button>
                   </td>

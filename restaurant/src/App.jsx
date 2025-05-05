@@ -33,6 +33,7 @@ import Pending from "./pages/Advertisement/AdvertisementList/Pending";
 import Category from "./pages/FoodManagement/Category";
 import SubCategory from "./pages/FoodManagement/Subcategory";
 import AdsList from "./pages/Advertisement/AdvertisementList/AdsList";
+import BusinessPlan from "./pages/BusinessManagement/BusinessPlan";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -225,6 +226,7 @@ const App = () => {
             </Layout>
           }
         />
+        <Route path="/BusinessPlan" element={<BusinessPlan />} />
       </Routes>
     </Router>
   );

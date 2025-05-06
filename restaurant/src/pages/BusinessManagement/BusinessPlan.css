@@ -1,244 +1,250 @@
 /* Main Container Styles */
-.business-plan-container {
-    font-family: "Inter", sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #f8f9fa;
-    min-height: 100vh;
-  }
-  
-  /* Header Styles */
-  .headerPlan {
-    padding: 20px;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .logo-containerPlan {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .store-icon {
-    color: #333;
-  }
-  
+.BusinessPlan-business-plan-container {
+  font-family: "Inter", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
 
-  .headerPlan h1 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin: 0;
-  }
-  
-  /* Content Layout */
-  .content {
-    padding: 20px;
-  }
-  
-  .overview-section {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .overview-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    color: #555;
-    font-size: 18px;
-  }
-  
-  .overview-icon {
-    font-size: 20px;
-  }
-  
-  /* Plan Card Styles */
-  .plan-card {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .plan-title {
-    color: #0077cc;
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-  
-  .commission-rate {
-    margin-bottom: 20px;
-  }
-  
-  .rate {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .rate-description {
-    font-size: 18px;
-    color: #666;
-    margin-left: 10px;
-  }
-  
-  .plan-description {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-  
-  .change-plan-btn {
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    float: right;
-  }
-  
-  .change-plan-btn:hover {
-    background-color: #005fa3;
-  }
-  
-  /* Modal Styles */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 1000px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 20px;
-  }
-  
-  .plans-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .current-plan,
-  .plan-option {
-    flex: 1;
-    min-width: 220px;
-    border-radius: 12px;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .current-plan {
-    background-color: #2c3e50;
-    color: white;
-  }
-  
-  .plan-option {
-    background-color: #f0f7ff;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .current-plan h3,
-  .plan-option h3 {
-    text-align: center;
-    margin-top: 0;
-    font-size: 20px;
-  }
-  
-  .current-rate {
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .plan-price {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-    margin: 15px 0 5px;
-  }
-  
-  .plan-duration {
-    text-align: center;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .current-plan-description {
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px;
-  }
-  
-  .features-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    color: #333;
-  }
-  
-  .check-icon {
-    color: #10b981;
-    width: 18px;
-    height: 18px;
-  }
-  
-  .current-plan-btn,
-  .shift-plan-btn {
-    margin-top: auto;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    border: none;
-    transition: all 0.2s;
-  }
-  
-  .current-plan-btn {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-  }
-  
-  .shift-plan-btn {
-    background-color: #2c3e50;
-    color: white;
-  }
-  
-  .current-plan-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-  
-  .shift-plan-btn:hover {
-    background-color: #1e2a3a;
-  }
-  
+/* Header Styles */
+.BusinessPlan-header {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.BusinessPlan-logo-containerPlan {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.BusinessPlan-store-icon {
+  color: #333;
+}
+
+
+.BusinessPlan-header h1 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+/* Content Layout */
+.BusinessPlan-content {
+  padding: 20px;
+}
+
+.BusinessPlan-overview-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.BusinessPlan-overview-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 18px;
+}
+
+.BusinessPlan-overview-icon {
+  font-size: 20px;
+}
+
+/* Plan Card Styles */
+.BusinessPlan-plan-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.BusinessPlan-plan-title {
+  color: #0077cc;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.BusinessPlan-commission-rate {
+  margin-bottom: 20px;
+}
+
+.BusinessPlan-rate {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+.BusinessPlan-rate-description {
+  font-size: 18px;
+  color: #666;
+  margin-left: 10px;
+}
+
+.BusinessPlan-plan-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.BusinessPlan-change-plan-btn {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.BusinessPlan-change-plan-btn:hover {
+  background-color: #005fa3;
+}
+
+/* Modal Styles */
+.BusinessPlan-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.BusinessPlan-modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.BusinessPlan-plans-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.BusinessPlan-current-plan,
+.BusinessPlan-plan-option {
+  flex: 1;
+  min-width: 220px;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.BusinessPlan-current-plan {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.BusinessPlan-plan-option {
+  background-color: #f0f7ff;
+  border: 1px solid #e0e0e0;
+}
+
+.BusinessPlan-current-plan h3,
+.BusinessPlan-plan-option h3 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.BusinessPlan-current-rate {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.BusinessPlan-plan-price {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin: 15px 0 5px;
+}
+
+.BusinessPlan-plan-duration {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.BusinessPlan-current-plan-description {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.BusinessPlan-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.BusinessPlan-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.BusinessPlan-check-icon {
+  color: #10b981;
+  width: 18px;
+  height: 18px;
+}
+
+.BusinessPlan-current-plan-btn,
+.BusinessPlan-shift-plan-btn {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  transition: all 0.2s;
+}
+
+.BusinessPlan-current-plan-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.BusinessPlan-shift-plan-btn {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.BusinessPlan-current-plan-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.BusinessPlan-shift-plan-btn:hover {
+  background-color: #1e2a3a;
+}
+
+/* Styles for the button container and Details button */
+.BusinessPlan-plan-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}

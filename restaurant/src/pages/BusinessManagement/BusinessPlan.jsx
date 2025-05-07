@@ -78,7 +78,10 @@ const BusinessPlan = () => {
       <div className="BusinessPlan-withdraw-header">
         <div className="BusinessPlan-withdraw-title">
           <span className="BusinessPlan-icon-person">
-            <Store />
+            <img
+              src="https://stackfood-admin.6amtech.com/public/assets/admin/img/store.png"
+              alt=""
+            />
           </span>
           <h1>Business Plan Setup</h1>
         </div>
@@ -87,7 +90,12 @@ const BusinessPlan = () => {
         <div className="BusinessPlan-withdraw-content">
           <div className="BusinessPlan-withdraw-methods-header">
             <div className="BusinessPlan-methods-title">
-              <h2>Business Plans</h2>
+              <img
+                src="https://stackfood-admin.6amtech.com/public/assets/admin/img/subscription-plan/subscribed-user.png"
+                alt="Overview Icon"
+                style={{ height: "24px", marginRight: "10px" }}
+              />
+              <h2>Overview</h2>
             </div>
           </div>
           <div className="BusinessPlan-plan-card">

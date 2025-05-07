@@ -226,7 +226,14 @@ const App = () => {
             </Layout>
           }
         />
-        <Route path="/BusinessPlan" element={<BusinessPlan />} />
+        <Route
+          path="/BusinessPlan"
+          element={
+            <Layout>
+              <BusinessPlan />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );

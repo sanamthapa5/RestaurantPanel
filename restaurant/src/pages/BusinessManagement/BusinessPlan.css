@@ -107,7 +107,7 @@
 }
 
 /* Button Styles */
-.BusinessPlan-change-plan-btn {
+.BusinessPlan-change-plan-btn{
   background-color: #0077cc;
   color: white;
   border: none;
@@ -118,21 +118,24 @@
   cursor: pointer;
   transition: background-color 0.2s;
   width: 200px;
-  margin-left: 115vh;
+  
 }
 
 .BusinessPlan-shift-plan-btn {
   background-color: #0077cc;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 12px 24px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
   width: 200px;
-  margin-left: auto;
+  /* margin-left: auto; */
+  margin: -2vh;
+ 
+  
 }
 
 .BusinessPlan-change-plan-btn:hover,
@@ -467,8 +470,10 @@
 }
 
 .BusinessPlan-payment-options {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
 
@@ -477,7 +482,9 @@
   align-items: center;
   padding: 15px;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 20px;
+ 
+
 }
 
 .BusinessPlan-payment-option input[type="radio"] {
@@ -501,16 +508,20 @@
   object-fit: contain;
 }
 
+
+
 .BusinessPlan-modal-footer {
   display: flex;
   justify-content: flex-end;
   padding: 20px 30px;
   gap: 15px;
   border-top: 1px solid #eee;
+  white-space: nowrap;
 }
 
 .BusinessPlan-cancel-btn {
   background-color: #f5f5f5;
+  width: 200px;
   color: #333;
   border: none;
   padding: 12px 24px;
@@ -519,6 +530,7 @@
   font-weight: 500;
   cursor: pointer;
 }
+
 
 .BusinessPlan-cancel-btn:hover {
   background-color: #e5e5e5;

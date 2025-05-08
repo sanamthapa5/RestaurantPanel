@@ -39,7 +39,7 @@ import "./sidebar.css";
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [expandedSections, setExpandedSections] = useState({
-    promotions: false, // Campaign closed by default
+    promotions: false,
     advertisement: false,
     order: false,
     food: false,
@@ -47,6 +47,7 @@ const Sidebar = () => {
     orderReport: false,
     employee: false,
   });
+  const [activeLink, setActiveLink] = useState(""); // Track active link
 
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
@@ -57,6 +58,11 @@ const Sidebar = () => {
       ...expandedSections,
       [section]: !expandedSections[section],
     });
+  };
+
+  const handleLinkClick = (link) => {
+    console.log("Active Link set to:", link); // Debug log
+    setActiveLink(link);
   };
 
   return (
@@ -80,7 +86,13 @@ const Sidebar = () => {
         <ul className="nav-list">
           {/* Main Navigation */}
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="#"
+              className={`nav-link ${
+                activeLink === "Dashboard" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Dashboard")}
+            >
               <span className="icon">
                 <FaHome />
               </span>
@@ -88,7 +100,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/FoodOrderingApp" className="nav-link">
+            <Link
+              to="/FoodOrderingApp"
+              className={`nav-link ${
+                activeLink === "Point Of Sale" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Point Of Sale")}
+            >
               <span className="icon">
                 <FaShoppingBag />
               </span>
@@ -124,13 +142,25 @@ const Sidebar = () => {
             {expandedSections.promotions && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="/CampaignDashboard" className="submenu-link">
+                  <Link
+                    to="/CampaignDashboard"
+                    className={`submenu-link ${
+                      activeLink === "Basic Campaign" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Basic Campaign")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Basic Campaign</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="/FoodCampaign" className="submenu-link">
+                  <Link
+                    to="/FoodCampaign"
+                    className={`submenu-link ${
+                      activeLink === "Food Campaign" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Food Campaign")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Food Campaign</span>
                   </Link>
@@ -139,7 +169,11 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="/Coupon" className="nav-link">
+            <Link
+              to="/Coupon"
+              className={`nav-link ${activeLink === "Coupons" ? "active" : ""}`}
+              onClick={() => handleLinkClick("Coupons")}
+            >
               <span className="icon">
                 <FaTicketAlt />
               </span>
@@ -154,7 +188,13 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="/NewAdvertisement" className="nav-link">
+            <Link
+              to="/NewAdvertisement"
+              className={`nav-link ${
+                activeLink === "New Advertisement" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("New Advertisement")}
+            >
               <span className="icon">
                 <FaTv />
               </span>
@@ -185,13 +225,25 @@ const Sidebar = () => {
             {expandedSections.advertisement && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="/Pending" className="submenu-link">
+                  <Link
+                    to="/Pending"
+                    className={`submenu-link ${
+                      activeLink === "Pending" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Pending")}
+                  >
                     <span className="bullet">•</span>
-                    <span className="text">Pending </span>
+                    <span className="text">Pending</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="/AdsList" className="submenu-link">
+                  <Link
+                    to="/AdsList"
+                    className={`submenu-link ${
+                      activeLink === "Ads List" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Ads List")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Ads List</span>
                   </Link>
@@ -230,85 +282,73 @@ const Sidebar = () => {
             {expandedSections.order && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "All Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("All Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">All</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Pending Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Pending Orders")}
+                  >
                     <span className="bullet">•</span>
-                    <span className="text">Pending </span>
+                    <span className="text">Pending</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Confirmed Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Confirmed Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Confirmed</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Accepted Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Accepted Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Accepted</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Cooking Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Cooking Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Cooking</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Cooking</span>
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Cancelled Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Cancelled Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Cancelled Orders</span>
                   </Link>
@@ -317,7 +357,13 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="/SubscribedOrders" className="nav-link">
+            <Link
+              to="/SubscribedOrders"
+              className={`nav-link ${
+                activeLink === "Order Subscription" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Order Subscription")}
+            >
               <span className="icon">
                 <FaCalendarCheck />
               </span>
@@ -355,13 +401,25 @@ const Sidebar = () => {
             {expandedSections.categories && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="/Category" className="submenu-link">
+                  <Link
+                    to="/Category"
+                    className={`submenu-link ${
+                      activeLink === "Category" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Category")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Category</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="/SubCategory" className="submenu-link">
+                  <Link
+                    to="/SubCategory"
+                    className={`submenu-link ${
+                      activeLink === "Sub Category" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Sub Category")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Sub Category</span>
                   </Link>
@@ -393,19 +451,37 @@ const Sidebar = () => {
             {expandedSections.food && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Add New Food" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Add New Food")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Add New Food</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Food List" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Food List")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Food List</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Popular Foods" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Popular Foods")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Popular Foods</span>
                   </Link>
@@ -414,7 +490,11 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="/AddonManager" className="nav-link">
+            <Link
+              to="/AddonManager"
+              className={`nav-link ${activeLink === "Addons" ? "active" : ""}`}
+              onClick={() => handleLinkClick("Addons")}
+            >
               <span className="icon">
                 <FaPlusCircle />
               </span>
@@ -429,7 +509,13 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="#"
+              className={`nav-link ${
+                activeLink === "Restaurant Config" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Restaurant Config")}
+            >
               <span className="icon">
                 <FaCog />
               </span>
@@ -437,7 +523,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/NotificationSetup" className="nav-link">
+            <Link
+              to="/NotificationSetup"
+              className={`nav-link ${
+                activeLink === "Notification Setup" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Notification Setup")}
+            >
               <span className="icon">
                 <FaBell />
               </span>
@@ -445,7 +537,11 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="#"
+              className={`nav-link ${activeLink === "My Shop" ? "active" : ""}`}
+              onClick={() => handleLinkClick("My Shop")}
+            >
               <span className="icon">
                 <FaHouseUser />
               </span>
@@ -453,7 +549,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="#"
+              className={`nav-link ${
+                activeLink === "My QR Code" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("My QR Code")}
+            >
               <span className="icon">
                 <FaQrcode />
               </span>
@@ -461,7 +563,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="/BusinessPlan"
+              className={`nav-link ${
+                activeLink === "My Business Plan" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("My Business Plan")}
+            >
               <span className="icon">
                 <FaChessKing />
               </span>
@@ -469,7 +577,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="#"
+              className={`nav-link ${
+                activeLink === "My Wallet" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("My Wallet")}
+            >
               <span className="icon">
                 <FaWallet />
               </span>
@@ -477,7 +591,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/WithdrawMethodSetup" className="nav-link">
+            <Link
+              to="/WithdrawMethodSetup"
+              className={`nav-link ${
+                activeLink === "Wallet Method" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Wallet Method")}
+            >
               <span className="icon">
                 <FaUniversity />
               </span>
@@ -485,8 +605,11 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            {/* <Link to="#" className="nav-link"> */}
-            <Link to="/CustomerReviews" className="nav-link">
+            <Link
+              to="/CustomerReviews"
+              className={`nav-link ${activeLink === "Reviews" ? "active" : ""}`}
+              onClick={() => handleLinkClick("Reviews")}
+            >
               <span className="icon">
                 <FaRegStar />
               </span>
@@ -494,7 +617,11 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="#"
+              className={`nav-link ${activeLink === "Chat" ? "active" : ""}`}
+              onClick={() => handleLinkClick("Chat")}
+            >
               <span className="icon">
                 <FaCommentAlt />
               </span>
@@ -509,7 +636,13 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="/ExpenseReport" className="nav-link">
+            <Link
+              to="/ExpenseReport"
+              className={`nav-link ${
+                activeLink === "Expense Report" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Expense Report")}
+            >
               <span className="icon">
                 <FaCogs />
               </span>
@@ -517,7 +650,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link">
+            <Link
+              to="#"
+              className={`nav-link ${
+                activeLink === "Transaction Report" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Transaction Report")}
+            >
               <span className="icon">
                 <FaChartPie />
               </span>
@@ -525,7 +664,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/DisbursementReport" className="nav-link">
+            <Link
+              to="/DisbursementReport"
+              className={`nav-link ${
+                activeLink === "Disbursement Report" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Disbursement Report")}
+            >
               <span className="icon">
                 <FaFileInvoice />
               </span>
@@ -556,19 +701,37 @@ const Sidebar = () => {
             {expandedSections.orderReport && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Daily Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Daily Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Daily Orders</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Weekly Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Weekly Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Weekly Orders</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
+                  <Link
+                    to="#"
+                    className={`submenu-link ${
+                      activeLink === "Monthly Orders" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Monthly Orders")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Monthly Orders</span>
                   </Link>
@@ -577,7 +740,13 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="/FoodReport" className="nav-link">
+            <Link
+              to="/FoodReport"
+              className={`nav-link ${
+                activeLink === "Food Report" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Food Report")}
+            >
               <span className="icon">
                 <FaHamburger />
               </span>
@@ -592,7 +761,13 @@ const Sidebar = () => {
             )}
           </li>
           <li className="nav-item">
-            <Link to="/EmployeeRole" className="nav-link">
+            <Link
+              to="/EmployeeRole"
+              className={`nav-link ${
+                activeLink === "Employee Role" ? "active" : ""
+              }`}
+              onClick={() => handleLinkClick("Employee Role")}
+            >
               <span className="icon">
                 <FaHatWizard />
               </span>
@@ -623,23 +798,29 @@ const Sidebar = () => {
             {expandedSections.employee && !collapsed && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="/EmployeeForm" className="submenu-link">
+                  <Link
+                    to="/EmployeeForm"
+                    className={`submenu-link ${
+                      activeLink === "Add New Employee" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Add New Employee")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">Add New Employee</span>
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="/EmployeeList" className="submenu-link">
+                  <Link
+                    to="/EmployeeList"
+                    className={`submenu-link ${
+                      activeLink === "Employee List" ? "active" : ""
+                    }`}
+                    onClick={() => handleLinkClick("Employee List")}
+                  >
                     <span className="bullet">•</span>
                     <span className="text">List</span>
                   </Link>
                 </li>
-                {/* <li className="submenu-item">
-                  <Link to="#" className="submenu-link">
-                    <span className="bullet">•</span>
-                    <span className="text">Employee Schedule</span>
-                  </Link>
-                </li> */}
               </ul>
             )}
           </li>

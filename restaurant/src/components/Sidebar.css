@@ -7,7 +7,6 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
- 
 }
 
 /* Sidebar Styles */
@@ -32,30 +31,22 @@ body {
   visibility: hidden;
 }
 
-
-
 /* Sidebar Header */
 .sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  
   border-bottom: 1px solid #3d5166;
   background-color: #e9f3ff;
-  
   position: sticky;
-  top:0;
+  top: 0;
   z-index: 100;
- 
 }
-
-
 
 .logo-container {
   display: flex;
   align-items: center;
- 
 }
 
 .logo {
@@ -65,12 +56,11 @@ body {
 }
 
 .logo img {
-  height: 40px; /* Adjust as needed */
+  height: 40px;
   width: 40px;
   object-fit: contain;
   border-radius: 8px;
 }
-
 
 .company-name {
   font-weight: 700;
@@ -78,18 +68,6 @@ body {
   color: #334257;
   margin-left: 20px;
 }
-
-
-
-/* .collapse-btn {
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 14px;
-  width: 20px;
-
-} */
 
 .collapse-btn {
   background: none;
@@ -111,10 +89,9 @@ body {
   transform: translateX(-50%);
 }
 
-
 .collapse-btn:focus {
-  outline: none; /* Removes the focus outline */
-  box-shadow: none; /* Removes any focus box shadow */
+  outline: none;
+  box-shadow: none;
 }
 
 /* Sidebar Content */
@@ -153,20 +130,47 @@ body {
   padding: 10px 15px;
   text-decoration: none;
   color: #ffffff;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
 }
 
-.nav-link:hover {
-  /* background-color: #3d5166; */
-  color: #e2813f;
-}
-.nav-link.active,
-.submenu-link.active {
-  background-color: #e2813f;
-  color: #fff;
+.nav-link:hover,
+.nav-link:hover .text {
+  color: #e2813f; /* Apply to both link and text on hover */
 }
 
+.nav-link.has-submenu::before {
+  content: "•";
+  color: #ffffff;
+  margin-right: 8px;
+  font-size: 16px;
+  display: none;
+  position: absolute;
+  left: 5px; /* Reduced to create a small gap */
+}
+
+.sidebar.collapsed .nav-link.has-submenu::before {
+  display: inline-block;
+}
+
+.nav-link.active,
+.submenu-link.active {
+  background-color: #465468;
+  color: #ef7e53;
+}
+
+.nav-link.active .text,
+.submenu-link.active .text {
+  color: #ef7e53; /* Explicitly target the text span */
+}
+
+.nav-link.active:hover,
+.nav-link.active:hover .text,
+.submenu-link.active:hover,
+.submenu-link.active:hover .text {
+  color: #ef7e53; /* Ensure active state persists on hover */
+  background-color: #465468;
+}
 
 .icon {
   margin-right: 10px;
@@ -179,6 +183,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #ffffff; /* Default text color */
 }
 
 .arrow {
@@ -207,11 +212,13 @@ body {
   padding: 8px 15px;
   text-decoration: none;
   color: #ffffff;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.submenu-link:hover {
+.submenu-link:hover,
+.submenu-link:hover .text {
   background-color: #3d5166;
+  color: #e2813f; /* Apply to both link and text on hover */
 }
 
 .bullet {

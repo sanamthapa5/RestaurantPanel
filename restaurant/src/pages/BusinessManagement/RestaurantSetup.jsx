@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "./RestaurantSetup.css";
+import { ChevronDown } from "lucide-react";
 
 function RestaurantSetup() {
   const [isRestaurantClosed, setIsRestaurantClosed] = useState(false);
@@ -24,6 +25,7 @@ function RestaurantSetup() {
   const [minimumDineInTime, setMinimumDineInTime] = useState("0");
   const [gstEnabled, setGstEnabled] = useState(false);
   const [cuisines, setCuisines] = useState(["Italian", "Spanish"]);
+  const [showCuisineDropdown, setShowCuisineDropdown] = useState(false);
   const [tags, setTags] = useState("");
   const [characteristics, setCharacteristics] = useState([
     "Bengali",
@@ -41,6 +43,8 @@ function RestaurantSetup() {
     "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for..."
   );
 
+  const cuisineOptions = ["Bengali", "Indian", "Pizza", "Pasta", "Snacks"];
+
   const handleToggleSetting = (setting) => {
     setGeneralSettings((prev) => ({
       ...prev,
@@ -50,6 +54,13 @@ function RestaurantSetup() {
 
   const handleRemoveCuisine = (cuisine) => {
     setCuisines(cuisines.filter((c) => c !== cuisine));
+  };
+
+  const handleAddCuisine = (cuisine) => {
+    if (!cuisines.includes(cuisine)) {
+      setCuisines([...cuisines, cuisine]);
+    }
+    setShowCuisineDropdown(false);
   };
 
   const handleRemoveCharacteristic = (characteristic) => {
@@ -297,22 +308,48 @@ function RestaurantSetup() {
 
           <div className="form-row">
             <div className="form-group">
-              <div className="setting-label">
-                <span>GST</span>
-                <InfoIcon />
+              <div className="gst-container">
+                <div className="setting-label">
+                  <span>GST</span>
+                  <InfoIcon />
+                </div>
+                <Toggle
+                  checked={gstEnabled}
+                  onChange={() => setGstEnabled(!gstEnabled)}
+                />
               </div>
-              <Toggle
-                checked={gstEnabled}
-                onChange={() => setGstEnabled(!gstEnabled)}
-              />
+              <div className="gst-placeholder form-input"></div>
             </div>
 
             <div className="form-group">
-              <div className="setting-label">
-                <span>Cuisine</span>
-                <InfoIcon />
+              <div className="cuisine-container">
+                <div className="setting-label">
+                  <span>Cuisine</span>
+                  <InfoIcon />
+                </div>
+                <div className="dropdown-wrapper">
+                  <button
+                    className="dropdown-button"
+                    onClick={() => setShowCuisineDropdown(!showCuisineDropdown)}
+                  >
+                    ▼{/* <ChevronDown /> */}
+                  </button>
+                  {showCuisineDropdown && (
+                    <ul className="dropdown-menu">
+                      {cuisineOptions.map((option) => (
+                        <li
+                          key={option}
+                          className="dropdown-item"
+                          onClick={() => handleAddCuisine(option)}
+                        >
+                          {option}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
-              <div className="tags-container">
+              <div className="cuisine-placeholder form-input">
                 {cuisines.map((cuisine) => (
                   <span key={cuisine} className="tag">
                     {cuisine}

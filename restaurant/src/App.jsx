@@ -34,6 +34,8 @@ import Category from "./pages/FoodManagement/Category";
 import SubCategory from "./pages/FoodManagement/Subcategory";
 import AdsList from "./pages/Advertisement/AdvertisementList/AdsList";
 import BusinessPlan from "./pages/BusinessManagement/BusinessPlan";
+// import RestaurantSettings from "./pages/BusinessManagement/RestaurantSettings";
+import RestaurantSetup from "./pages/BusinessManagement/RestaurantSetup";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -210,6 +212,8 @@ const App = () => {
         />
 
         {/* <Route path="/Pending" element={<Pending />} /> */}
+        {/* <Route path="/RestaurantSettings" element={<RestaurantSettings />} /> */}
+        <Route path="/RestaurantSetup" element={<RestaurantSetup />} />
         <Route
           path="/Category"
           element={

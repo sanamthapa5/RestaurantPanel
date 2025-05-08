@@ -3,100 +3,100 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  body {
+}
+
+body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
     line-height: 1.5;
     color: #333;
     background-color: #f5f5f5;
-  }
-  
-  .restaurant-setup {
+}
+
+.restaurant-setup {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  /* Card Styles */
-  .card {
+}
+
+/* Card Styles */
+.card {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     border: 1px solid #e0e0e0;
-  }
-  
-  .card-header {
+}
+
+.card-header {
     padding: 16px;
     border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .card-content {
+}
+
+.card-content {
     padding: 16px;
-  }
-  
-  /* Typography */
-  .section-title {
+}
+
+/* Typography */
+.section-title {
     font-size: 18px;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-  
-  .subsection-title {
+}
+
+.subsection-title {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 8px;
-  }
-  
-  .helper-text {
+}
+
+.helper-text {
     font-size: 14px;
     color: #666;
     margin-bottom: 8px;
-  }
-  
-  .icon {
+}
+
+.icon {
     color: #666;
-  }
-  
-  /* Form Elements */
-  .setting-row {
+}
+
+/* Form Elements */
+.setting-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
     border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .settings-grid {
+}
+
+.settings-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 8px;
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .settings-grid {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-  
-  .setting-item {
+}
+
+.setting-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
-  }
-  
-  .setting-label {
+}
+
+.setting-label {
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-  
-  .info-icon {
+}
+
+.info-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -108,23 +108,23 @@
     font-size: 12px;
     font-style: italic;
     cursor: help;
-  }
-  
-  /* Toggle Switch */
-  .toggle-switch {
+}
+
+/* Toggle Switch */
+.toggle-switch {
     position: relative;
     display: inline-block;
     width: 40px;
     height: 20px;
-  }
-  
-  .toggle-switch input {
+}
+
+.toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .toggle-slider {
+}
+
+.toggle-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -134,9 +134,9 @@
     background-color: #ccc;
     transition: .4s;
     border-radius: 20px;
-  }
-  
-  .toggle-slider:before {
+}
+
+.toggle-slider:before {
     position: absolute;
     content: "";
     height: 16px;
@@ -146,106 +146,185 @@
     background-color: white;
     transition: .4s;
     border-radius: 50%;
-  }
-  
-  input:checked + .toggle-slider {
+}
+
+input:checked + .toggle-slider {
     background-color: #2196f3;
-  }
-  
-  input:checked + .toggle-slider:before {
+}
+
+input:checked + .toggle-slider:before {
     transform: translateX(20px);
-  }
-  
-  /* Radio Buttons */
-  .radio-group {
+}
+
+/* GST Container */
+.gst-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* GST Placeholder */
+.gst-placeholder {
+    height: 36px; /* Match the height of form-input */
+}
+
+/* Cuisine Container */
+.cuisine-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+/* Cuisine Placeholder */
+.cuisine-placeholder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 36px; /* Match the height of form-input */
+    align-items: center;
+    padding: 8px 12px;
+}
+
+/* Dropdown Styles */
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-button {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.dropdown-button:hover {
+    background-color: #e0e0e0;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    width: 120px;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Radio Buttons */
+.radio-group {
     display: flex;
     gap: 16px;
     margin-top: 8px;
-  }
-  
-  .radio-label {
+}
+
+.radio-label {
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
-  }
-  
-  /* Form Layout */
-  .form-grid {
+}
+
+/* Form Layout */
+.form-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
     margin: 16px 0;
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .form-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
-  
-  .form-row {
+}
+
+.form-row {
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin: 16px 0;
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .form-row {
       flex-direction: row;
       justify-content: space-between;
     }
-  
+
     .form-row > .form-group {
       width: 48%;
     }
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 16px;
-  }
-  
-  .form-label {
+}
+
+.form-label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-  }
-  
-  .form-input,
-  .form-textarea {
+}
+
+.form-input,
+.form-textarea {
     width: 100%;
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
-  }
-  
-  .form-textarea {
+}
+
+.form-textarea {
     resize: vertical;
     min-height: 100px;
-  }
-  
-  .input-with-suffix {
+}
+
+.input-with-suffix {
     display: flex;
     align-items: center;
-  }
-  
-  .input-suffix {
+}
+
+.input-suffix {
     margin-left: 8px;
     color: #666;
     font-size: 14px;
-  }
-  
-  /* Tags */
-  .tags-container {
+}
+
+/* Tags */
+.tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 8px;
-  }
-  
-  .tag {
+}
+
+.tag {
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -253,58 +332,58 @@
     background-color: #f0f0f0;
     border-radius: 4px;
     font-size: 14px;
-  }
-  
-  .tag-blue {
+}
+
+.tag-blue {
     background-color: #2196f3;
     color: white;
-  }
-  
-  .tag-remove {
+}
+
+.tag-remove {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 16px;
     line-height: 1;
     color: inherit;
-  }
-  
-  /* Buttons */
-  .button-row {
+}
+
+/* Buttons */
+.button-row {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
     margin-top: 16px;
-  }
-  
-  .btn {
+}
+
+.btn {
     padding: 8px 16px;
     border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     border: none;
-  }
-  
-  .btn-primary {
+}
+
+.btn-primary {
     background-color: #2196f3;
     color: white;
-  }
-  
-  .btn-secondary {
+}
+
+.btn-secondary {
     background-color: #f5f5f5;
     border: 1px solid #ddd;
-  }
-  
-  /* Tabs */
-  .tabs {
+}
+
+/* Tabs */
+.tabs {
     display: flex;
     border-bottom: 1px solid #ddd;
     margin-bottom: 16px;
     overflow-x: auto;
-  }
-  
-  .tab {
+}
+
+.tab {
     padding: 8px 16px;
     background: none;
     border: none;
@@ -312,31 +391,31 @@
     font-size: 14px;
     color: #666;
     border-bottom: 2px solid transparent;
-  }
-  
-  .tab.active {
+}
+
+.tab.active {
     color: #2196f3;
     border-bottom-color: #2196f3;
-  }
-  
-  .tab-content {
+}
+
+.tab-content {
     padding: 16px 0;
-  }
-  
-  /* Meta Data Section */
-  .meta-grid {
+}
+
+/* Meta Data Section */
+.meta-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .meta-grid {
       grid-template-columns: 3fr 2fr;
     }
-  }
-  
-  .image-preview {
+}
+
+.image-preview {
     width: 120px;
     height: 120px;
     background-color: #d32f2f;
@@ -345,80 +424,80 @@
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-  }
-  
-  .image-content {
+}
+
+.image-content {
     text-align: center;
-  }
-  
-  .image-text-small {
+}
+
+.image-text-small {
     font-size: 12px;
     margin-bottom: 4px;
-  }
-  
-  .image-text-large {
+}
+
+.image-text-large {
     font-size: 18px;
     font-weight: bold;
-  }
-  
-  /* Schedule Section */
-  .schedule-container {
+}
+
+/* Schedule Section */
+.schedule-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
-  
-  .schedule-row {
+}
+
+.schedule-row {
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-  
-  .day-label {
+}
+
+.day-label {
     width: 100px;
     text-align: right;
     font-weight: 500;
-  }
-  
-  .time-slots {
+}
+
+.time-slots {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
-  }
-  
-  .time-selector {
+}
+
+.time-selector {
     width: 120px;
-  }
-  
-  .time-label {
+}
+
+.time-label {
     font-size: 12px;
     color: #666;
     margin-bottom: 4px;
-  }
-  
-  .time-input-container {
+}
+
+.time-input-container {
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 4px 8px;
-  }
-  
-  .clock-icon {
+}
+
+.clock-icon {
     margin-right: 8px;
     font-size: 14px;
-  }
-  
-  .time-input {
+}
+
+.time-input {
     border: none;
     padding: 0;
     height: 24px;
     width: 100%;
     outline: none;
-  }
-  
-  .icon-button {
+}
+
+.icon-button {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -428,27 +507,26 @@
     border: none;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  .icon-button.delete {
+}
+
+.icon-button.delete {
     color: #f44336;
-  }
-  
-  .icon-button.add {
+}
+
+.icon-button.add {
     color: #2196f3;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
     .schedule-row {
       flex-direction: column;
       align-items: flex-start;
     }
-  
+
     .day-label {
       width: 100%;
       text-align: left;
       margin-bottom: 8px;
     }
-  }
-  
+}

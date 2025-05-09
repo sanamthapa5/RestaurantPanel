@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react"; // Corrected import path for Feather icons
 import "./RestaurantSetup.css";
-import { ChevronDown } from "lucide-react";
 
 function RestaurantSetup() {
   const [isRestaurantClosed, setIsRestaurantClosed] = useState(false);
@@ -34,6 +34,8 @@ function RestaurantSetup() {
     "Pasta",
     "Snacks",
   ]);
+  const [showCharacteristicsDropdown, setShowCharacteristicsDropdown] =
+    useState(false);
   const [activeTab, setActiveTab] = useState("default");
 
   const [metaTitle, setMetaTitle] = useState(
@@ -44,6 +46,13 @@ function RestaurantSetup() {
   );
 
   const cuisineOptions = ["Bengali", "Indian", "Pizza", "Pasta", "Snacks"];
+  const characteristicOptions = [
+    "Bengali",
+    "Indian",
+    "Pizza",
+    "Pasta",
+    "Snacks",
+  ];
 
   const handleToggleSetting = (setting) => {
     setGeneralSettings((prev) => ({
@@ -65,6 +74,13 @@ function RestaurantSetup() {
 
   const handleRemoveCharacteristic = (characteristic) => {
     setCharacteristics(characteristics.filter((c) => c !== characteristic));
+  };
+
+  const handleAddCharacteristic = (characteristic) => {
+    if (!characteristics.includes(characteristic)) {
+      setCharacteristics([...characteristics, characteristic]);
+    }
+    setShowCharacteristicsDropdown(false);
   };
 
   const Toggle = ({ checked, onChange }) => (
@@ -327,41 +343,46 @@ function RestaurantSetup() {
                   <span>Cuisine</span>
                   <InfoIcon />
                 </div>
-                <div className="dropdown-wrapper">
-                  <button
-                    className="dropdown-button"
-                    onClick={() => setShowCuisineDropdown(!showCuisineDropdown)}
-                  >
-                    ▼{/* <ChevronDown /> */}
-                  </button>
-                  {showCuisineDropdown && (
-                    <ul className="dropdown-menu">
-                      {cuisineOptions.map((option) => (
-                        <li
-                          key={option}
-                          className="dropdown-item"
-                          onClick={() => handleAddCuisine(option)}
-                        >
-                          {option}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
               </div>
-              <div className="cuisine-placeholder form-input">
+              <div
+                className="cuisine-placeholder form-input"
+                onClick={() => setShowCuisineDropdown(!showCuisineDropdown)}
+              >
                 {cuisines.map((cuisine) => (
                   <span key={cuisine} className="tag">
                     {cuisine}
                     <button
-                      onClick={() => handleRemoveCuisine(cuisine)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRemoveCuisine(cuisine);
+                      }}
                       className="tag-remove"
                     >
                       ×
                     </button>
                   </span>
                 ))}
+                {cuisines.length === 0 && (
+                  <span className="placeholder-text">Select cuisines</span>
+                )}
+                <ChevronDown className="chevron" />
               </div>
+              {showCuisineDropdown && (
+                <ul className="dropdown-menu">
+                  {cuisineOptions.map((option) => (
+                    <li
+                      key={option}
+                      className="dropdown-item"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAddCuisine(option);
+                      }}
+                    >
+                      {option}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
 
@@ -381,19 +402,47 @@ function RestaurantSetup() {
             <p className="helper-text">
               Select the Restaurant Type that Best Represents Your Establishment
             </p>
-            <div className="tags-container">
+            <div
+              className="characteristics-placeholder form-input"
+              onClick={() =>
+                setShowCharacteristicsDropdown(!showCharacteristicsDropdown)
+              }
+            >
               {characteristics.map((characteristic) => (
                 <span key={characteristic} className="tag tag-blue">
                   {characteristic}
                   <button
-                    onClick={() => handleRemoveCharacteristic(characteristic)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleRemoveCharacteristic(characteristic);
+                    }}
                     className="tag-remove"
                   >
                     ×
                   </button>
                 </span>
               ))}
+              {characteristics.length === 0 && (
+                <span className="placeholder-text">Select characteristics</span>
+              )}
+              <ChevronDown className="chevron" />
             </div>
+            {showCharacteristicsDropdown && (
+              <ul className="dropdown-menu">
+                {characteristicOptions.map((option) => (
+                  <li
+                    key={option}
+                    className="dropdown-item"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddCharacteristic(option);
+                    }}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           <div className="button-row">
@@ -441,8 +490,8 @@ function RestaurantSetup() {
             </button>
           </div>
 
-          {activeTab === "default" && (
-            <div className="tab-content">
+          <div className="tab-content">
+            {activeTab === "default" && (
               <div className="meta-grid">
                 <div className="meta-form">
                   <div className="form-group">
@@ -477,8 +526,8 @@ function RestaurantSetup() {
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
 
           <div className="button-row">
             <button className="btn btn-primary">Save Changes</button>

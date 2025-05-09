@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown } from "lucide-react"; // Corrected import path for Feather icons
+import { useState, useEffect, useRef } from "react";
+import { ChevronDown } from "lucide-react";
 import "./RestaurantSetup.css";
 
 function RestaurantSetup() {
-  const [isRestaurantClosed, setIsRestaurantClosed] = useState(false);
-  const [generalSettings, setGeneralSettings] = useState({
+  // Define initial state values as constants for reset functionality
+  const initialGeneralSettings = {
     scheduledDelivery: true,
     homeDelivery: true,
     takeaway: true,
@@ -17,42 +17,136 @@ function RestaurantSetup() {
     instantOrder: true,
     dineIn: true,
     extraPackagingCharge: true,
-  });
+  };
 
-  const [packagingChargeType, setPackagingChargeType] = useState("optional");
-  const [packagingChargeAmount, setPackagingChargeAmount] = useState("2");
-  const [minimumOrderAmount, setMinimumOrderAmount] = useState("0");
-  const [minimumDineInTime, setMinimumDineInTime] = useState("0");
-  const [gstEnabled, setGstEnabled] = useState(false);
-  const [cuisines, setCuisines] = useState(["Italian", "Spanish"]);
+  const initialPackagingChargeType = "optional";
+  const initialPackagingChargeAmount = "2";
+  const initialMinimumOrderAmount = "0";
+  const initialMinimumDineInTime = "0";
+  const initialGstEnabled = false;
+  const initialCuisines = ["Italian", "Spanish"];
+  const initialTags = "";
+  const initialCharacteristics = ["Chinese", "Italian", "Fast Food"];
+  const initialMetaTitle =
+    "Hungry Puppets Restaurant: Where Flavor and Fun Meet";
+  const initialMetaDescription =
+    "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for...";
+
+  // State variables
+  const [isRestaurantClosed, setIsRestaurantClosed] = useState(false);
+  const [generalSettings, setGeneralSettings] = useState(
+    initialGeneralSettings
+  );
+  const [packagingChargeType, setPackagingChargeType] = useState(
+    initialPackagingChargeType
+  );
+  const [packagingChargeAmount, setPackagingChargeAmount] = useState(
+    initialPackagingChargeAmount
+  );
+  const [minimumOrderAmount, setMinimumOrderAmount] = useState(
+    initialMinimumOrderAmount
+  );
+  const [minimumDineInTime, setMinimumDineInTime] = useState(
+    initialMinimumDineInTime
+  );
+  const [gstEnabled, setGstEnabled] = useState(initialGstEnabled);
+  const [cuisines, setCuisines] = useState(initialCuisines);
   const [showCuisineDropdown, setShowCuisineDropdown] = useState(false);
-  const [tags, setTags] = useState("");
-  const [characteristics, setCharacteristics] = useState([
-    "Bengali",
-    "Indian",
-    "Pizza",
-    "Pasta",
-    "Snacks",
-  ]);
+  const [tags, setTags] = useState(initialTags);
+  const [characteristics, setCharacteristics] = useState(
+    initialCharacteristics
+  );
   const [showCharacteristicsDropdown, setShowCharacteristicsDropdown] =
     useState(false);
   const [activeTab, setActiveTab] = useState("default");
-
-  const [metaTitle, setMetaTitle] = useState(
-    "Hungry Puppets Restaurant: Where Flavor and Fun Meet"
-  );
+  const [metaTitle, setMetaTitle] = useState(initialMetaTitle);
   const [metaDescription, setMetaDescription] = useState(
-    "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for..."
+    initialMetaDescription
   );
+  const [showWarning, setShowWarning] = useState(false);
+  const [warningMessage, setWarningMessage] = useState("");
 
-  const cuisineOptions = ["Bengali", "Indian", "Pizza", "Pasta", "Snacks"];
-  const characteristicOptions = [
+  const cuisineOptions = [
     "Bengali",
+    "Japanese",
     "Indian",
     "Pizza",
     "Pasta",
     "Snacks",
+    "Sea Food",
   ];
+  const characteristicOptions = [
+    "Chinese",
+    "Japanese",
+    "Italian",
+    "Fast Food",
+    "Spanish",
+    "Sea Food",
+    "Caribbean",
+    "French",
+    "Kabab & More",
+    "Noodles",
+    "Mexican Food",
+    "American",
+    "Varieties",
+    "Kubie Burger",
+    "Steamed Cheese",
+    "Theta Burger",
+    "Nutburger",
+    "Pimento Cheese",
+    "Pound Cake",
+    "Yellow Butter",
+    "Red Velvet",
+    "Black Coffee",
+    "Robusta",
+    "Cappuccino",
+    "Macchiato",
+    "Soft Drinks",
+  ];
+
+  // Refs for Cuisine and Characteristics dropdowns
+  const cuisinePlaceholderRef = useRef(null);
+  const cuisineDropdownRef = useRef(null);
+  const characteristicsPlaceholderRef = useRef(null);
+  const characteristicsDropdownRef = useRef(null);
+
+  // Handle clicks outside to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        cuisinePlaceholderRef.current &&
+        !cuisinePlaceholderRef.current.contains(event.target) &&
+        cuisineDropdownRef.current &&
+        !cuisineDropdownRef.current.contains(event.target)
+      ) {
+        setShowCuisineDropdown(false);
+      }
+      if (
+        characteristicsPlaceholderRef.current &&
+        !characteristicsPlaceholderRef.current.contains(event.target) &&
+        characteristicsDropdownRef.current &&
+        !characteristicsDropdownRef.current.contains(event.target)
+      ) {
+        setShowCharacteristicsDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Auto-hide warning message after 5 seconds
+  useEffect(() => {
+    if (showWarning) {
+      console.log("Warning message should be visible:", warningMessage);
+      const timer = setTimeout(() => {
+        setShowWarning(false);
+      }, 5000); // 5 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [showWarning, warningMessage]);
 
   const handleToggleSetting = (setting) => {
     setGeneralSettings((prev) => ({
@@ -77,10 +171,35 @@ function RestaurantSetup() {
   };
 
   const handleAddCharacteristic = (characteristic) => {
+    if (characteristics.length >= 5) {
+      console.log(
+        "Cannot add more than 5 characteristics. Current:",
+        characteristics
+      );
+      setWarningMessage("You can add max 5 Characteristics");
+      setShowWarning(true);
+      setShowCharacteristicsDropdown(false);
+      return;
+    }
     if (!characteristics.includes(characteristic)) {
       setCharacteristics([...characteristics, characteristic]);
     }
     setShowCharacteristicsDropdown(false);
+  };
+
+  // Reset form to initial values
+  const handleReset = () => {
+    setGeneralSettings(initialGeneralSettings);
+    setPackagingChargeType(initialPackagingChargeType);
+    setPackagingChargeAmount(initialPackagingChargeAmount);
+    setMinimumOrderAmount(initialMinimumOrderAmount);
+    setMinimumDineInTime(initialMinimumDineInTime);
+    setGstEnabled(initialGstEnabled);
+    setCuisines(initialCuisines);
+    setTags(initialTags);
+    setCharacteristics(initialCharacteristics);
+    setMetaTitle(initialMetaTitle);
+    setMetaDescription(initialMetaDescription);
   };
 
   const Toggle = ({ checked, onChange }) => (
@@ -94,7 +213,6 @@ function RestaurantSetup() {
 
   const TimeSelector = ({ label, defaultTime }) => {
     const [time, setTime] = useState(defaultTime);
-
     return (
       <div className="time-selector">
         <div className="time-label">{label}</div>
@@ -113,6 +231,21 @@ function RestaurantSetup() {
 
   return (
     <div className="restaurant-setup">
+      {showWarning && (
+        <div
+          className="warning-message"
+          onClick={() => setShowWarning(false)}
+          style={{
+            display: "block",
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+          }} // Temporary inline styles for debugging
+        >
+          {warningMessage}
+        </div>
+      )}
+
       <div className="card">
         <div className="card-header">
           <h2 className="section-title">
@@ -151,7 +284,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("scheduledDelivery")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Home Delivery</span>
@@ -162,7 +294,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("homeDelivery")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Takeaway</span>
@@ -173,7 +304,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("takeaway")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Veg</span>
@@ -184,7 +314,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("veg")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Non Veg</span>
@@ -195,7 +324,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("nonVeg")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Subscription Based Order</span>
@@ -206,7 +334,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("subscriptionBasedOrder")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Halal Tag Status</span>
@@ -217,7 +344,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("halalTagStatus")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Instant Order</span>
@@ -228,7 +354,6 @@ function RestaurantSetup() {
                 onChange={() => handleToggleSetting("instantOrder")}
               />
             </div>
-
             <div className="setting-item">
               <div className="setting-label">
                 <span>Dine-In</span>
@@ -278,7 +403,6 @@ function RestaurantSetup() {
               </label>
             </div>
           </div>
-
           <div className="form-grid">
             <div className="form-group">
               <label className="form-label">
@@ -291,7 +415,6 @@ function RestaurantSetup() {
                 className="form-input"
               />
             </div>
-
             <div className="form-group">
               <label className="form-label">
                 <span>Minimum Order Amount</span>
@@ -304,7 +427,6 @@ function RestaurantSetup() {
                 className="form-input"
               />
             </div>
-
             <div className="form-group">
               <label className="form-label">
                 <span>Minimum Time For Dine-In Order</span>
@@ -321,7 +443,6 @@ function RestaurantSetup() {
               </div>
             </div>
           </div>
-
           <div className="form-row">
             <div className="form-group">
               <div className="gst-container">
@@ -336,7 +457,6 @@ function RestaurantSetup() {
               </div>
               <div className="gst-placeholder form-input"></div>
             </div>
-
             <div className="form-group">
               <div className="cuisine-container">
                 <div className="setting-label">
@@ -347,6 +467,7 @@ function RestaurantSetup() {
               <div
                 className="cuisine-placeholder form-input"
                 onClick={() => setShowCuisineDropdown(!showCuisineDropdown)}
+                ref={cuisinePlaceholderRef}
               >
                 {cuisines.map((cuisine) => (
                   <span key={cuisine} className="tag">
@@ -368,7 +489,7 @@ function RestaurantSetup() {
                 <ChevronDown className="chevron" />
               </div>
               {showCuisineDropdown && (
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu" ref={cuisineDropdownRef}>
                   {cuisineOptions.map((option) => (
                     <li
                       key={option}
@@ -385,7 +506,6 @@ function RestaurantSetup() {
               )}
             </div>
           </div>
-
           <div className="form-group">
             <label className="form-label">Tags</label>
             <input
@@ -396,7 +516,6 @@ function RestaurantSetup() {
               className="form-input"
             />
           </div>
-
           <div className="form-group">
             <h3 className="subsection-title">Set Restaurant Characteristics</h3>
             <p className="helper-text">
@@ -407,6 +526,7 @@ function RestaurantSetup() {
               onClick={() =>
                 setShowCharacteristicsDropdown(!showCharacteristicsDropdown)
               }
+              ref={characteristicsPlaceholderRef}
             >
               {characteristics.map((characteristic) => (
                 <span key={characteristic} className="tag tag-blue">
@@ -428,7 +548,7 @@ function RestaurantSetup() {
               <ChevronDown className="chevron" />
             </div>
             {showCharacteristicsDropdown && (
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu" ref={characteristicsDropdownRef}>
                 {characteristicOptions.map((option) => (
                   <li
                     key={option}
@@ -444,9 +564,10 @@ function RestaurantSetup() {
               </ul>
             )}
           </div>
-
           <div className="button-row">
-            <button className="btn btn-secondary">Reset</button>
+            <button className="btn btn-secondary" onClick={handleReset}>
+              Reset
+            </button>
             <button className="btn btn-primary">Update</button>
           </div>
         </div>
@@ -489,7 +610,6 @@ function RestaurantSetup() {
               Spanish
             </button>
           </div>
-
           <div className="tab-content">
             {activeTab === "default" && (
               <div className="meta-grid">
@@ -528,7 +648,6 @@ function RestaurantSetup() {
               </div>
             )}
           </div>
-
           <div className="button-row">
             <button className="btn btn-primary">Save Changes</button>
           </div>

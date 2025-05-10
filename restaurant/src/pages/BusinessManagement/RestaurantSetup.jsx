@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { ChevronDown, CalendarDays } from "lucide-react";
+import { FaHamburger } from "react-icons/fa";
+import Configuration from "../../assets/Configuration.svg";
+import app from "../../assets/app.png";
 import "./RestaurantSetup.css";
 
 function RestaurantSetup() {
-  // Define initial state values as constants for reset functionality
+  // Initial state for General Settings
   const initialGeneralSettings = {
     scheduledDelivery: true,
     homeDelivery: true,
@@ -19,8 +22,9 @@ function RestaurantSetup() {
     extraPackagingCharge: true,
     cutlery: false,
   };
-  const [timeUnit, setTimeUnit] = useState("min");
 
+  // Other initial states
+  const [timeUnit, setTimeUnit] = useState("min");
   const initialPackagingChargeType = "optional";
   const initialPackagingChargeAmount = "2";
   const initialMinimumOrderAmount = "0";
@@ -88,7 +92,7 @@ function RestaurantSetup() {
   const [showFileInput, setShowFileInput] = useState(false);
   const fileInputRef = useRef(null);
 
-  // State for schedules and modal
+  // State for schedules and modals
   const initialSchedules = [
     "Monday",
     "Tuesday",
@@ -105,6 +109,10 @@ function RestaurantSetup() {
   const [showScheduleDeleteModal, setShowScheduleDeleteModal] = useState(false);
   const [dayToDelete, setDayToDelete] = useState(null);
   const [slotIndexToDelete, setSlotIndexToDelete] = useState(null);
+  const [showScheduleAddModal, setShowScheduleAddModal] = useState(false);
+  const [dayToAdd, setDayToAdd] = useState(null);
+  const [newStartTime, setNewStartTime] = useState("12:00 AM");
+  const [newEndTime, setNewEndTime] = useState("11:59 PM");
 
   const cuisineOptions = [
     "Bengali",
@@ -149,6 +157,7 @@ function RestaurantSetup() {
   const cuisineDropdownRef = useRef(null);
   const characteristicsPlaceholderRef = useRef(null);
   const characteristicsDropdownRef = useRef(null);
+  const selectRef = useRef(null);
 
   // Handle clicks outside to close dropdowns
   useEffect(() => {
@@ -265,19 +274,35 @@ function RestaurantSetup() {
 
   // Handle adding a new time slot
   const handleAddTimeSlot = (day) => {
+    setDayToAdd(day);
+    setNewStartTime("12:00 AM");
+    setNewEndTime("11:59 PM");
+    setShowScheduleAddModal(true);
+  };
+
+  // Handle confirming the new schedule
+  const handleConfirmAddTimeSlot = () => {
     setSchedules((prevSchedules) =>
       prevSchedules.map((schedule) =>
-        schedule.day === day
+        schedule.day === dayToAdd
           ? {
               ...schedule,
               timeSlots: [
                 ...schedule.timeSlots,
-                { openingTime: "12:00 AM", closingTime: "11:59 PM" },
+                { openingTime: newStartTime, closingTime: newEndTime },
               ],
             }
           : schedule
       )
     );
+    setShowScheduleAddModal(false);
+    setDayToAdd(null);
+  };
+
+  // Handle closing the add modal
+  const handleCancelAdd = () => {
+    setShowScheduleAddModal(false);
+    setDayToAdd(null);
   };
 
   // Handle opening the delete modal
@@ -329,6 +354,7 @@ function RestaurantSetup() {
     );
   };
 
+  // Toggle component for switches
   const Toggle = ({ checked, onChange }) => (
     <label className="toggle-switch">
       <input type="checkbox" checked={checked} onChange={onChange} />
@@ -336,8 +362,10 @@ function RestaurantSetup() {
     </label>
   );
 
+  // InfoIcon component
   const InfoIcon = () => <span className="info-icon">i</span>;
 
+  // TimeSelector component for schedule inputs
   const TimeSelector = ({ label, value, onChange }) => (
     <div className="time-selector">
       <div className="time-label">{label}</div>
@@ -355,6 +383,7 @@ function RestaurantSetup() {
 
   return (
     <div className="restaurant-setup">
+      {/* Warning Message */}
       {showWarning && (
         <div
           className="warning-message"
@@ -370,15 +399,18 @@ function RestaurantSetup() {
         </div>
       )}
 
+      {/* Delete Schedule Modal */}
       {showScheduleDeleteModal && (
         <div className="schedule-delete-modal">
           <div className="schedule-delete-modal-content">
             <div className="schedule-attention-sign">
               <span>!</span>
             </div>
-            <p>
-              Want to delete this day’s schedule? If yes the schedule will be
-              removed from here. However you can also add another one.
+            <p className="schedule-delete-text">
+              <strong>Want to delete this day’s schedule?</strong>
+              <br />
+              If yes, the schedule will be removed from here. However, you can
+              also add another one.
             </p>
             <div className="schedule-modal-buttons">
               <button
@@ -398,10 +430,78 @@ function RestaurantSetup() {
         </div>
       )}
 
+      {/* Add Schedule Modal */}
+      {showScheduleAddModal && (
+        <div className="schedule-add-modal">
+          <div className="schedule-add-modal-content">
+            <div className="schedule-add-header">
+              <h3 className="schedule-add-title">
+                Create Schedule For {dayToAdd}
+              </h3>
+              <button
+                className="schedule-add-close-btn"
+                onClick={handleCancelAdd}
+              >
+                ×
+              </button>
+            </div>
+            <div className="schedule-add-form">
+              <div className="schedule-add-time-group">
+                <label className="schedule-add-time-label">Start time</label>
+                <div className="time-input-container">
+                  <span className="clock-icon">🕒</span>
+                  <input
+                    type="text"
+                    value={newStartTime}
+                    onChange={(e) => setNewStartTime(e.target.value)}
+                    className="time-input"
+                    placeholder="--:-- --"
+                  />
+                </div>
+              </div>
+              <div className="schedule-add-time-group">
+                <label className="schedule-add-time-label">End time</label>
+                <div className="time-input-container">
+                  <span className="clock-icon">🕒</span>
+                  <input
+                    type="text"
+                    value={newEndTime}
+                    onChange={(e) => setNewEndTime(e.target.value)}
+                    className="time-input"
+                    placeholder="--:-- --"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="schedule-modal-buttons">
+              <button
+                className="schedule-modal-btn schedule-modal-btn-cancel"
+                onClick={handleCancelAdd}
+              >
+                Cancel
+              </button>
+              <button
+                className="schedule-modal-btn schedule-modal-btn-confirm schedule-modal-btn-add"
+                onClick={handleConfirmAddTimeSlot}
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Restaurant Setup Section */}
       <div className="card">
         <div className="card-header">
           <h2 className="section-title">
-            <span className="icon">🏪</span> Restaurant Setup
+            <span className="RestaurantSetupIcon">
+              <img
+                src="https://stackfood-admin.6amtech.com/public/assets/admin/img/resturant-panel/page-title/resturant.png"
+                alt=""
+              />
+            </span>{" "}
+            Restaurant Setup
           </h2>
         </div>
         <div className="card-content">
@@ -418,10 +518,14 @@ function RestaurantSetup() {
         </div>
       </div>
 
+      {/* General Settings Section */}
       <div className="card">
         <div className="card-header">
           <h2 className="section-title">
-            <span className="icon">⚙️</span> General Settings
+            <span className="RestaurantSetupIcon">
+              <FaHamburger />
+            </span>{" "}
+            General Settings
           </h2>
         </div>
         <div className="card-content">
@@ -540,10 +644,25 @@ function RestaurantSetup() {
         </div>
       </div>
 
+      {/* Basic Settings Section */}
       <div className="card">
         <div className="card-header">
           <h2 className="section-title">
-            <span className="icon">📋</span> Basic Settings
+            {/* <span className="RestaurantSetupIcon"></span> Basic Settings */}
+            <span className="RestaurantSetupIcon">
+              <img
+                src={Configuration}
+                alt=""
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  color: "#666",
+                  marginLeft: "8px", // optional spacing
+                  objectFit: "contain",
+                }}
+              />
+            </span>{" "}
+            Basic Settings
           </h2>
         </div>
         <div className="card-content">
@@ -599,7 +718,7 @@ function RestaurantSetup() {
                 className="form-input"
               />
             </div>
-            <label style={{ marginBottom: "4px", fontSize: "14px" }}>
+            {/* <label style={{ marginBottom: "4px", fontSize: "14px" }}>
               Minimum Time For Dine-In Order <InfoIcon />
               <div
                 className="input-with-suffix"
@@ -626,6 +745,7 @@ function RestaurantSetup() {
                     gap: "4px",
                     background: "white",
                     paddingLeft: "8px",
+                    cursor: "pointer",
                   }}
                 >
                   <select
@@ -638,12 +758,85 @@ function RestaurantSetup() {
                       fontSize: "14px",
                       paddingRight: "20px",
                     }}
+                    onClick={() => selectRef.current.focus()}
                   >
+                    <select
+                      ref={selectRef} // Reference to the select element
+                      value={timeUnit}
+                      onChange={(e) => setTimeUnit(e.target.value)}
+                      style={{
+                        border: "none",
+                        background: "transparent",
+                        appearance: "none",
+                        fontSize: "14px",
+                        paddingRight: "20px",
+                        width: "100%", // Ensure it takes full space
+                        opacity: 0, // Hide the native select but keep it functional
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                        cursor: "pointer",
+                      }}
+                    ></select>
                     <option value="min">Min</option>
                     <option value="hour">Hour</option>
                     <option value="day">Day</option>
                   </select>
                   <ChevronDown size={16} />
+                </div>
+              </div>
+            </label> */}
+            <label style={{ marginBottom: "4px", fontSize: "14px" }}>
+              Minimum Time For Dine-In Order <InfoIcon />
+              <div
+                className="input-with-suffix"
+                style={{
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <input
+                  type="text"
+                  value={minimumDineInTime}
+                  onChange={(e) => setMinimumDineInTime(e.target.value)}
+                  className="form-input"
+                  placeholder="Min"
+                  style={{ paddingRight: "100px" }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "1px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                    background: "#fff",
+                    paddingLeft: "8px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => selectRef.current.focus()}
+                >
+                  <select
+                    ref={selectRef} // Reference to the select element
+                    value={timeUnit}
+                    onChange={(e) => setTimeUnit(e.target.value)}
+                    style={{
+                      border: "none",
+                      background: "#f0f0f0",
+                      fontSize: "14px",
+                      paddingRight: "20px",
+                      width: "100%",
+                      outline: "none",
+                      left: 0,
+                      top: 0,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <option value="min">Min</option>
+                    <option value="hour">Hour</option>
+                    <option value="day">Day</option>
+                  </select>
                 </div>
               </div>
             </label>
@@ -778,6 +971,7 @@ function RestaurantSetup() {
         </div>
       </div>
 
+      {/* Restaurant Meta Data Section */}
       <div className="card">
         <div className="card-header">
           <h2 className="section-title">Restaurant Meta Data</h2>
@@ -977,7 +1171,21 @@ function RestaurantSetup() {
             </div>
             <div className="meta-image-box">
               <div className="meta-image">
-                <h3 className="subsection-title">Restaurant Meta Image</h3>
+                <h3 className="subsection-title">
+                  <img
+                    src={app}
+                    alt=""
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginRight: "8px",
+                      objectFit: "contain",
+                      verticalAlign: "middle",
+                    }}
+                  />
+                  Restaurant Meta Image
+                </h3>
+
                 <p className="helper-text">Meta Image(1:1)</p>
                 <div className="image-preview" onClick={handleImageClick}>
                   <img
@@ -1009,11 +1217,14 @@ function RestaurantSetup() {
         </div>
       </div>
 
+      {/* Restaurant Schedules Section */}
       <div className="card">
         <div className="card-header">
           <h2 className="section-title">
-            <span className="icon">🕒</span> Restaurant Opening & Closing
-            Schedules
+            <span className="RestaurantSetupIcon">
+              <CalendarDays />
+            </span>{" "}
+            Restaurant Opening & Closing Schedules
           </h2>
         </div>
         <div className="card-content">

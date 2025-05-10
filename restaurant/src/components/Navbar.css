@@ -2,196 +2,187 @@
   background-color: white;
   border-bottom: 1px solid #e5e7eb;
   padding: 0.75rem 1rem;
-  position: fixed; /* Keeps the navbar fixed */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Ensures it's above all other content */
+  z-index: 1000;
   width: 100%;
-  box-sizing: border-box; /* Prevent layout shifts */
-  
+  box-sizing: border-box;
 }
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
 
-  #root {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
-  .navbar-container {
-    width: 100%;
-    max-width: 80rem;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  /* .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2563eb;
-  } */
-  
-  .nav-links {
-    display: none;
-    gap: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .nav-links {
-      display: flex;
-    }
-  }
-  
-  .nav-link {
-    color: #4b5563;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  
-  .nav-link:hover {
-    color: #111827;
-  }
-  
-  .right-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .language-selector {
-    position: relative;
-  }
-  
-  .language-button {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    color: #4b5563;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    transition: color 0.2s;
-  }
-  
-  .language-button:hover {
-    color: #111827;
-  }
-  
-  .language-dropdown {
-    display: flex;
-    flex-direction: column; /* Ensures the options stack vertically */
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 0.5rem;
-    width: 12rem;
-    background-color: white;
-    border-radius: 0.375rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    padding: 0.25rem 0;
-    z-index: 10;
-  }
-  
-  .language-option {
-    display: block; /* Makes each option take up the full width */
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    color: #374151;
-    text-decoration: none;
-  }
-  
-  .language-option:hover {
-    background-color: #f3f4f6;
-  }
-  
-  
-  .icon-button {
-    color: #4b5563;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    transition: color 0.2s;
-  }
-  
-  .icon-button:hover {
-    color: #111827;
-  }
-  
-  .cart-button {
-    position: relative;
-  }
-  
-  .cart-badge {
-    position: absolute;
-    top: -0.25rem;
-    right: -0.25rem;
-    background-color: #ef4444;
-    color: white;
-    font-size: 0.75rem;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .profile-section {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .avatar {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 9999px;
-    background-color: #e5e7eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .user-email {
-    display: none;
-    font-size: 0.875rem;
-    color: #4b5563;
-  }
-  
-  @media (min-width: 768px) {
-    .user-email {
-      display: block;
-    }
-  }
-  
-  .online-indicator {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
-    background-color: #22c55e;
-    
-  }
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-nav-links {
+  display: none;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav-links {
+    display: flex;
+  }
+}
+
+.navbar-nav-link {
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar-nav-link:hover {
+  color: #111827;
+}
+
+.navbar-right-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-language-selector {
+  position: relative;
+}
+
+.navbar-language-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #4b5563;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.navbar-language-button:hover {
+  color: #111827;
+}
+
+.navbar-language-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  width: 12rem;
+  background-color: white;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem 0;
+  z-index: 10;
+}
+
+.navbar-language-option {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  text-decoration: none;
+}
+
+.navbar-language-option:hover {
+  background-color: #f3f4f6;
+}
+
+.navbar-icon-button {
+  color: #4b5563;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.navbar-icon-button:hover {
+  color: #111827;
+}
+
+.navbar-cart-button {
+  position: relative;
+}
+
+.navbar-cart-badge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-user-email {
+  display: none;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+@media (min-width: 768px) {
+  .navbar-user-email {
+    display: block;
+  }
+}
+
+.navbar-online-indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #22c55e;
+}

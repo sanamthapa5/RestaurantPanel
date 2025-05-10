@@ -17,7 +17,9 @@ function RestaurantSetup() {
     instantOrder: true,
     dineIn: true,
     extraPackagingCharge: true,
+    cutlery: false,
   };
+  const [timeUnit, setTimeUnit] = useState("min");
 
   const initialPackagingChargeType = "optional";
   const initialPackagingChargeAmount = "2";
@@ -27,10 +29,25 @@ function RestaurantSetup() {
   const initialCuisines = ["Italian", "Spanish"];
   const initialTags = "";
   const initialCharacteristics = ["Chinese", "Italian", "Fast Food"];
-  const initialMetaTitle =
-    "Hungry Puppets Restaurant: Where Flavor and Fun Meet";
-  const initialMetaDescription =
-    "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for...";
+  const initialMetaTitle = {
+    default: "Hungry Puppets Restaurant: Where Flavor and Fun Meet",
+    english: "Hungry Puppets Restaurant: Where Flavor and Fun Meet",
+    bengali: "Hungry Puppets Restaurant: Where Flavor and Fun Meet",
+    arabic: "Hungry Puppets Restaurant: Where Flavor and Fun Meet",
+    spanish: "Hungry Puppets Restaurant: Where Flavor and Fun Meet",
+  };
+  const initialMetaDescription = {
+    default:
+      "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for a gastronomic experience that combines great food and a playful atmosphere",
+    english:
+      "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for a gastronomic experience that combines great food and a playful atmosphere",
+    bengali:
+      "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for a gastronomic experience that combines great food and a playful atmosphere",
+    arabic:
+      "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for a gastronomic experience that combines great food and a playful atmosphere",
+    spanish:
+      "Satisfy your cravings and indulge in a culinary adventure at Hungry Puppets Restaurant. Our menu is a symphony of taste, offering a delightful fusion of flavors that cater to every palate. Join us for a gastronomic experience that combines great food and a playful atmosphere",
+  };
 
   // State variables
   const [isRestaurantClosed, setIsRestaurantClosed] = useState(false);
@@ -65,6 +82,11 @@ function RestaurantSetup() {
   );
   const [showWarning, setShowWarning] = useState(false);
   const [warningMessage, setWarningMessage] = useState("");
+  const [selectedImage, setSelectedImage] = useState(
+    "https://stackfood-admin.6amtech.com/storage/app/public/restaurant/2023-09-09-64fc5d8a7d7f7.png"
+  );
+  const [showFileInput, setShowFileInput] = useState(false);
+  const fileInputRef = useRef(null);
 
   const cuisineOptions = [
     "Bengali",
@@ -143,7 +165,7 @@ function RestaurantSetup() {
       console.log("Warning message should be visible:", warningMessage);
       const timer = setTimeout(() => {
         setShowWarning(false);
-      }, 5000); // 5 seconds
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, [showWarning, warningMessage]);
@@ -200,6 +222,26 @@ function RestaurantSetup() {
     setCharacteristics(initialCharacteristics);
     setMetaTitle(initialMetaTitle);
     setMetaDescription(initialMetaDescription);
+    setTimeUnit("min");
+    setSelectedImage(
+      "https://stackfood-admin.6amtech.com/storage/app/public/restaurant/2023-09-09-64fc5d8a7d7f7.png"
+    );
+  };
+
+  const handleImageClick = () => {
+    setShowFileInput(true);
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+      setShowFileInput(false);
+    }
   };
 
   const Toggle = ({ checked, onChange }) => (
@@ -240,7 +282,7 @@ function RestaurantSetup() {
             position: "fixed",
             top: "20px",
             right: "20px",
-          }} // Temporary inline styles for debugging
+          }}
         >
           {warningMessage}
         </div>
@@ -336,12 +378,12 @@ function RestaurantSetup() {
             </div>
             <div className="setting-item">
               <div className="setting-label">
-                <span>Halal Tag Status</span>
+                <span>Cutlery</span>
                 <InfoIcon />
               </div>
               <Toggle
-                checked={generalSettings.halalTagStatus}
-                onChange={() => handleToggleSetting("halalTagStatus")}
+                checked={generalSettings.cutlery}
+                onChange={() => handleToggleSetting("cutlery")}
               />
             </div>
             <div className="setting-item">
@@ -352,6 +394,26 @@ function RestaurantSetup() {
               <Toggle
                 checked={generalSettings.instantOrder}
                 onChange={() => handleToggleSetting("instantOrder")}
+              />
+            </div>
+            <div className="setting-item">
+              <div className="setting-label">
+                <span>Halal Tag Status</span>
+                <InfoIcon />
+              </div>
+              <Toggle
+                checked={generalSettings.halalTagStatus}
+                onChange={() => handleToggleSetting("halalTagStatus")}
+              />
+            </div>
+            <div className="setting-item">
+              <div className="setting-label">
+                <span>Extra Packaging Charge</span>
+                <InfoIcon />
+              </div>
+              <Toggle
+                checked={generalSettings.extraPackagingCharge}
+                onChange={() => handleToggleSetting("extraPackagingCharge")}
               />
             </div>
             <div className="setting-item">
@@ -427,21 +489,54 @@ function RestaurantSetup() {
                 className="form-input"
               />
             </div>
-            <div className="form-group">
-              <label className="form-label">
-                <span>Minimum Time For Dine-In Order</span>
-                <InfoIcon />
-              </label>
-              <div className="input-with-suffix">
+            <label style={{ marginBottom: "4px", fontSize: "14px" }}>
+              Minimum Time For Dine-In Order <InfoIcon />
+              <div
+                className="input-with-suffix"
+                style={{
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
                 <input
-                  type="number"
+                  type="text"
                   value={minimumDineInTime}
                   onChange={(e) => setMinimumDineInTime(e.target.value)}
                   className="form-input"
+                  placeholder="Min"
+                  style={{ paddingRight: "100px" }}
                 />
-                <span className="input-suffix">Min</span>
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                    background: "white",
+                    paddingLeft: "8px",
+                  }}
+                >
+                  <select
+                    value={timeUnit}
+                    onChange={(e) => setTimeUnit(e.target.value)}
+                    style={{
+                      border: "none",
+                      background: "transparent",
+                      appearance: "none",
+                      fontSize: "14px",
+                      paddingRight: "20px",
+                    }}
+                  >
+                    <option value="min">Min</option>
+                    <option value="hour">Hour</option>
+                    <option value="day">Day</option>
+                  </select>
+                  <ChevronDown size={16} />
+                </div>
               </div>
-            </div>
+            </label>
           </div>
           <div className="form-row">
             <div className="form-group">
@@ -578,48 +673,52 @@ function RestaurantSetup() {
           <h2 className="section-title">Restaurant Meta Data</h2>
         </div>
         <div className="card-content">
-          <div className="tabs">
-            <button
-              className={`tab ${activeTab === "default" ? "active" : ""}`}
-              onClick={() => setActiveTab("default")}
-            >
-              Default
-            </button>
-            <button
-              className={`tab ${activeTab === "english" ? "active" : ""}`}
-              onClick={() => setActiveTab("english")}
-            >
-              English(EN)
-            </button>
-            <button
-              className={`tab ${activeTab === "bengali" ? "active" : ""}`}
-              onClick={() => setActiveTab("bengali")}
-            >
-              Bengali - বাংলা(BN)
-            </button>
-            <button
-              className={`tab ${activeTab === "arabic" ? "active" : ""}`}
-              onClick={() => setActiveTab("arabic")}
-            >
-              Arabic - العربية(AR)
-            </button>
-            <button
-              className={`tab ${activeTab === "spanish" ? "active" : ""}`}
-              onClick={() => setActiveTab("spanish")}
-            >
-              Spanish
-            </button>
-          </div>
-          <div className="tab-content">
-            {activeTab === "default" && (
-              <div className="meta-grid">
+          <div className="meta-grid">
+            <div className="meta-form-box">
+              <div className="meta-tabs-box">
+                <div className="tabs">
+                  <button
+                    className={`tab ${activeTab === "default" ? "active" : ""}`}
+                    onClick={() => setActiveTab("default")}
+                  >
+                    Default
+                  </button>
+                  <button
+                    className={`tab ${activeTab === "english" ? "active" : ""}`}
+                    onClick={() => setActiveTab("english")}
+                  >
+                    English(EN)
+                  </button>
+                  <button
+                    className={`tab ${activeTab === "bengali" ? "active" : ""}`}
+                    onClick={() => setActiveTab("bengali")}
+                  >
+                    Bengali - বাংলা(BN)
+                  </button>
+                  <button
+                    className={`tab ${activeTab === "arabic" ? "active" : ""}`}
+                    onClick={() => setActiveTab("arabic")}
+                  >
+                    Arabic - العربية(AR)
+                  </button>
+                  <button
+                    className={`tab ${activeTab === "spanish" ? "active" : ""}`}
+                    onClick={() => setActiveTab("spanish")}
+                  >
+                    Spanish
+                  </button>
+                </div>
+              </div>
+              {activeTab === "default" && (
                 <div className="meta-form">
                   <div className="form-group">
                     <label className="form-label">Meta Title (Default)</label>
                     <input
                       type="text"
-                      value={metaTitle}
-                      onChange={(e) => setMetaTitle(e.target.value)}
+                      value={metaTitle.default}
+                      onChange={(e) =>
+                        setMetaTitle({ ...metaTitle, default: e.target.value })
+                      }
                       className="form-input"
                     />
                   </div>
@@ -629,24 +728,170 @@ function RestaurantSetup() {
                     </label>
                     <textarea
                       rows={4}
-                      value={metaDescription}
-                      onChange={(e) => setMetaDescription(e.target.value)}
+                      value={metaDescription.default}
+                      onChange={(e) =>
+                        setMetaDescription({
+                          ...metaDescription,
+                          default: e.target.value,
+                        })
+                      }
                       className="form-textarea"
                     />
                   </div>
                 </div>
-                <div className="meta-image">
-                  <h3 className="subsection-title">Restaurant Meta Image</h3>
-                  <p className="helper-text">Meta Image(1:1)</p>
-                  <div className="image-preview">
-                    <div className="image-content">
-                      <div className="image-text-small">HUNGRY</div>
-                      <div className="image-text-large">PUPPETS</div>
-                    </div>
+              )}
+              {activeTab === "english" && (
+                <div className="meta-form">
+                  <div className="form-group">
+                    <label className="form-label">Meta Title (English)</label>
+                    <input
+                      type="text"
+                      value={metaTitle.english}
+                      onChange={(e) =>
+                        setMetaTitle({ ...metaTitle, english: e.target.value })
+                      }
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">
+                      Meta Description (English)
+                    </label>
+                    <textarea
+                      rows={4}
+                      value={metaDescription.english}
+                      onChange={(e) =>
+                        setMetaDescription({
+                          ...metaDescription,
+                          english: e.target.value,
+                        })
+                      }
+                      className="form-textarea"
+                    />
                   </div>
                 </div>
+              )}
+              {activeTab === "bengali" && (
+                <div className="meta-form">
+                  <div className="form-group">
+                    <label className="form-label">Meta Title (Bengali)</label>
+                    <input
+                      type="text"
+                      value={metaTitle.bengali}
+                      onChange={(e) =>
+                        setMetaTitle({ ...metaTitle, bengali: e.target.value })
+                      }
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">
+                      Meta Description (Bengali)
+                    </label>
+                    <textarea
+                      rows={4}
+                      value={metaDescription.bengali}
+                      onChange={(e) =>
+                        setMetaDescription({
+                          ...metaDescription,
+                          bengali: e.target.value,
+                        })
+                      }
+                      className="form-textarea"
+                    />
+                  </div>
+                </div>
+              )}
+              {activeTab === "arabic" && (
+                <div className="meta-form">
+                  <div className="form-group">
+                    <label className="form-label">Meta Title (Arabic)</label>
+                    <input
+                      type="text"
+                      value={metaTitle.arabic}
+                      onChange={(e) =>
+                        setMetaTitle({ ...metaTitle, arabic: e.target.value })
+                      }
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">
+                      Meta Description (Arabic)
+                    </label>
+                    <textarea
+                      rows={4}
+                      value={metaDescription.arabic}
+                      onChange={(e) =>
+                        setMetaDescription({
+                          ...metaDescription,
+                          arabic: e.target.value,
+                        })
+                      }
+                      className="form-textarea"
+                    />
+                  </div>
+                </div>
+              )}
+              {activeTab === "spanish" && (
+                <div className="meta-form">
+                  <div className="form-group">
+                    <label className="form-label">Meta Title (Spanish)</label>
+                    <input
+                      type="text"
+                      value={metaTitle.spanish}
+                      onChange={(e) =>
+                        setMetaTitle({ ...metaTitle, spanish: e.target.value })
+                      }
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">
+                      Meta Description (Spanish)
+                    </label>
+                    <textarea
+                      rows={4}
+                      value={metaDescription.spanish}
+                      onChange={(e) =>
+                        setMetaDescription({
+                          ...metaDescription,
+                          spanish: e.target.value,
+                        })
+                      }
+                      className="form-textarea"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="meta-image-box">
+              <div className="meta-image">
+                <h3 className="subsection-title">Restaurant Meta Image</h3>
+                <p className="helper-text">Meta Image(1:1)</p>
+                <div className="image-preview" onClick={handleImageClick}>
+                  <img
+                    src={selectedImage}
+                    alt="Restaurant Meta Image"
+                    style={{
+                      width: "120px",
+                      height: "120px",
+                      objectFit: "cover",
+                      cursor: "pointer",
+                    }}
+                  />
+                </div>
+                {showFileInput && (
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleImageChange}
+                    style={{ display: "none" }}
+                    accept="image/*"
+                  />
+                )}
               </div>
-            )}
+            </div>
           </div>
           <div className="button-row">
             <button className="btn btn-primary">Save Changes</button>

@@ -88,6 +88,24 @@ function RestaurantSetup() {
   const [showFileInput, setShowFileInput] = useState(false);
   const fileInputRef = useRef(null);
 
+  // State for schedules and modal
+  const initialSchedules = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ].map((day) => ({
+    day,
+    timeSlots: [{ openingTime: "12:00 AM", closingTime: "11:59 PM" }],
+  }));
+  const [schedules, setSchedules] = useState(initialSchedules);
+  const [showScheduleDeleteModal, setShowScheduleDeleteModal] = useState(false);
+  const [dayToDelete, setDayToDelete] = useState(null);
+  const [slotIndexToDelete, setSlotIndexToDelete] = useState(null);
+
   const cuisineOptions = [
     "Bengali",
     "Japanese",
@@ -226,6 +244,7 @@ function RestaurantSetup() {
     setSelectedImage(
       "https://stackfood-admin.6amtech.com/storage/app/public/restaurant/2023-09-09-64fc5d8a7d7f7.png"
     );
+    setSchedules(initialSchedules); // Reset schedules
   };
 
   const handleImageClick = () => {
@@ -244,6 +263,72 @@ function RestaurantSetup() {
     }
   };
 
+  // Handle adding a new time slot
+  const handleAddTimeSlot = (day) => {
+    setSchedules((prevSchedules) =>
+      prevSchedules.map((schedule) =>
+        schedule.day === day
+          ? {
+              ...schedule,
+              timeSlots: [
+                ...schedule.timeSlots,
+                { openingTime: "12:00 AM", closingTime: "11:59 PM" },
+              ],
+            }
+          : schedule
+      )
+    );
+  };
+
+  // Handle opening the delete modal
+  const handleOpenDeleteModal = (day, slotIndex) => {
+    setDayToDelete(day);
+    setSlotIndexToDelete(slotIndex);
+    setShowScheduleDeleteModal(true);
+  };
+
+  // Handle deleting a time slot
+  const handleDeleteTimeSlot = () => {
+    setSchedules((prevSchedules) =>
+      prevSchedules.map((schedule) =>
+        schedule.day === dayToDelete
+          ? {
+              ...schedule,
+              timeSlots: schedule.timeSlots.filter(
+                (_, index) => index !== slotIndexToDelete
+              ),
+            }
+          : schedule
+      )
+    );
+    setShowScheduleDeleteModal(false);
+    setDayToDelete(null);
+    setSlotIndexToDelete(null);
+  };
+
+  // Handle canceling the delete action
+  const handleCancelDelete = () => {
+    setShowScheduleDeleteModal(false);
+    setDayToDelete(null);
+    setSlotIndexToDelete(null);
+  };
+
+  // Handle time slot changes
+  const handleTimeChange = (day, slotIndex, field, value) => {
+    setSchedules((prevSchedules) =>
+      prevSchedules.map((schedule) =>
+        schedule.day === day
+          ? {
+              ...schedule,
+              timeSlots: schedule.timeSlots.map((slot, index) =>
+                index === slotIndex ? { ...slot, [field]: value } : slot
+              ),
+            }
+          : schedule
+      )
+    );
+  };
+
   const Toggle = ({ checked, onChange }) => (
     <label className="toggle-switch">
       <input type="checkbox" checked={checked} onChange={onChange} />
@@ -253,23 +338,20 @@ function RestaurantSetup() {
 
   const InfoIcon = () => <span className="info-icon">i</span>;
 
-  const TimeSelector = ({ label, defaultTime }) => {
-    const [time, setTime] = useState(defaultTime);
-    return (
-      <div className="time-selector">
-        <div className="time-label">{label}</div>
-        <div className="time-input-container">
-          <span className="clock-icon">🕒</span>
-          <input
-            type="text"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-            className="time-input"
-          />
-        </div>
+  const TimeSelector = ({ label, value, onChange }) => (
+    <div className="time-selector">
+      <div className="time-label">{label}</div>
+      <div className="time-input-container">
+        <span className="clock-icon">🕒</span>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="time-input"
+        />
       </div>
-    );
-  };
+    </div>
+  );
 
   return (
     <div className="restaurant-setup">
@@ -285,6 +367,34 @@ function RestaurantSetup() {
           }}
         >
           {warningMessage}
+        </div>
+      )}
+
+      {showScheduleDeleteModal && (
+        <div className="schedule-delete-modal">
+          <div className="schedule-delete-modal-content">
+            <div className="schedule-attention-sign">
+              <span>!</span>
+            </div>
+            <p>
+              Want to delete this day’s schedule? If yes the schedule will be
+              removed from here. However you can also add another one.
+            </p>
+            <div className="schedule-modal-buttons">
+              <button
+                className="schedule-modal-btn schedule-modal-btn-cancel"
+                onClick={handleCancelDelete}
+              >
+                No
+              </button>
+              <button
+                className="schedule-modal-btn schedule-modal-btn-confirm"
+                onClick={handleDeleteTimeSlot}
+              >
+                Yes
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
@@ -908,25 +1018,62 @@ function RestaurantSetup() {
         </div>
         <div className="card-content">
           <div className="schedule-container">
-            {[
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-              "Sunday",
-            ].map((day) => (
-              <div key={day} className="schedule-row">
-                <div className="day-label">{day} :</div>
-                <div className="time-slots">
-                  <TimeSelector label="Opening Time" defaultTime="12:00 AM" />
-                  <TimeSelector label="Closing Time" defaultTime="11:59 PM" />
-                  <button className="icon-button delete">×</button>
-                  <button className="icon-button add">+</button>
+            {schedules.map((schedule) =>
+              schedule.timeSlots.length > 0 ? (
+                <div key={schedule.day} className="schedule-row">
+                  <div className="day-label">{schedule.day} :</div>
+                  <div className="time-slots">
+                    {schedule.timeSlots.map((slot, slotIndex) => (
+                      <div
+                        key={`${schedule.day}-${slotIndex}`}
+                        className="time-slot-row"
+                      >
+                        <TimeSelector
+                          label="Opening Time"
+                          value={slot.openingTime}
+                          onChange={(value) =>
+                            handleTimeChange(
+                              schedule.day,
+                              slotIndex,
+                              "openingTime",
+                              value
+                            )
+                          }
+                        />
+                        <TimeSelector
+                          label="Closing Time"
+                          value={slot.closingTime}
+                          onChange={(value) =>
+                            handleTimeChange(
+                              schedule.day,
+                              slotIndex,
+                              "closingTime",
+                              value
+                            )
+                          }
+                        />
+                        <button
+                          className="icon-button delete"
+                          onClick={() =>
+                            handleOpenDeleteModal(schedule.day, slotIndex)
+                          }
+                        >
+                          ×
+                        </button>
+                        {slotIndex === schedule.timeSlots.length - 1 && (
+                          <button
+                            className="icon-button add"
+                            onClick={() => handleAddTimeSlot(schedule.day)}
+                          >
+                            +
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ) : null
+            )}
           </div>
         </div>
       </div>

@@ -212,8 +212,14 @@ const App = () => {
         />
 
         {/* <Route path="/Pending" element={<Pending />} /> */}
-        {/* <Route path="/RestaurantSettings" element={<RestaurantSettings />} /> */}
-        <Route path="/RestaurantSetup" element={<RestaurantSetup />} />
+        <Route
+          path="/RestaurantSetup"
+          element={
+            <Layout>
+              <RestaurantSetup />
+            </Layout>
+          }
+        />
         <Route
           path="/Category"
           element={

@@ -1,6 +1,4 @@
-/* Existing CSS remains unchanged, appending new styles */
-
-/* Base Styles */
+/* 
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,12 +11,15 @@ body {
     line-height: 1.5;
     color: #333;
     background-color: #f5f5f5;
-}
+} */
 
 .restaurant-setup {
     max-width: 1200px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 20px;
+    margin-left: 130px;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 
 /* Card Styles */

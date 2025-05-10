@@ -510,7 +510,7 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link
-              to="#"
+              to="/RestaurantSetup"
               className={`nav-link ${
                 activeLink === "Restaurant Config" ? "active" : ""
               }`}

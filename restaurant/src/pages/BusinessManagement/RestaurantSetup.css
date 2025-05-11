@@ -15,14 +15,14 @@ body {
 
 .restaurant-setup {
     max-width: 1200px;
-    /* margin: 0 auto; */
+    
     padding: 20px;
     margin-left: 130px;
     margin-top: 20px;
     margin-right: 10px;
 }
 
-/* Card Styles */
+
 .card {
     background-color: white;
     border-radius: 8px;

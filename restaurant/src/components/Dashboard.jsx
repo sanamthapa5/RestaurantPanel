@@ -209,7 +209,7 @@ const Dashboard = () => {
         </div>
         <YearlyStats />
         <FoodDashboard />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

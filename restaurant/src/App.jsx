@@ -53,13 +53,20 @@ const App = () => {
             </Layout>
           }
         /> */}
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Navbar" element={<CustomNavbar />} />
         <Route path="/Sidebar" element={<Sidebar />} />
         <Route path="/YearlyStats" element={<YearlyStats />} />
         <Route path="/FoodDashboard" element={<FoodDashboard />} />
         <Route path="/Ssidebar" element={<Ssidebar />} />
         <Route path="/Footer" element={<Footer />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Layout>
+              <Dashboard />
+            </Layout>
+          }
+        />
         <Route
           path="/FoodCampaign"
           element={

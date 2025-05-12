@@ -87,7 +87,7 @@ const Sidebar = () => {
           {/* Main Navigation */}
           <li className="nav-item">
             <Link
-              to="#"
+              to="/Dashboard"
               className={`nav-link ${
                 activeLink === "Dashboard" ? "active" : ""
               }`}

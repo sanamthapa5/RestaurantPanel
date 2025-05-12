@@ -1,12 +1,25 @@
-import { BarChart } from "lucide-react"
-import "./YearlyStats.css"
+import { BarChart } from "lucide-react";
+import "./YearlyStats.css";
 
 const YearlyStats = () => {
   // Months of the year for x-axis
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   // Y-axis values
-  const yAxisValues = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+  const yAxisValues = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
 
   return (
     <div className="statistics-container">
@@ -56,8 +69,7 @@ const YearlyStats = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default YearlyStats;
-

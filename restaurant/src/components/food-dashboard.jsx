@@ -278,84 +278,87 @@ const FoodDashboard = () => {
   ];
 
   return (
-    <div className="FoodOrderingDashboard-dashboard">
-      <div className="FoodOrderingDashboard-container">
-        <div className="FoodOrderingDashboard-section">
-          <div className="FoodOrderingDashboard-section-header">
-            <div className="FoodOrderingDashboard-section-title">
-              <img
-                src="https://stackfood-admin.6amtech.com/public/assets/admin/img/dashboard/top-selling.png"
-                className="FoodOrderingDashboard-section-icon FoodOrderingDashboard-selling-icon"
-              />
-              <h2>Top Selling Foods</h2>
-            </div>
-          </div>
-
-          <div className="FoodOrderingDashboard-food-grid">
-            {topSellingFoods.map((food) => (
-              <div key={food.id} className="FoodOrderingDashboard-food-card">
-                <div className="FoodOrderingDashboard-food-image-container">
-                  <img
-                    src={food.image || "/placeholder.svg"}
-                    alt={food.name}
-                    className="FoodOrderingDashboard-food-image"
-                  />
-                  <div className="FoodOrderingDashboard-sold-badge">
-                    Sold : {food.sold}
-                  </div>
-                </div>
-                <div className="FoodOrderingDashboard-food-name">
-                  {food.name}
-                </div>
+    // imported from Pending for box
+    <div className="Pending-content-wrapper">
+      <div className="FoodOrderingDashboard-dashboard">
+        <div className="FoodOrderingDashboard-container">
+          <div className="FoodOrderingDashboard-section">
+            <div className="FoodOrderingDashboard-section-header">
+              <div className="FoodOrderingDashboard-section-title">
+                <img
+                  src="https://stackfood-admin.6amtech.com/public/assets/admin/img/dashboard/top-selling.png"
+                  className="FoodOrderingDashboard-section-icon FoodOrderingDashboard-selling-icon"
+                />
+                <h2>Top Selling Foods</h2>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="FoodOrderingDashboard-section">
-          <div className="FoodOrderingDashboard-section-header">
-            <div className="FoodOrderingDashboard-section-title">
-              <img
-                src="https://stackfood-admin.6amtech.com/public/assets/admin/img/dashboard/most-rated.png"
-                className="FoodOrderingDashboard-section-icon FoodOrderingDashboard-rated-icon"
-              />
-              <h2>Top Rated Foods</h2>
             </div>
-          </div>
 
-          <div className="FoodOrderingDashboard-rated-food-grid">
-            {topRatedFoods.map((food) => (
-              <div
-                key={food.id}
-                className="FoodOrderingDashboard-rated-food-card"
-              >
-                <div className="FoodOrderingDashboard-rated-food-content">
-                  <div className="FoodOrderingDashboard-rated-food-image-container">
+            <div className="FoodOrderingDashboard-food-grid">
+              {topSellingFoods.map((food) => (
+                <div key={food.id} className="FoodOrderingDashboard-food-card">
+                  <div className="FoodOrderingDashboard-food-image-container">
                     <img
                       src={food.image || "/placeholder.svg"}
                       alt={food.name}
-                      className="FoodOrderingDashboard-rated-food-image"
+                      className="FoodOrderingDashboard-food-image"
                     />
-                  </div>
-                  <div className="FoodOrderingDashboard-rated-food-details">
-                    <div className="FoodOrderingDashboard-rated-food-name">
-                      {food.name}
+                    <div className="FoodOrderingDashboard-sold-badge">
+                      Sold : {food.sold}
                     </div>
-                    <div className="FoodOrderingDashboard-rating-container">
-                      <span className="FoodOrderingDashboard-star FoodOrderingDashboard-filled">
-                        ★
-                      </span>
-                      <span className="FoodOrderingDashboard-rating-value">
-                        {food.rating}
-                      </span>
-                      <span className="FoodOrderingDashboard-review-count">
-                        ({food.reviews} Reviews)
-                      </span>
+                  </div>
+                  <div className="FoodOrderingDashboard-food-name">
+                    {food.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="FoodOrderingDashboard-section">
+            <div className="FoodOrderingDashboard-section-header">
+              <div className="FoodOrderingDashboard-section-title">
+                <img
+                  src="https://stackfood-admin.6amtech.com/public/assets/admin/img/dashboard/most-rated.png"
+                  className="FoodOrderingDashboard-section-icon FoodOrderingDashboard-rated-icon"
+                />
+                <h2>Top Rated Foods</h2>
+              </div>
+            </div>
+
+            <div className="FoodOrderingDashboard-rated-food-grid">
+              {topRatedFoods.map((food) => (
+                <div
+                  key={food.id}
+                  className="FoodOrderingDashboard-rated-food-card"
+                >
+                  <div className="FoodOrderingDashboard-rated-food-content">
+                    <div className="FoodOrderingDashboard-rated-food-image-container">
+                      <img
+                        src={food.image || "/placeholder.svg"}
+                        alt={food.name}
+                        className="FoodOrderingDashboard-rated-food-image"
+                      />
+                    </div>
+                    <div className="FoodOrderingDashboard-rated-food-details">
+                      <div className="FoodOrderingDashboard-rated-food-name">
+                        {food.name}
+                      </div>
+                      <div className="FoodOrderingDashboard-rating-container">
+                        <span className="FoodOrderingDashboard-star FoodOrderingDashboard-filled">
+                          ★
+                        </span>
+                        <span className="FoodOrderingDashboard-rating-value">
+                          {food.rating}
+                        </span>
+                        <span className="FoodOrderingDashboard-review-count">
+                          ({food.reviews} Reviews)
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

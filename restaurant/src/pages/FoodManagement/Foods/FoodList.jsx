@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import "./../Foods/FoodList.css";
-import { Search, Edit, Trash2, Sheet } from "lucide-react";
+import { Search, Edit, Trash2, Sheet, AlertTriangle } from "lucide-react";
 
 const FoodList = () => {
   const [foods, setFoods] = useState([
@@ -103,7 +103,6 @@ const FoodList = () => {
 
     const sortedFoods = [...foods].sort((a, b) => {
       if (key === "id" || key === "price") {
-        // Handle numerical sorting for id and price
         return direction === "ascending" ? a[key] - b[key] : b[key] - a[key];
       } else if (key === "name" || key === "category") {
         const valueA = a[key].toLowerCase();
@@ -189,6 +188,12 @@ const FoodList = () => {
               <option>All categories</option>
               <option>Varieties</option>
               <option>Italian</option>
+              <option>Fast Food</option>
+              <option>Chinese</option>
+              <option>Nepali</option>
+              <option>Indian</option>
+              <option>Sea Food</option>
+              <option>French</option>
             </select>
           </div>
 
@@ -381,49 +386,65 @@ const FoodList = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredFoods.map((food) => (
-              <tr key={food.id}>
-                <td>{food.id}</td>
-                <td className="FoodList-name-cell">
-                  <img
-                    src={food.image || "/placeholder.svg"}
-                    alt={food.name}
-                    className="FoodList-image"
-                  />
-                  <span>{food.name}</span>
-                </td>
-                <td>{food.category}</td>
-                <td>{food.price}</td>
-                <td>
-                  <label className="FoodList-toggle">
-                    <input
-                      type="checkbox"
-                      checked={food.recommended}
-                      onChange={() => handleToggle(food.id, "recommended")}
+            {filteredFoods.length > 0 ? (
+              filteredFoods.map((food) => (
+                <tr key={food.id}>
+                  <td>{food.id}</td>
+                  <td className="FoodList-name-cell">
+                    <img
+                      src={food.image || "/placeholder.svg"}
+                      alt={food.name}
+                      className="FoodList-image"
                     />
-                    <span className="FoodList-slider"></span>
-                  </label>
-                </td>
-                <td>
-                  <label className="FoodList-toggle">
-                    <input
-                      type="checkbox"
-                      checked={food.status}
-                      onChange={() => handleToggle(food.id, "status")}
-                    />
-                    <span className="FoodList-slider"></span>
-                  </label>
-                </td>
-                <td className="FoodList-action-buttons">
-                  <button className="FoodList-edit-btn">
-                    <Edit size={16} />
-                  </button>
-                  <button className="FoodList-delete-btn">
-                    <Trash2 size={16} />
-                  </button>
+                    <span>{food.name}</span>
+                  </td>
+                  <td>{food.category}</td>
+                  <td>{food.price}</td>
+                  <td>
+                    <label className="FoodList-toggle">
+                      <input
+                        type="checkbox"
+                        checked={food.recommended}
+                        onChange={() => handleToggle(food.id, "recommended")}
+                      />
+                      <span className="FoodList-slider"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <label className="FoodList-toggle">
+                      <input
+                        type="checkbox"
+                        checked={food.status}
+                        onChange={() => handleToggle(food.id, "status")}
+                      />
+                      <span className="FoodList-slider"></span>
+                    </label>
+                  </td>
+                  <td className="FoodList-action-buttons">
+                    <button className="FoodList-edit-btn">
+                      <Edit size={16} />
+                    </button>
+                    <button className="FoodList-delete-btn">
+                      <Trash2 size={16} />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="7">
+                  <div className="empty-state">
+                    <div className="folder-icon">
+                      <div className="folder-top"></div>
+                      <div className="folder-body">
+                        <AlertTriangle className="alert-icon" size={24} />
+                      </div>
+                    </div>
+                    <p className="empty-text">No Data Found</p>
+                  </div>
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>

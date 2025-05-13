@@ -41,6 +41,7 @@
 .FoodList-actions {
   display: flex;
   gap: 10px;
+  white-space: nowrap;
 }
 
 .FoodList-out-of-stock-btn {
@@ -76,6 +77,7 @@
   margin-bottom: 20px;
   gap: 10px;
   flex-wrap: wrap;
+  /* background-color: red; */
 }
 
 .FoodList-search-container {
@@ -289,10 +291,10 @@ input:checked + .FoodList-slider:before {
 
 .sort-icon {
   cursor: pointer;
-  color: #999; /* default color */
+  color: #999; 
   margin-left: 4px;
 }
 
 .sort-icon.active {
-  color: #007bff; /* blue when active */
-}
+  color: #007bff; 
+} 

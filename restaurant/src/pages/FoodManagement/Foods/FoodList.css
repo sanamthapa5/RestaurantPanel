@@ -169,6 +169,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  
+}
+.FoodList-name-cell span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px; 
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .FoodList-image {
@@ -276,4 +285,14 @@ input:checked + .FoodList-slider:before {
   .FoodList-category-column {
     display: none;
   }
+}
+
+.sort-icon {
+  cursor: pointer;
+  color: #999; /* default color */
+  margin-left: 4px;
+}
+
+.sort-icon.active {
+  color: #007bff; /* blue when active */
 }

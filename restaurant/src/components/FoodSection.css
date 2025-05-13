@@ -202,6 +202,7 @@
     padding-right: 5px;
     height: auto;
     border-bottom: 1px solid #f3f5f9;
+    background-color: white;
 }
 
 .FoodSection-items-container::-webkit-scrollbar {
@@ -211,6 +212,7 @@
 .FoodSection-items-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
+   
 }
 
 .FoodSection-items-container::-webkit-scrollbar-thumb {

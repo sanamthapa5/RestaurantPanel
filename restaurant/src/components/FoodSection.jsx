@@ -102,6 +102,7 @@
 
 import { useState } from "react";
 import FoodItem from "./FoodItem";
+import { Search } from "lucide-react";
 import "./FoodSection.css";
 
 const FoodSection = ({ addToCart, selectedCategory, setSelectedCategory }) => {
@@ -143,7 +144,7 @@ const FoodSection = ({ addToCart, selectedCategory, setSelectedCategory }) => {
         "https://stackfood-admin.6amtech.com/storage/app/public/product/2021-08-21-6120e61452e2b.png",
     },
     {
-      id: sources4,
+      id: 4,
       name: "Masala Dosa",
       price: 120.0,
       category: "Breakfast",
@@ -199,7 +200,19 @@ const FoodSection = ({ addToCart, selectedCategory, setSelectedCategory }) => {
           </select>
           <div className="FoodSection-dropdown-arrow">▼</div>
         </div>
-        <div className="FoodSection-search-container">
+        <div className="Pending-search-container">
+          <input
+            type="text"
+            placeholder="Ex : Search Food Name"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="pending-search-input"
+          />
+          <button className="Pending-search-button">
+            <Search size={20} />
+          </button>
+        </div>
+        {/* <div className="FoodSection-search-container">
           <input
             type="text"
             placeholder="Ex : Search Food Name"
@@ -208,7 +221,7 @@ const FoodSection = ({ addToCart, selectedCategory, setSelectedCategory }) => {
             className="FoodSection-search-input"
           />
           <span className="FoodSection-search-icon">🔍</span>
-        </div>
+        </div> */}
       </div>
       <div className="FoodSection-items-container">
         {filteredItems.map((item) => (

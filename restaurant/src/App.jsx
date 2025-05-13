@@ -36,6 +36,7 @@ import AdsList from "./pages/Advertisement/AdvertisementList/AdsList";
 import BusinessPlan from "./pages/BusinessManagement/BusinessPlan";
 // import RestaurantSettings from "./pages/BusinessManagement/RestaurantSettings";
 import RestaurantSetup from "./pages/BusinessManagement/RestaurantSetup";
+import FoodList from "./pages/FoodManagement/Foods/FoodList";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -217,8 +218,6 @@ const App = () => {
             </Layout>
           }
         />
-
-        {/* <Route path="/Pending" element={<Pending />} /> */}
         <Route
           path="/RestaurantSetup"
           element={
@@ -251,6 +250,9 @@ const App = () => {
             </Layout>
           }
         />
+
+        <Route path="/FoodList" element={<FoodList />} />
+        {/* <Route path="/Pending" element={<Pending />} /> */}
       </Routes>
     </Router>
   );

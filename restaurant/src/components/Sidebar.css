@@ -1,4 +1,4 @@
-/*   old code 
+  old code 
 * {
   margin: 0;
   padding: 0;
@@ -297,9 +297,9 @@ body {
   flex: 1;
   padding: 20px;
   background-color: #f5f5f5;
-} */
+}
 
-/* Reset styles */
+/* 
 * {
   margin: 0;
   padding: 0;
@@ -308,8 +308,8 @@ body {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0; /* Ensure no body margin affects layout */
-  min-width: 0; /* Prevent body from constraining width */
+  margin: 0; 
+  min-width: 0; 
 }
 
 .app-container {
@@ -326,7 +326,6 @@ body {
   min-width: 0;
 }
 
-/* Sidebar Styles */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -337,13 +336,13 @@ body {
   transition: width 0.3s ease;
   overflow-y: auto;
   overflow-x: hidden;
-  flex-shrink: 0; /* Prevent shrinking */
-  min-width: 270px; /* Ensure minimum width */
+  flex-shrink: 0; 
+  min-width: 270px; 
 }
 
 .sidebar.collapsed {
-  width: 60px; /* Keep collapsed width */
-  min-width: 60px; /* Match collapsed width */
+  width: 60px; 
+  min-width: 60px; 
 }
 
 .sidebar.collapsed .logo img {
@@ -414,7 +413,6 @@ body {
   box-shadow: none;
 }
 
-/* Sidebar Content */
 .sidebar-content {
   display: flex;
   flex-direction: column;
@@ -503,7 +501,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #ffffff; /* Default text color */
+  color: #ffffff; 
 }
 
 .arrow {
@@ -589,7 +587,7 @@ body {
   background-color: #0069d9;
 }
 
-/* Scrollbar Styling */
+
 .sidebar::-webkit-scrollbar {
   width: 5px;
 }
@@ -605,4 +603,4 @@ body {
 
 .sidebar::-webkit-scrollbar-thumb:hover {
   background: #4e6683;
-}
+} */

@@ -1,4 +1,4 @@
-/*   old code.if someone wants to use it later
+/*   old code 
 * {
   margin: 0;
   padding: 0;
@@ -299,7 +299,6 @@ body {
   background-color: #f5f5f5;
 } */
 
-
 /* Reset styles */
 * {
   margin: 0;
@@ -309,23 +308,42 @@ body {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; /* Ensure no body margin affects layout */
+  min-width: 0; /* Prevent body from constraining width */
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%; 
+  min-width: 0; 
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-width: 0;
 }
 
 /* Sidebar Styles */
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 270px; 
   height: 100vh;
   background-color: #2c3e50;
   color: #ffffff;
   transition: width 0.3s ease;
   overflow-y: auto;
   overflow-x: hidden;
+  flex-shrink: 0; /* Prevent shrinking */
+  min-width: 270px; /* Ensure minimum width */
 }
 
 .sidebar.collapsed {
-  width: 60px;
+  width: 60px; /* Keep collapsed width */
+  min-width: 60px; /* Match collapsed width */
 }
 
 .sidebar.collapsed .logo img {
@@ -333,7 +351,7 @@ body {
   visibility: hidden;
 }
 
-/* Sidebar Header */
+
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -438,7 +456,7 @@ body {
 
 .nav-link:hover,
 .nav-link:hover .text {
-  color: #e2813f; /* Apply to both link and text on hover */
+  color: #e2813f; 
 }
 
 .nav-link.has-submenu::before {
@@ -448,7 +466,7 @@ body {
   font-size: 16px;
   display: none;
   position: absolute;
-  left: 5px; /* Reduced to create a small gap */
+  left: 5px; /
 }
 
 .sidebar.collapsed .nav-link.has-submenu::before {
@@ -463,14 +481,14 @@ body {
 
 .nav-link.active .text,
 .submenu-link.active .text {
-  color: #ef7e53; /* Explicitly target the text span */
+  color: #ef7e53; 
 }
 
 .nav-link.active:hover,
 .nav-link.active:hover .text,
 .submenu-link.active:hover,
 .submenu-link.active:hover .text {
-  color: #ef7e53; /* Ensure active state persists on hover */
+  color: #ef7e53; 
   background-color: #465468;
 }
 
@@ -520,7 +538,7 @@ body {
 .submenu-link:hover,
 .submenu-link:hover .text {
   background-color: #3d5166;
-  color: #e2813f; /* Apply to both link and text on hover */
+  color: #e2813f; 
 }
 
 .bullet {
@@ -528,7 +546,6 @@ body {
   font-size: 18px;
 }
 
-/* Ads Section */
 .ads-section {
   margin: 15px;
   padding: 15px;
@@ -536,6 +553,7 @@ body {
   border-radius: 8px;
   color: #333;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .ads-image {
@@ -587,16 +605,4 @@ body {
 
 .sidebar::-webkit-scrollbar-thumb:hover {
   background: #4e6683;
-}
-
-/* App container for basic layout */
-.app-container {
-  display: flex;
-  height: 100vh;
-}
-
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background-color: #f5f5f5;
 }

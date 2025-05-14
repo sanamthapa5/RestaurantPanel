@@ -2,7 +2,10 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
   max-width: 100%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-left: 120px;
+  margin-right: 20px;   
+    margin-top: 20px;
   padding: 20px;
   background-color: #f8f9fa;
 }
@@ -77,7 +80,6 @@
   margin-bottom: 20px;
   gap: 10px;
   flex-wrap: wrap;
-  /* background-color: red; */
 }
 
 .FoodList-search-container {
@@ -89,7 +91,7 @@
 
 .FoodList-search-input {
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px 40px 8px 12px;
   border: 1px solid #ced4da;
   border-radius: 4px;
   font-size: 14px;
@@ -138,8 +140,6 @@
   cursor: pointer;
 }
 
- 
-
 .FoodList-table-container {
   background-color: white;
   border-radius: 8px;
@@ -150,6 +150,7 @@
 .FoodList-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .FoodList-table th {
@@ -159,6 +160,7 @@
   font-weight: 600;
   color: #495057;
   border-bottom: 1px solid #dee2e6;
+  cursor: pointer;
 }
 
 .FoodList-table td {
@@ -167,17 +169,48 @@
   color: #212529;
 }
 
+.FoodList-si-column {
+  width: 70px;
+}
+
+.FoodList-name-column {
+  width: 250px;
+}
+
+.FoodList-category-column {
+  width: 150px;
+}
+
+.FoodList-price-column {
+  width: 100px;
+}
+
+.FoodList-recommended-column {
+  width: 120px;
+}
+
+.FoodList-status-column {
+  width: 100px;
+}
+
+.FoodList-action-column {
+  width: 100px;
+}
+
 .FoodList-name-cell {
   display: flex;
   align-items: center;
   gap: 10px;
+  max-width: 200px;
   
+  overflow: hidden;
 }
+
 .FoodList-name-cell span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 160px; 
+  max-width: 160px;
   display: inline-block;
   vertical-align: middle;
 }
@@ -210,7 +243,7 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -222,7 +255,7 @@
   left: 2px;
   bottom: 2px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -260,6 +293,7 @@ input:checked + .FoodList-slider:before {
   color: #ff6b6b;
 }
 
+
 @media (max-width: 768px) {
   .FoodList-header {
     flex-direction: column;
@@ -289,12 +323,127 @@ input:checked + .FoodList-slider:before {
   }
 }
 
+.sort-icons {
+  margin-left: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
 .sort-icon {
   cursor: pointer;
-  color: #999; 
-  margin-left: 4px;
+  font-size: 12px;
+  color: #999;
+  transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .sort-icon.active {
-  color: #007bff; 
-} 
+  color: #007bff;
+}
+
+
+
+/* FoodList Modal Styles */
+.FoodList-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.FoodList-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.FoodList-modal-content h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.FoodList-modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.FoodList-modal-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.FoodList-modal-list li span {
+  font-size: 14px;
+  color: #495057;
+}
+
+.FoodList-modal-toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.FoodList-modal-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.FoodList-modal-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.FoodList-modal-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .FoodList-modal-slider {
+  background-color: #1a73e8;
+}
+
+input:checked + .FoodList-modal-slider:before {
+  transform: translateX(20px);
+}
+
+.FoodList-modal-close-btn {
+  background-color:#6394ed;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}

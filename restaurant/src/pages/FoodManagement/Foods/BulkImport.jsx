@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
 
-import "./../Foods/BulkImport.css";
+import "./BulkImport.css";
 
 function BulkImport() {
   // Import Section State
@@ -11,19 +11,17 @@ function BulkImport() {
 
   // Variations Generator State
   const [variations, setVariations] = useState([]);
-  const [currentVariation, setCurrentVariation] = useState({
+  const [variationForms, setVariationForms] = useState([]);
+
+  const initialVariationState = {
     name: "",
     selectionType: "multiple",
     min: "",
     max: "",
     required: false,
     options: [],
-  });
-  const [currentOption, setCurrentOption] = useState({
-    name: "",
-    price: "",
-  });
-  const [showForm, setShowForm] = useState(false);
+    tempOptions: [{ name: "", price: "" }],
+  };
 
   // Import Section Handlers
   const handleFileChange = (e) => {
@@ -34,50 +32,86 @@ function BulkImport() {
 
   const handleReset = () => {
     setSelectedFile(null);
-    // Reset the file input by recreating it
     document.getElementById("file-upload").value = "";
   };
 
   // Variations Generator Handlers
-  const handleAddVariation = () => {
-    setShowForm(true);
+  const handleAddVariationForm = () => {
+    setVariationForms([
+      ...variationForms,
+      { ...initialVariationState, id: Date.now() },
+    ]);
   };
 
-  const handleSaveVariation = () => {
-    if (currentVariation.name) {
+  const handleVariationChange = (id, field, value) => {
+    setVariationForms(
+      variationForms.map((form) =>
+        form.id === id ? { ...form, [field]: value } : form
+      )
+    );
+  };
+
+  const handleTempOptionChange = (formId, index, field, value) => {
+    setVariationForms(
+      variationForms.map((form) =>
+        form.id === formId
+          ? {
+              ...form,
+              tempOptions: form.tempOptions.map((opt, i) =>
+                i === index ? { ...opt, [field]: value } : opt
+              ),
+            }
+          : form
+      )
+    );
+  };
+
+  const handleAddTempOption = (formId) => {
+    setVariationForms(
+      variationForms.map((form) =>
+        form.id === formId
+          ? {
+              ...form,
+              tempOptions: [...form.tempOptions, { name: "", price: "" }],
+            }
+          : form
+      )
+    );
+  };
+
+  const handleRemoveTempOption = (formId, index) => {
+    setVariationForms(
+      variationForms.map((form) =>
+        form.id === formId
+          ? {
+              ...form,
+              tempOptions: form.tempOptions.filter((_, i) => i !== index),
+            }
+          : form
+      )
+    );
+  };
+
+  const handleDeleteVariationForm = (formId) => {
+    setVariationForms(variationForms.filter((form) => form.id !== formId));
+  };
+
+  const handleSaveVariation = (formId) => {
+    const form = variationForms.find((f) => f.id === formId);
+    if (form && form.name) {
+      const validOptions = form.tempOptions.filter(
+        (opt) => opt.name && opt.price
+      );
       setVariations([
         ...variations,
-        { ...currentVariation, options: [...currentVariation.options] },
+        { ...form, options: validOptions, id: undefined },
       ]);
-      setCurrentVariation({
-        name: "",
-        selectionType: "multiple",
-        min: "",
-        max: "",
-        required: false,
-        options: [],
-      });
-      setShowForm(false);
+      setVariationForms(variationForms.filter((f) => f.id !== formId));
     }
   };
 
-  const handleAddOption = () => {
-    if (currentOption.name) {
-      setCurrentVariation({
-        ...currentVariation,
-        options: [...currentVariation.options, { ...currentOption }],
-      });
-      setCurrentOption({ name: "", price: "" });
-    }
-  };
-
-  const handleRemoveOption = (index) => {
-    const updatedOptions = [...currentVariation.options];
-    updatedOptions.splice(index, 1);
-    setCurrentVariation({
-      ...currentVariation,
-      options: updatedOptions,
-    });
+  const handleDeleteVariation = (index) => {
+    setVariations(variations.filter((_, i) => i !== index));
   };
 
   return (
@@ -184,63 +218,55 @@ function BulkImport() {
             Food Variations Generator
           </h2>
 
-          {!showForm && (
-            <button
-              className="BulkImport-add-variation-button"
-              onClick={handleAddVariation}
-            >
-              Add new
-            </button>
-          )}
-
-          {showForm && (
-            <div className="BulkImport-variation-form">
+          {variationForms.map((form) => (
+            <div key={form.id} className="BulkImport-variation-form">
               <div className="BulkImport-form-row">
                 <div className="BulkImport-form-group">
                   <label>Name</label>
                   <input
                     type="text"
-                    value={currentVariation.name}
+                    value={form.name}
                     onChange={(e) =>
-                      setCurrentVariation({
-                        ...currentVariation,
-                        name: e.target.value,
-                      })
+                      handleVariationChange(form.id, "name", e.target.value)
                     }
                   />
                 </div>
 
                 <div className="BulkImport-form-group">
                   <label>Selection Type</label>
-                  <div className="BulkImport-radio-group">
-                    <label className="BulkImport-radio-label">
-                      <input
-                        type="radio"
-                        name="selectionType"
-                        checked={currentVariation.selectionType === "multiple"}
-                        onChange={() =>
-                          setCurrentVariation({
-                            ...currentVariation,
-                            selectionType: "multiple",
-                          })
-                        }
-                      />
-                      <span>Multiple Selection</span>
-                    </label>
-                    <label className="BulkImport-radio-label">
-                      <input
-                        type="radio"
-                        name="selectionType"
-                        checked={currentVariation.selectionType === "single"}
-                        onChange={() =>
-                          setCurrentVariation({
-                            ...currentVariation,
-                            selectionType: "single",
-                          })
-                        }
-                      />
-                      <span>Single Selection</span>
-                    </label>
+                  <div className="BulkImport-selection-placeholder">
+                    <div className="BulkImport-radio-group">
+                      <label className="BulkImport-radio-label">
+                        <input
+                          type="radio"
+                          name={`selectionType-${form.id}`}
+                          checked={form.selectionType === "multiple"}
+                          onChange={() =>
+                            handleVariationChange(
+                              form.id,
+                              "selectionType",
+                              "multiple"
+                            )
+                          }
+                        />
+                        <span>Multiple Selection</span>
+                      </label>
+                      <label className="BulkImport-radio-label">
+                        <input
+                          type="radio"
+                          name={`selectionType-${form.id}`}
+                          checked={form.selectionType === "single"}
+                          onChange={() =>
+                            handleVariationChange(
+                              form.id,
+                              "selectionType",
+                              "single"
+                            )
+                          }
+                        />
+                        <span>Single Selection</span>
+                      </label>
+                    </div>
                   </div>
                 </div>
 
@@ -248,12 +274,9 @@ function BulkImport() {
                   <label>Min</label>
                   <input
                     type="number"
-                    value={currentVariation.min}
+                    value={form.min}
                     onChange={(e) =>
-                      setCurrentVariation({
-                        ...currentVariation,
-                        min: e.target.value,
-                      })
+                      handleVariationChange(form.id, "min", e.target.value)
                     }
                   />
                 </div>
@@ -262,12 +285,9 @@ function BulkImport() {
                   <label>Max</label>
                   <input
                     type="number"
-                    value={currentVariation.max}
+                    value={form.max}
                     onChange={(e) =>
-                      setCurrentVariation({
-                        ...currentVariation,
-                        max: e.target.value,
-                      })
+                      handleVariationChange(form.id, "max", e.target.value)
                     }
                   />
                 </div>
@@ -276,21 +296,27 @@ function BulkImport() {
                   <label className="BulkImport-checkbox-label">
                     <input
                       type="checkbox"
-                      checked={currentVariation.required}
+                      checked={form.required}
                       onChange={(e) =>
-                        setCurrentVariation({
-                          ...currentVariation,
-                          required: e.target.checked,
-                        })
+                        handleVariationChange(
+                          form.id,
+                          "required",
+                          e.target.checked
+                        )
                       }
                     />
                     <span>Required</span>
+                    <Trash2
+                      size={16}
+                      className="BulkImport-delete-form"
+                      onClick={() => handleDeleteVariationForm(form.id)}
+                    />
                   </label>
                 </div>
               </div>
 
               <div className="BulkImport-options-container">
-                {currentVariation.options.map((option, index) => (
+                {form.options.map((option, index) => (
                   <div key={index} className="BulkImport-option-item">
                     <div className="BulkImport-option-details">
                       <span className="BulkImport-option-name">
@@ -302,7 +328,20 @@ function BulkImport() {
                     </div>
                     <button
                       className="BulkImport-remove-option-button"
-                      onClick={() => handleRemoveOption(index)}
+                      onClick={() => {
+                        setVariationForms(
+                          variationForms.map((f) =>
+                            f.id === form.id
+                              ? {
+                                  ...f,
+                                  options: f.options.filter(
+                                    (_, i) => i !== index
+                                  ),
+                                }
+                              : f
+                          )
+                        );
+                      }}
                     >
                       <Trash2 size={16} />
                     </button>
@@ -310,37 +349,51 @@ function BulkImport() {
                 ))}
 
                 <div className="BulkImport-add-option-form">
-                  <div className="BulkImport-form-row">
-                    <div className="BulkImport-form-group">
-                      <label>Option name</label>
-                      <input
-                        type="text"
-                        value={currentOption.name}
-                        onChange={(e) =>
-                          setCurrentOption({
-                            ...currentOption,
-                            name: e.target.value,
-                          })
-                        }
-                      />
+                  {form.tempOptions.map((option, index) => (
+                    <div key={index} className="BulkImport-option-input-row">
+                      <div className="BulkImport-form-group">
+                        <label>Option name</label>
+                        <input
+                          type="text"
+                          value={option.name}
+                          onChange={(e) =>
+                            handleTempOptionChange(
+                              form.id,
+                              index,
+                              "name",
+                              e.target.value
+                            )
+                          }
+                        />
+                      </div>
+                      <div className="BulkImport-form-group">
+                        <label>Additional price</label>
+                        <input
+                          type="number"
+                          value={option.price}
+                          onChange={(e) =>
+                            handleTempOptionChange(
+                              form.id,
+                              index,
+                              "price",
+                              e.target.value
+                            )
+                          }
+                        />
+                      </div>
+                      {index > 0 && (
+                        <button
+                          className="BulkImport-remove-option-input"
+                          onClick={() => handleRemoveTempOption(form.id, index)}
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      )}
                     </div>
-                    <div className="BulkImport-form-group">
-                      <label>Additional price</label>
-                      <input
-                        type="number"
-                        value={currentOption.price}
-                        onChange={(e) =>
-                          setCurrentOption({
-                            ...currentOption,
-                            price: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
+                  ))}
                   <button
                     className="BulkImport-add-option-button"
-                    onClick={handleAddOption}
+                    onClick={() => handleAddTempOption(form.id)}
                   >
                     Add New Option
                   </button>
@@ -349,12 +402,12 @@ function BulkImport() {
 
               <button
                 className="BulkImport-save-variation-button"
-                onClick={handleSaveVariation}
+                onClick={() => handleSaveVariation(form.id)}
               >
                 Save Variation
               </button>
             </div>
-          )}
+          ))}
 
           {variations.length > 0 && (
             <div className="BulkImport-variations-list">
@@ -370,7 +423,16 @@ function BulkImport() {
                     </span>
                     {variation.min && <span>Min: {variation.min}</span>}
                     {variation.max && <span>Max: {variation.max}</span>}
-                    {variation.required && <span>Required</span>}
+                    {variation.required && (
+                      <span>
+                        Required
+                        <Trash2
+                          size={16}
+                          className="BulkImport-delete-variation"
+                          onClick={() => handleDeleteVariation(index)}
+                        />
+                      </span>
+                    )}
                   </div>
                   <div className="BulkImport-variation-options">
                     {variation.options.map((option, optIndex) => (
@@ -387,7 +449,7 @@ function BulkImport() {
 
           <button
             className="BulkImport-add-new-variation-button"
-            onClick={handleAddVariation}
+            onClick={handleAddVariationForm}
           >
             Add new variation
           </button>

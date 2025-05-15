@@ -1,7 +1,7 @@
-// "use client";
+"use client";
 
 import { useState } from "react";
-import { Trash2, Settings } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
 import "./../Foods/BulkImport.css";
 
@@ -81,36 +81,36 @@ function BulkImport() {
   };
 
   return (
-    <div className="app-container">
+    <div className="BulkImport-app-container">
       {/* Header Section */}
-      <header className="header111">
-        <div className="logo">
-          <div className="logo-icon">🍲</div>
+      <header className="BulkImport-header">
+        <div className="BulkImport-logo">
+          <div className="BulkImport-logo-icon">🍲</div>
           <h1>Foods Bulk Import</h1>
         </div>
       </header>
 
-      <div className="content-container">
+      <div className="BulkImport-content-container">
         {/* Steps Guide Section */}
-        <div className="steps-container">
-          <div className="step">
+        <div className="BulkImport-steps-container">
+          <div className="BulkImport-step">
             <h2>STEP 1</h2>
             <p>Download Excel File</p>
           </div>
-          <div className="step">
+          <div className="BulkImport-step">
             <h2>STEP 2</h2>
             <p>Match Spread sheet data according to instruction</p>
           </div>
-          <div className="step">
+          <div className="BulkImport-step">
             <h2>STEP 3</h2>
             <p>Validate data and and complete import</p>
           </div>
         </div>
 
         {/* Instructions Section */}
-        <div className="instructions-section section">
-          <h2 className="section-title">Instructions</h2>
-          <ol className="instructions-list">
+        <div className="BulkImport-instructions-section BulkImport-section">
+          <h2 className="BulkImport-section-title">Instructions</h2>
+          <ol className="BulkImport-instructions-list">
             <li>Download the format file and fill it with proper data.</li>
             <li>
               You can download the example file to understand how the data must
@@ -135,54 +135,58 @@ function BulkImport() {
         </div>
 
         {/* Template Download Section */}
-        <div className="template-section section">
-          <h2 className="template-title">Download Spreadsheet Template</h2>
-          <div className="template-buttons">
-            <button className="template-button with-data">
+        <div className="BulkImport-template-section BulkImport-section">
+          <h2 className="BulkImport-template-title">
+            Download Spreadsheet Template
+          </h2>
+          <div className="BulkImport-template-buttons">
+            <button className="BulkImport-template-button BulkImport-with-data">
               Template with Existing Data
             </button>
-            <button className="template-button without-data">
+            <button className="BulkImport-template-button BulkImport-without-data">
               Template without Data
             </button>
           </div>
         </div>
 
         {/* Import Section */}
-        <div className="import-section section">
-          <h2 className="section-title">Import Restaurants</h2>
-          <div className="file-upload-container">
-            <div className="file-input-wrapper">
-              <label htmlFor="file-upload" className="file-label">
+        <div className="BulkImport-import-section BulkImport-section">
+          <h2 className="BulkImport-section-title">Import Restaurants</h2>
+          <div className="BulkImport-file-upload-container">
+            <div className="BulkImport-file-input-wrapper">
+              <label htmlFor="file-upload" className="BulkImport-file-label">
                 Choose File
               </label>
-              <span className="file-name">
+              <span className="BulkImport-file-name">
                 {selectedFile ? selectedFile.name : "No file chosen"}
               </span>
               <input
                 type="file"
                 id="file-upload"
-                className="file-input"
+                className="BulkImport-file-input"
                 accept=".xlsx,.xls,.csv"
                 onChange={handleFileChange}
               />
             </div>
-            <div className="action-buttons">
-              <button className="reset-button" onClick={handleReset}>
+            <div className="BulkImport-action-buttons">
+              <button className="BulkImport-reset-button" onClick={handleReset}>
                 Reset
               </button>
-              <button className="update-button">Update</button>
-              <button className="import-button">Import</button>
+              <button className="BulkImport-update-button">Update</button>
+              <button className="BulkImport-import-button">Import</button>
             </div>
           </div>
         </div>
 
         {/* Variations Generator Section */}
-        <div className="variations-section section">
-          <h2 className="section-title">Food Variations Generator</h2>
+        <div className="BulkImport-variations-section BulkImport-section">
+          <h2 className="BulkImport-section-title">
+            Food Variations Generator
+          </h2>
 
           {!showForm && (
             <button
-              className="add-variation-button"
+              className="BulkImport-add-variation-button"
               onClick={handleAddVariation}
             >
               Add new
@@ -190,9 +194,9 @@ function BulkImport() {
           )}
 
           {showForm && (
-            <div className="variation-form">
-              <div className="form-row">
-                <div className="form-group">
+            <div className="BulkImport-variation-form">
+              <div className="BulkImport-form-row">
+                <div className="BulkImport-form-group">
                   <label>Name</label>
                   <input
                     type="text"
@@ -206,10 +210,10 @@ function BulkImport() {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="BulkImport-form-group">
                   <label>Selection Type</label>
-                  <div className="radio-group">
-                    <label className="radio-label">
+                  <div className="BulkImport-radio-group">
+                    <label className="BulkImport-radio-label">
                       <input
                         type="radio"
                         name="selectionType"
@@ -223,7 +227,7 @@ function BulkImport() {
                       />
                       <span>Multiple Selection</span>
                     </label>
-                    <label className="radio-label">
+                    <label className="BulkImport-radio-label">
                       <input
                         type="radio"
                         name="selectionType"
@@ -240,7 +244,7 @@ function BulkImport() {
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="BulkImport-form-group">
                   <label>Min</label>
                   <input
                     type="number"
@@ -254,7 +258,7 @@ function BulkImport() {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="BulkImport-form-group">
                   <label>Max</label>
                   <input
                     type="number"
@@ -268,8 +272,8 @@ function BulkImport() {
                   />
                 </div>
 
-                <div className="form-group checkbox-group">
-                  <label className="checkbox-label">
+                <div className="BulkImport-form-group BulkImport-checkbox-group">
+                  <label className="BulkImport-checkbox-label">
                     <input
                       type="checkbox"
                       checked={currentVariation.required}
@@ -285,15 +289,19 @@ function BulkImport() {
                 </div>
               </div>
 
-              <div className="options-container">
+              <div className="BulkImport-options-container">
                 {currentVariation.options.map((option, index) => (
-                  <div key={index} className="option-item">
-                    <div className="option-details">
-                      <span className="option-name">{option.name}</span>
-                      <span className="option-price">${option.price}</span>
+                  <div key={index} className="BulkImport-option-item">
+                    <div className="BulkImport-option-details">
+                      <span className="BulkImport-option-name">
+                        {option.name}
+                      </span>
+                      <span className="BulkImport-option-price">
+                        ${option.price}
+                      </span>
                     </div>
                     <button
-                      className="remove-option-button"
+                      className="BulkImport-remove-option-button"
                       onClick={() => handleRemoveOption(index)}
                     >
                       <Trash2 size={16} />
@@ -301,9 +309,9 @@ function BulkImport() {
                   </div>
                 ))}
 
-                <div className="add-option-form">
-                  <div className="form-row">
-                    <div className="form-group">
+                <div className="BulkImport-add-option-form">
+                  <div className="BulkImport-form-row">
+                    <div className="BulkImport-form-group">
                       <label>Option name</label>
                       <input
                         type="text"
@@ -316,7 +324,7 @@ function BulkImport() {
                         }
                       />
                     </div>
-                    <div className="form-group">
+                    <div className="BulkImport-form-group">
                       <label>Additional price</label>
                       <input
                         type="number"
@@ -331,7 +339,7 @@ function BulkImport() {
                     </div>
                   </div>
                   <button
-                    className="add-option-button"
+                    className="BulkImport-add-option-button"
                     onClick={handleAddOption}
                   >
                     Add New Option
@@ -340,7 +348,7 @@ function BulkImport() {
               </div>
 
               <button
-                className="save-variation-button"
+                className="BulkImport-save-variation-button"
                 onClick={handleSaveVariation}
               >
                 Save Variation
@@ -349,11 +357,11 @@ function BulkImport() {
           )}
 
           {variations.length > 0 && (
-            <div className="variations-list">
+            <div className="BulkImport-variations-list">
               {variations.map((variation, index) => (
-                <div key={index} className="variation-item">
+                <div key={index} className="BulkImport-variation-item">
                   <h3>{variation.name}</h3>
-                  <div className="variation-details">
+                  <div className="BulkImport-variation-details">
                     <span>
                       Type:{" "}
                       {variation.selectionType === "multiple"
@@ -364,9 +372,9 @@ function BulkImport() {
                     {variation.max && <span>Max: {variation.max}</span>}
                     {variation.required && <span>Required</span>}
                   </div>
-                  <div className="variation-options">
+                  <div className="BulkImport-variation-options">
                     {variation.options.map((option, optIndex) => (
-                      <div key={optIndex} className="option-pill">
+                      <div key={optIndex} className="BulkImport-option-pill">
                         {option.name}{" "}
                         {option.price > 0 && `(+$${option.price})`}
                       </div>
@@ -378,7 +386,7 @@ function BulkImport() {
           )}
 
           <button
-            className="add-new-variation-button"
+            className="BulkImport-add-new-variation-button"
             onClick={handleAddVariation}
           >
             Add new variation

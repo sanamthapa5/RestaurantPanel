@@ -1423,7 +1423,7 @@ const Sidebar = () => {
                 </li>
                 <li className="submenu-item">
                   <Link
-                    to="#"
+                    to="/BulkImport"
                     className={`submenu-link ${
                       activeLink === "Bulk Import" ? "active" : ""
                     }`}

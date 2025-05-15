@@ -261,7 +261,14 @@ const App = () => {
           }
         />
         {/* <Route path="/Pending" element={<Pending />} /> */}
-        <Route path="/BulkImport" element={<BulkImport />} />
+        <Route
+          path="/BulkImport"
+          element={
+            <Layout>
+              <BulkImport />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );

@@ -37,6 +37,7 @@ import BusinessPlan from "./pages/BusinessManagement/BusinessPlan";
 // import RestaurantSettings from "./pages/BusinessManagement/RestaurantSettings";
 import RestaurantSetup from "./pages/BusinessManagement/RestaurantSetup";
 import FoodList from "./pages/FoodManagement/Foods/FoodList";
+import BulkImport from "./pages/FoodManagement/Foods/BulkImport";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 
 const App = () => {
@@ -260,6 +261,7 @@ const App = () => {
           }
         />
         {/* <Route path="/Pending" element={<Pending />} /> */}
+        <Route path="/BulkImport" element={<BulkImport />} />
       </Routes>
     </Router>
   );

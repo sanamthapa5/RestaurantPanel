@@ -1,15 +1,29 @@
+.BulkExport-app-container {
+  max-width: 1200px;
+  margin-top: 20px;
+  margin-left: 130px; 
+  margin-right: 10px;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
 .ExportFoodsContainer {
   min-height: 100vh;
   background-color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
+  
+  
 }
+
+
 
 /* Header Styles */
 .ExportFoods-header {
   background-color: white;
   padding: 1rem 2rem;
+  
 }
 
 .ExportFoods-header-content {
@@ -17,7 +31,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin-left: 160px;
+  
   
 }
 

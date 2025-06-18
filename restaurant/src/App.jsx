@@ -262,7 +262,14 @@ const App = () => {
           }
         />
         {/* <Route path="/Pending" element={<Pending />} /> */}
-        <Route path="/ExportFoods" element={<ExportFoods />} />
+        <Route
+          path="/ExportFoods"
+          element={
+            <Layout>
+              <ExportFoods />
+            </Layout>
+          }
+        />
         <Route
           path="/BulkImport"
           element={

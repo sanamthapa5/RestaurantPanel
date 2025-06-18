@@ -235,134 +235,139 @@ const ExportFoods = () => {
   }, []);
 
   return (
-    <div className="ExportFoods-export-foods-container">
-      <header className="ExportFoods-header">
-        <div className="ExportFoods-header-content">
-          <div className="ExportFoods-logo">
-            <span className="ExportFoods-logo-icon">
-              <img
-                src="https://stackfood-admin.6amtech.com/public/assets/admin/img/export.png"
-                alt=""
-              />
-            </span>
-            <h1>Export Foods</h1>
-          </div>
-        </div>
-      </header>
-
-      <main className="ExportFoods-main-content">
-        <div className="ExportFoods-steps-container">
-          <div className="ExportFoods-step">
-            <div className="ExportFoods-step-header">
-              <span className="ExportFoods-step-number">STEP 1</span>
-              <span className="ExportFoods-step-title">Select Data Type</span>
-            </div>
-          </div>
-          <div className="ExportFoods-step">
-            <div className="ExportFoods-step-header">
-              <span className="ExportFoods-step-number">STEP 2</span>
-              <span className="ExportFoods-step-title">
-                Select Data Range by Date and Export
+    <div className="BulkImport-app-container">
+      <div className="ExportFoodsContainer">
+        <header className="ExportFoods-header">
+          <div className="ExportFoods-header-content">
+            <div className="ExportFoods-logo">
+              <span className="ExportFoods-logo-icon">
+                <img
+                  src="https://stackfood-admin.6amtech.com/public/assets/admin/img/export.png"
+                  alt=""
+                />
               </span>
+              <h1>Export Foods</h1>
             </div>
           </div>
-        </div>
+        </header>
 
-        <div className="ExportFoods-form-section">
-          <div className="ExportFoods-filter-container">
-            <div className="ExportFoods-form-group">
-              <label className="ExportFoods-form-label">Type</label>
-              <div className="ExportFoods-dropdown-container" ref={dropdownRef}>
-                <button
-                  className="ExportFoods-dropdown-button"
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-                  {selectedType}
-                  <span
-                    className={`ExportFoods-dropdown-arrow ${
-                      isDropdownOpen ? "ExportFoods-open" : ""
-                    }`}
-                  >
-                    ▼
-                  </span>
-                </button>
-                {isDropdownOpen && (
-                  <div className="ExportFoods-dropdown-menu">
-                    {dataTypes.map((type) => (
-                      <button
-                        key={type}
-                        className={`ExportFoods-dropdown-item ${
-                          selectedType === type ? "ExportFoods-selected" : ""
-                        }`}
-                        onClick={() => handleTypeSelect(type)}
-                      >
-                        {type}
-                      </button>
-                    ))}
-                  </div>
-                )}
+        <main className="ExportFoods-main-content">
+          <div className="ExportFoods-steps-container">
+            <div className="ExportFoods-step">
+              <div className="ExportFoods-step-header">
+                <span className="ExportFoods-step-number">STEP 1</span>
+                <span className="ExportFoods-step-title">Select Data Type</span>
               </div>
             </div>
-
-            {selectedType === "Data Wise" && (
-              <>
-                <div className="ExportFoods-form-group">
-                  <label className="ExportFoods-form-label">Start Date</label>
-                  <input
-                    type="date"
-                    className="ExportFoods-date-input"
-                    value={fromDate}
-                    onChange={(e) => setFromDate(e.target.value)}
-                  />
-                </div>
-                <div className="ExportFoods-form-group">
-                  <label className="ExportFoods-form-label">End Date</label>
-                  <input
-                    type="date"
-                    className="ExportFoods-date-input"
-                    value={toDate}
-                    onChange={(e) => setToDate(e.target.value)}
-                  />
-                </div>
-              </>
-            )}
-
-            {selectedType === "ID Wise" && (
-              <>
-                <div className="ExportFoods-form-group">
-                  <label className="ExportFoods-form-label">Start ID</label>
-                  <input
-                    type="text"
-                    className="ExportFoods-form-input"
-                    placeholder="Enter Start ID"
-                    value={startId}
-                    onChange={(e) => setStartId(e.target.value)}
-                  />
-                </div>
-                <div className="ExportFoods-form-group">
-                  <label className="ExportFoods-form-label">End ID</label>
-                  <input
-                    type="text"
-                    className="ExportFoods-form-input"
-                    placeholder="Enter End ID"
-                    value={endId}
-                    onChange={(e) => setEndId(e.target.value)}
-                  />
-                </div>
-              </>
-            )}
+            <div className="ExportFoods-step">
+              <div className="ExportFoods-step-header">
+                <span className="ExportFoods-step-number">STEP 2</span>
+                <span className="ExportFoods-step-title">
+                  Select Data Range by Date and Export
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="ExportFoods-action-buttons">
-          <button className="ExportFoods-reset-btn" onClick={handleReset}>
-            Reset
-          </button>
-          <button className="ExportFoods-submit-btn" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
-      </main>
+          <div className="ExportFoods-form-section">
+            <div className="ExportFoods-filter-container">
+              <div className="ExportFoods-form-group">
+                <label className="ExportFoods-form-label">Type</label>
+                <div
+                  className="ExportFoods-dropdown-container"
+                  ref={dropdownRef}
+                >
+                  <button
+                    className="ExportFoods-dropdown-button"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  >
+                    {selectedType}
+                    <span
+                      className={`ExportFoods-dropdown-arrow ${
+                        isDropdownOpen ? "ExportFoods-open" : ""
+                      }`}
+                    >
+                      ▼
+                    </span>
+                  </button>
+                  {isDropdownOpen && (
+                    <div className="ExportFoods-dropdown-menu">
+                      {dataTypes.map((type) => (
+                        <button
+                          key={type}
+                          className={`ExportFoods-dropdown-item ${
+                            selectedType === type ? "ExportFoods-selected" : ""
+                          }`}
+                          onClick={() => handleTypeSelect(type)}
+                        >
+                          {type}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {selectedType === "Data Wise" && (
+                <>
+                  <div className="ExportFoods-form-group">
+                    <label className="ExportFoods-form-label">Start Date</label>
+                    <input
+                      type="date"
+                      className="ExportFoods-date-input"
+                      value={fromDate}
+                      onChange={(e) => setFromDate(e.target.value)}
+                    />
+                  </div>
+                  <div className="ExportFoods-form-group">
+                    <label className="ExportFoods-form-label">End Date</label>
+                    <input
+                      type="date"
+                      className="ExportFoods-date-input"
+                      value={toDate}
+                      onChange={(e) => setToDate(e.target.value)}
+                    />
+                  </div>
+                </>
+              )}
+
+              {selectedType === "ID Wise" && (
+                <>
+                  <div className="ExportFoods-form-group">
+                    <label className="ExportFoods-form-label">Start ID</label>
+                    <input
+                      type="text"
+                      className="ExportFoods-form-input"
+                      placeholder="Enter Start ID"
+                      value={startId}
+                      onChange={(e) => setStartId(e.target.value)}
+                    />
+                  </div>
+                  <div className="ExportFoods-form-group">
+                    <label className="ExportFoods-form-label">End ID</label>
+                    <input
+                      type="text"
+                      className="ExportFoods-form-input"
+                      placeholder="Enter End ID"
+                      value={endId}
+                      onChange={(e) => setEndId(e.target.value)}
+                    />
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="ExportFoods-action-buttons">
+            <button className="ExportFoods-reset-btn" onClick={handleReset}>
+              Reset
+            </button>
+            <button className="ExportFoods-submit-btn" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
+        </main>
+      </div>
     </div>
   );
 };

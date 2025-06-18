@@ -40,6 +40,7 @@ import FoodList from "./pages/FoodManagement/Foods/FoodList";
 import BulkImport from "./pages/FoodManagement/Foods/BulkImport";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 import ExportFoods from "./pages/FoodManagement/Foods/ExportFoods";
+import ConversationApp from "./pages/BusinessManagement/ConversationApp";
 
 const App = () => {
   return (
@@ -261,7 +262,6 @@ const App = () => {
             </Layout>
           }
         />
-        {/* <Route path="/Pending" element={<Pending />} /> */}
         <Route
           path="/ExportFoods"
           element={
@@ -278,6 +278,8 @@ const App = () => {
             </Layout>
           }
         />
+        {/* <Route path="/Pending" element={<Pending />} /> */}
+        <Route path="/ConversationApp" element={<ConversationApp />} />
       </Routes>
     </Router>
   );

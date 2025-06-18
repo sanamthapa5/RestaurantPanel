@@ -39,6 +39,7 @@ import RestaurantSetup from "./pages/BusinessManagement/RestaurantSetup";
 import FoodList from "./pages/FoodManagement/Foods/FoodList";
 import BulkImport from "./pages/FoodManagement/Foods/BulkImport";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
+import ExportFoods from "./pages/FoodManagement/Foods/ExportFoods";
 
 const App = () => {
   return (
@@ -261,6 +262,7 @@ const App = () => {
           }
         />
         {/* <Route path="/Pending" element={<Pending />} /> */}
+        <Route path="/ExportFoods" element={<ExportFoods />} />
         <Route
           path="/BulkImport"
           element={

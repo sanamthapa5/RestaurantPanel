@@ -1,0 +1,251 @@
+.ExportFoods-export-foods-container {
+  min-height: 100vh;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.ExportFoods-header {
+  background-color: white;
+  
+  padding: 1rem 2rem;
+}
+
+.ExportFoods-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+ 
+  margin-left: 130px;
+}
+
+.ExportFoods-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ExportFoods-logo-icon {
+  font-size: 1.5rem;
+}
+
+.ExportFoods-logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+
+
+/* Main Content */
+.ExportFoods-main-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Steps Container */
+.ExportFoods-steps-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.ExportFoods-step {
+  background:#f7f7f7;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ExportFoods-step-header {
+  text-align: center;
+}
+
+.ExportFoods-step-number {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.ExportFoods-step-title {
+  display: block;
+  font-size: 1rem;
+  color: #9ca3af;
+  line-height: 1.4;
+}
+
+/* Form Section */
+.ExportFoods-form-section {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ExportFoods-form-group {
+  max-width: 300px;
+}
+
+.ExportFoods-form-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/* Dropdown Styles */
+.ExportFoods-dropdown-container {
+  position: relative;
+}
+
+.ExportFoods-dropdown-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  font-size: 1rem;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.ExportFoods-dropdown-button:hover {
+  border-color: #9ca3af;
+}
+
+.ExportFoods-dropdown-button:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ExportFoods-dropdown-arrow {
+  transition: transform 0.2s;
+  color: #6b7280;
+}
+
+.ExportFoods-dropdown-arrow.ExportFoods-open {
+  transform: rotate(180deg);
+}
+
+.ExportFoods-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 2px;
+}
+
+.ExportFoods-dropdown-item {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: white;
+  font-size: 1rem;
+  color: #374151;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.ExportFoods-dropdown-item:hover {
+  background-color: #f3f4f6;
+}
+
+.ExportFoods-dropdown-item.ExportFoods-selected {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.ExportFoods-dropdown-item:first-child {
+  border-radius: 6px 6px 0 0;
+}
+
+.ExportFoods-dropdown-item:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+/* Action Buttons */
+.ExportFoods-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.ExportFoods-reset-btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ExportFoods-reset-btn:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.ExportFoods-submit-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #1d4ed8;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ExportFoods-submit-btn:hover {
+  background-color: #1e40af;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ExportFoods-steps-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .ExportFoods-main-content {
+    padding: 1rem;
+  }
+
+  .ExportFoods-header-content {
+    padding: 0 1rem;
+  }
+
+  .ExportFoods-action-buttons {
+    flex-direction: column;
+  }
+
+  .ExportFoods-reset-btn,
+  .ExportFoods-submit-btn {
+    width: 100%;
+  }
+}

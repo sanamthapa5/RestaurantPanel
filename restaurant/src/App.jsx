@@ -41,6 +41,7 @@ import BulkImport from "./pages/FoodManagement/Foods/BulkImport";
 // import EmployeeListFinal from "./pages/EmployeeRole/EmployeeListFinal";
 import ExportFoods from "./pages/FoodManagement/Foods/ExportFoods";
 import ConversationApp from "./pages/BusinessManagement/ConversationApp";
+import AddNewFood from "./pages/FoodManagement/Foods/AddNewFood";
 
 const App = () => {
   return (
@@ -279,7 +280,22 @@ const App = () => {
           }
         />
         {/* <Route path="/Pending" element={<Pending />} /> */}
-        <Route path="/ConversationApp" element={<ConversationApp />} />
+        <Route
+          path="/ConversationApp"
+          element={
+            <Layout>
+              <ConversationApp />
+            </Layout>
+          }
+        />
+        <Route
+          path="/AddNewFood"
+          element={
+            <Layout>
+              <AddNewFood />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );

@@ -3,20 +3,25 @@
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #f8fafc;
+  margin-left: 130px;
+  margin-right: 10px;
+  margin-top: 20px;
 }
 
-/* Sidebar list */
+
 .conversation-list {
   width: 400px;
   background: white;
   border-right: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
+  
 }
 
 .Conversation-header {
   padding: 20px;
   border-bottom: 1px solid #e2e8f0;
+  
 }
 
 .Conversation-header h2 {

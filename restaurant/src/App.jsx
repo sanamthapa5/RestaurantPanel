@@ -42,6 +42,7 @@ import BulkImport from "./pages/FoodManagement/Foods/BulkImport";
 import ExportFoods from "./pages/FoodManagement/Foods/ExportFoods";
 import ConversationApp from "./pages/BusinessManagement/ConversationApp";
 import AddNewFood from "./pages/FoodManagement/Foods/AddNewFood";
+import ShopDetails from "./pages/BusinessManagement/shop-details";
 
 const App = () => {
   return (
@@ -279,7 +280,6 @@ const App = () => {
             </Layout>
           }
         />
-        {/* <Route path="/Pending" element={<Pending />} /> */}
         <Route
           path="/ConversationApp"
           element={
@@ -296,6 +296,8 @@ const App = () => {
             </Layout>
           }
         />
+        {/* <Route path="/Pending" element={<Pending />} /> */}
+        <Route path="/ShopDetails" element={<ShopDetails />} />
       </Routes>
     </Router>
   );

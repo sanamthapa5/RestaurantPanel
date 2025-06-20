@@ -1,0 +1,398 @@
+.All-orders-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  margin-left: 130px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.All-orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.All-orders-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.All-orders-title h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.All-orders-icon-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.All-orders-count {
+  background-color: #e9ecef;
+  color: #6c757d;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.All-orders-icon {
+  font-size: 24px;
+}
+
+.All-search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.All-search-input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 250px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.All-search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.All-search-btn {
+  padding: 10px 15px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.All-search-btn:hover {
+  background-color: #5a6268;
+}
+
+.All-table-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.All-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  flex: 1;
+}
+
+.All-orders-table th {
+  background-color: #f8f9fa;
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  font-size: 14px;
+}
+
+.All-orders-table td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: top;
+}
+
+.All-orders-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.All-order-id {
+  font-weight: 600;
+  color: #007bff;
+}
+
+.All-date-time {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.All-time {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.All-customer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.All-customer-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.All-customer-phone {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.All-amount-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.All-amount {
+  font-weight: 600;
+  color: #333;
+}
+
+.All-payment-status {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.All-payment-paid {
+  color: #155724;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.All-payment-unpaid {
+  color: #721c24;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.All-payment-refunded {
+  color: #856404;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.All-status-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.All-order-status {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-align: center;
+  width: 90px;
+}
+
+.All-status-pending {
+  background-color: #e9f2fa;
+  color: #0096ff;
+}
+
+.All-status-delivered {
+  background-color: #dcf2f2;
+  color: #0ecbac;
+}
+
+.All-status-cancelled {
+  background-color: #f8d7da;
+  color: #d12133;
+}
+
+.All-delivery-status {
+  font-size: 14px;
+  color: #6c757d;
+  text-align: left;
+}
+
+.All-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.All-action-btn {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.All-view-btn {
+  border-color: #ffc107;
+  color: #ffc107;
+}
+
+.All-view-btn:hover {
+  background-color: #ffc107;
+  color: white;
+}
+
+.All-print-btn {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.All-print-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.All-no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #6c757d;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.All-pagination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  /* background-color: red; */
+}
+
+.All-pagination-nav {
+  padding: 8px 12px;
+  background-color: white;
+
+  color: #333;
+  cursor: pointer;
+  width: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none; /* Remove border from < and > */
+}
+
+.All-pagination-nav:hover:not(:disabled) {
+  background-color: #f8f9fa;
+  border-color: #007bff;
+}
+
+.All-pagination-nav:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.All-pagination-btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  min-width: 40px;
+  width: 40px;
+}
+
+.All-pagination-btn:hover:not(:disabled) {
+  background-color: #f8f9fa;
+  border-color: #007bff;
+}
+
+.All-pagination-btn.All-active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.All-pagination-ellipsis {
+  padding: 8px 4px;
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .All-orders-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .All-search-input {
+    width: 100%;
+  }
+
+  .All-orders-table {
+    font-size: 12px;
+  }
+
+  .All-orders-table th,
+  .All-orders-table td {
+    padding: 8px 6px;
+  }
+
+  .All-actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .All-pagination {
+    flex-wrap: wrap;
+    justify-content: center; /* Center on mobile */
+  }
+
+  .All-pagination-nav,
+  .All-pagination-btn {
+    width: 40px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .All-orders-container {
+    padding: 10px;
+  }
+
+  .All-orders-title h2 {
+    font-size: 20px;
+  }
+
+  .All-table-container {
+    overflow-x: auto;
+  }
+
+  .All-orders-table {
+    min-width: 800px;
+  }
+}

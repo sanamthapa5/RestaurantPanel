@@ -1,6 +1,20 @@
+import { useState } from "react";
 import "./shop-details.css";
+import { FaInfoCircle } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 export default function ShopDetails() {
+  const [announcementText, setAnnouncementText] = useState(
+    "New Menu Delights: Prepare your palates for an exquisite journey with our revamped menu! We've introduced a mouthwatering array of kebabs, sides, and desserts crafted with the finest ingredients to satisfy every craving."
+  );
+
+  //   const handlePublish = () => {
+  //     // You can handle saving or API call here
+  //     console.log("Published Announcement:", announcementText);
+  //     alert("Announcement published!");
+  //   };
+
   return (
     <div className="ShopDetails-container">
       {/* Header */}
@@ -8,7 +22,7 @@ export default function ShopDetails() {
         <div className="ShopDetails-header-content">
           <h1 className="ShopDetails-title">Shop Details</h1>
           <p className="ShopDetails-subtitle">
-            Created at 20 Aug 2021 09:11 pm
+            Created at 20 may 2025 09:11 pm
           </p>
         </div>
       </div>
@@ -76,13 +90,16 @@ export default function ShopDetails() {
           </div>
           <div className="ShopDetails-detail-content">
             <h3>Phone</h3>
-            <p>981491****</p>
+            <p>9824912200</p>
           </div>
         </div>
 
-        <div className="ShopDetails-detail-item ShopDetails-address-item">
+        <div className="ShopDetails-detail-item ">
           <div className="ShopDetails-detail-icon ShopDetails-address">
-            <span className="ShopDetails-icon-circle ShopDetails-blue">📍</span>
+            {/* <span className="ShopDetails-icon-circle ShopDetails-blue">📍</span> */}
+            <span className="ShopDetails-icon-circle ShopDetails-blue">
+              <FontAwesomeIcon icon={faLocationDot} />
+            </span>
           </div>
           <div className="ShopDetails-detail-content">
             <h3>Address</h3>
@@ -97,7 +114,9 @@ export default function ShopDetails() {
           <div className="ShopDetails-announcement-title">
             <span className="ShopDetails-announcement-icon">📢</span>
             <span>Announcement</span>
-            <span className="ShopDetails-info-icon">ℹ️</span>
+            <span className="ShopDetails-info-icon">
+              <FaInfoCircle />
+            </span>
           </div>
           <div className="ShopDetails-toggle-switch">
             <input type="checkbox" id="announcement-toggle" defaultChecked />
@@ -109,12 +128,19 @@ export default function ShopDetails() {
         </div>
 
         <div className="ShopDetails-announcement-content">
-          <p>
-            New Menu Delights: Prepare your palates for an exquisite journey
-            with our revamped menu! We've introduced a mouthwatering array of
-            kebabs, sides, and desserts crafted with the finest ingredients to
-            satisfy every craving.
-          </p>
+          <textarea
+            className="announcement-textarea"
+            value={announcementText}
+            onChange={(e) => setAnnouncementText(e.target.value)}
+            rows={5}
+            placeholder="Enter announcement here..."
+          />
+          <button
+            className="announcement-publish-btn"
+            //   onClick={handlePublish}
+          >
+            Publish
+          </button>
         </div>
       </div>
     </div>

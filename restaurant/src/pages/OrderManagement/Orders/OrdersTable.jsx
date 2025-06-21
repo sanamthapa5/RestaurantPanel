@@ -5,7 +5,8 @@ import { FaPrint, FaEye, FaSearch } from "react-icons/fa";
 
 import "./OrdersTable.css";
 
-const OrdersTable = () => {
+// const OrdersTable = () => {
+const OrdersTable = ({ filterStatus }) => {
   const [allOrders] = useState([
     {
       id: 1,
@@ -158,12 +159,31 @@ const OrdersTable = () => {
   const itemsPerPage = 5;
 
   // Filter orders based on search term
+  //   const filteredOrders = useMemo(() => {
+  //     if (!searchTerm) return allOrders;
+  //     return allOrders.filter((order) =>
+  //       order.orderId.toLowerCase().includes(searchTerm.toLowerCase())
+  //     );
+  //   }, [allOrders, searchTerm]);
+
   const filteredOrders = useMemo(() => {
-    if (!searchTerm) return allOrders;
-    return allOrders.filter((order) =>
-      order.orderId.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [allOrders, searchTerm]);
+    let orders = allOrders;
+
+    if (filterStatus) {
+      orders = orders.filter(
+        (order) =>
+          order.orderStatus.toLowerCase() === filterStatus.toLowerCase()
+      );
+    }
+
+    if (searchTerm) {
+      orders = orders.filter((order) =>
+        order.orderId.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    return orders;
+  }, [allOrders, filterStatus, searchTerm]);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredOrders.length / itemsPerPage);
@@ -291,16 +311,7 @@ const OrdersTable = () => {
             <span className="All-orders-count">{filteredOrders.length}</span>
           </h2>
         </div>
-        {/* <div className="All-search-container">
-          <input
-            type="text"
-            placeholder="Ex : Search by Order Id"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="All-search-input"
-          />
-          <button className="All-search-btn">🔍</button>
-        </div> */}
+
         <div className="Pending-search-container">
           <div className="Pending-search-input-container">
             <input

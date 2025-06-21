@@ -43,6 +43,9 @@ import ExportFoods from "./pages/FoodManagement/Foods/ExportFoods";
 import ConversationApp from "./pages/BusinessManagement/ConversationApp";
 import AddNewFood from "./pages/FoodManagement/Foods/AddNewFood";
 import ShopDetails from "./pages/BusinessManagement/shop-details";
+import TransactionReport from "./pages/Report/TransactionReport";
+import OrdersTable from "./pages/OrderManagement/Orders/OrdersTable";
+import PendingOrder from "./pages/OrderManagement/Orders/PendingOrder";
 
 const App = () => {
   return (
@@ -297,7 +300,32 @@ const App = () => {
           }
         />
         {/* <Route path="/Pending" element={<Pending />} /> */}
-        <Route path="/ShopDetails" element={<ShopDetails />} />
+        <Route
+          path="/ShopDetails"
+          element={
+            <Layout>
+              <ShopDetails />
+            </Layout>
+          }
+        />
+        <Route
+          path="/TransactionReport"
+          element={
+            <Layout>
+              <TransactionReport />
+            </Layout>
+          }
+        />
+        <Route
+          path="/OrdersTable"
+          element={
+            <Layout>
+              <OrdersTable />
+            </Layout>
+          }
+        />
+        <Route path="/OrdersTable" element={<OrdersTable />} />
+        <Route path="/PendingOrder" element={<PendingOrder />} />
       </Routes>
     </Router>
   );

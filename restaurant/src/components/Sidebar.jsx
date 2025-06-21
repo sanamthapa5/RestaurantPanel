@@ -1134,7 +1134,7 @@ const Sidebar = () => {
               <ul className="submenu">
                 <li className="submenu-item">
                   <Link
-                    to="#"
+                    to="/OrdersTable"
                     className={`submenu-link ${
                       activeLink === "All Orders" ? "active" : ""
                     }`}
@@ -1497,7 +1497,7 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link
-              to="#"
+              to="/ShopDetails"
               className={`nav-link ${activeLink === "My Shop" ? "active" : ""}`}
               onClick={() => handleLinkClick("My Shop")}
             >
@@ -1610,7 +1610,7 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link
-              to="#"
+              to="/TransactionReport"
               className={`nav-link ${
                 activeLink === "Transaction Report" ? "active" : ""
               }`}
